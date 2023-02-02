@@ -404,9 +404,6 @@ const (
 	// 签署人信息不存在，请检查后重试。
 	RESOURCENOTFOUND_FLOWAPPROVERS = "ResourceNotFound.FlowApprovers"
 
-	// 合同组不存在。
-	RESOURCENOTFOUND_FLOWGROUP = "ResourceNotFound.FlowGroup"
-
 	// 机构不存在。
 	RESOURCENOTFOUND_ORGANIZATION = "ResourceNotFound.Organization"
 
@@ -436,9 +433,6 @@ const (
 
 	// 未授权操作。
 	UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-
-	// 请升级到对应版本后即可使用该接口。
-	UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 
 	// 未授权下载权限。
 	UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONDOWNLOAD = "UnauthorizedOperation.UnauthorizedOperationDownload"

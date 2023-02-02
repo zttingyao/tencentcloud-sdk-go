@@ -1479,116 +1479,6 @@ func (c *Client) DeleteTargetGroupsWithContext(ctx context.Context, request *Del
     return
 }
 
-func NewDeregisterFunctionTargetsRequest() (request *DeregisterFunctionTargetsRequest) {
-    request = &DeregisterFunctionTargetsRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("clb", APIVersion, "DeregisterFunctionTargets")
-    
-    
-    return
-}
-
-func NewDeregisterFunctionTargetsResponse() (response *DeregisterFunctionTargetsResponse) {
-    response = &DeregisterFunctionTargetsResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// DeregisterFunctionTargets
-// DeregisterFunctionTargets 接口用来将一个云函数从负载均衡的转发规则上解绑，对于七层监听器，还需通过 LocationId 或 Domain+Url 指定转发规则。
-//
-// 本接口为异步接口，本接口返回成功后需以返回的 RequestID 为入参，调用 [DescribeTaskStatus](https://cloud.tencent.com/document/product/214/30683) 接口查询本次任务是否成功。
-//
-// <br/>限制说明：
-//
-// 
-//
-// - 仅广州、深圳金融、上海、上海金融、北京、成都、中国香港、新加坡、孟买、东京、硅谷地域支持绑定 SCF。
-//
-// - 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。
-//
-// - 传统型负载均衡不支持绑定 SCF。
-//
-// - 基础网络类型不支持绑定 SCF。
-//
-// - CLB 默认支持绑定同地域下的所有 SCF，可支持跨 VPC 绑定 SCF，不支持跨地域绑定。
-//
-// - 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
-//
-// - 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
-//
-// - CLB 绑定 SCF 仅支持绑定“Event 函数”类型的云函数。
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_FORMATERROR = "InvalidParameter.FormatError"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  INVALIDPARAMETERVALUE_DUPLICATE = "InvalidParameterValue.Duplicate"
-//  INVALIDPARAMETERVALUE_LENGTH = "InvalidParameterValue.Length"
-//  MISSINGPARAMETER = "MissingParameter"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-func (c *Client) DeregisterFunctionTargets(request *DeregisterFunctionTargetsRequest) (response *DeregisterFunctionTargetsResponse, err error) {
-    return c.DeregisterFunctionTargetsWithContext(context.Background(), request)
-}
-
-// DeregisterFunctionTargets
-// DeregisterFunctionTargets 接口用来将一个云函数从负载均衡的转发规则上解绑，对于七层监听器，还需通过 LocationId 或 Domain+Url 指定转发规则。
-//
-// 本接口为异步接口，本接口返回成功后需以返回的 RequestID 为入参，调用 [DescribeTaskStatus](https://cloud.tencent.com/document/product/214/30683) 接口查询本次任务是否成功。
-//
-// <br/>限制说明：
-//
-// 
-//
-// - 仅广州、深圳金融、上海、上海金融、北京、成都、中国香港、新加坡、孟买、东京、硅谷地域支持绑定 SCF。
-//
-// - 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。
-//
-// - 传统型负载均衡不支持绑定 SCF。
-//
-// - 基础网络类型不支持绑定 SCF。
-//
-// - CLB 默认支持绑定同地域下的所有 SCF，可支持跨 VPC 绑定 SCF，不支持跨地域绑定。
-//
-// - 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
-//
-// - 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
-//
-// - CLB 绑定 SCF 仅支持绑定“Event 函数”类型的云函数。
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_FORMATERROR = "InvalidParameter.FormatError"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  INVALIDPARAMETERVALUE_DUPLICATE = "InvalidParameterValue.Duplicate"
-//  INVALIDPARAMETERVALUE_LENGTH = "InvalidParameterValue.Length"
-//  MISSINGPARAMETER = "MissingParameter"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-func (c *Client) DeregisterFunctionTargetsWithContext(ctx context.Context, request *DeregisterFunctionTargetsRequest) (response *DeregisterFunctionTargetsResponse, err error) {
-    if request == nil {
-        request = NewDeregisterFunctionTargetsRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("DeregisterFunctionTargets require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewDeregisterFunctionTargetsResponse()
-    err = c.Send(request, response)
-    return
-}
-
 func NewDeregisterTargetGroupInstancesRequest() (request *DeregisterTargetGroupInstancesRequest) {
     request = &DeregisterTargetGroupInstancesRequest{
         BaseRequest: &tchttp.BaseRequest{},
@@ -4214,17 +4104,7 @@ func NewModifyLoadBalancerSlaResponse() (response *ModifyLoadBalancerSlaResponse
 }
 
 // ModifyLoadBalancerSla
-// 本接口（ModifyLoadBalancerSla）用于将按量计费模式的共享型实例升级为性能容量型实例。<br/>
-//
-// 限制条件：
-//
-// - 本接口只支持升级按量计费的CLB实例，包年包月的CLB实例升级请通过控制台进行升级。
-//
-// - 升级为性能容量型实例后，不支持再回退到共享型实例。
-//
-// - 目前性能容量型实例处于内测中，如需升级为性能容量型实例，请提交 [内测申请](https://cloud.tencent.com/apply/p/hf45esx99lf)。
-//
-// - 传统型负载均衡实例不支持升级为性能容量型实例。
+// 支持共享型clb升级到性能容量型clb（不支持性能保障降级到共享型）。
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -4240,17 +4120,7 @@ func (c *Client) ModifyLoadBalancerSla(request *ModifyLoadBalancerSlaRequest) (r
 }
 
 // ModifyLoadBalancerSla
-// 本接口（ModifyLoadBalancerSla）用于将按量计费模式的共享型实例升级为性能容量型实例。<br/>
-//
-// 限制条件：
-//
-// - 本接口只支持升级按量计费的CLB实例，包年包月的CLB实例升级请通过控制台进行升级。
-//
-// - 升级为性能容量型实例后，不支持再回退到共享型实例。
-//
-// - 目前性能容量型实例处于内测中，如需升级为性能容量型实例，请提交 [内测申请](https://cloud.tencent.com/apply/p/hf45esx99lf)。
-//
-// - 传统型负载均衡实例不支持升级为性能容量型实例。
+// 支持共享型clb升级到性能容量型clb（不支持性能保障降级到共享型）。
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -4649,122 +4519,6 @@ func (c *Client) ModifyTargetWeightWithContext(ctx context.Context, request *Mod
     request.SetContext(ctx)
     
     response = NewModifyTargetWeightResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewRegisterFunctionTargetsRequest() (request *RegisterFunctionTargetsRequest) {
-    request = &RegisterFunctionTargetsRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("clb", APIVersion, "RegisterFunctionTargets")
-    
-    
-    return
-}
-
-func NewRegisterFunctionTargetsResponse() (response *RegisterFunctionTargetsResponse) {
-    response = &RegisterFunctionTargetsResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// RegisterFunctionTargets
-// RegisterFunctionTargets 接口用来将一个云函数绑定到负载均衡的7层转发规则，在此之前您需要先行创建相关的7层监听器（HTTP、HTTPS）和转发规则。
-//
-// 本接口为异步接口，本接口返回成功后需以返回的RequestID为入参，调用DescribeTaskStatus接口查询本次任务是否成功。<br/>
-//
-// 限制说明：
-//
-// - 仅广州、深圳金融、上海、上海金融、北京、成都、中国香港、新加坡、孟买、东京、硅谷地域支持绑定 SCF。
-//
-// - 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
-//
-// - 传统型负载均衡不支持绑定 SCF。
-//
-// - 基础网络类型不支持绑定 SCF。
-//
-// - CLB 默认支持绑定同地域下的所有 SCF，可支持跨 VPC 绑定 SCF，不支持跨地域绑定。
-//
-// - 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
-//
-// - 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
-//
-// - CLB 绑定 SCF 仅支持绑定“Event 函数”类型的云函数。
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_FORMATERROR = "InvalidParameter.FormatError"
-//  INVALIDPARAMETER_LBIDNOTFOUND = "InvalidParameter.LBIdNotFound"
-//  INVALIDPARAMETER_LISTENERIDNOTFOUND = "InvalidParameter.ListenerIdNotFound"
-//  INVALIDPARAMETER_LOCATIONNOTFOUND = "InvalidParameter.LocationNotFound"
-//  INVALIDPARAMETER_PROTOCOLCHECKFAILED = "InvalidParameter.ProtocolCheckFailed"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  INVALIDPARAMETERVALUE_DUPLICATE = "InvalidParameterValue.Duplicate"
-//  INVALIDPARAMETERVALUE_LENGTH = "InvalidParameterValue.Length"
-//  LIMITEXCEEDED = "LimitExceeded"
-//  MISSINGPARAMETER = "MissingParameter"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-func (c *Client) RegisterFunctionTargets(request *RegisterFunctionTargetsRequest) (response *RegisterFunctionTargetsResponse, err error) {
-    return c.RegisterFunctionTargetsWithContext(context.Background(), request)
-}
-
-// RegisterFunctionTargets
-// RegisterFunctionTargets 接口用来将一个云函数绑定到负载均衡的7层转发规则，在此之前您需要先行创建相关的7层监听器（HTTP、HTTPS）和转发规则。
-//
-// 本接口为异步接口，本接口返回成功后需以返回的RequestID为入参，调用DescribeTaskStatus接口查询本次任务是否成功。<br/>
-//
-// 限制说明：
-//
-// - 仅广州、深圳金融、上海、上海金融、北京、成都、中国香港、新加坡、孟买、东京、硅谷地域支持绑定 SCF。
-//
-// - 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
-//
-// - 传统型负载均衡不支持绑定 SCF。
-//
-// - 基础网络类型不支持绑定 SCF。
-//
-// - CLB 默认支持绑定同地域下的所有 SCF，可支持跨 VPC 绑定 SCF，不支持跨地域绑定。
-//
-// - 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
-//
-// - 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
-//
-// - CLB 绑定 SCF 仅支持绑定“Event 函数”类型的云函数。
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_FORMATERROR = "InvalidParameter.FormatError"
-//  INVALIDPARAMETER_LBIDNOTFOUND = "InvalidParameter.LBIdNotFound"
-//  INVALIDPARAMETER_LISTENERIDNOTFOUND = "InvalidParameter.ListenerIdNotFound"
-//  INVALIDPARAMETER_LOCATIONNOTFOUND = "InvalidParameter.LocationNotFound"
-//  INVALIDPARAMETER_PROTOCOLCHECKFAILED = "InvalidParameter.ProtocolCheckFailed"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  INVALIDPARAMETERVALUE_DUPLICATE = "InvalidParameterValue.Duplicate"
-//  INVALIDPARAMETERVALUE_LENGTH = "InvalidParameterValue.Length"
-//  LIMITEXCEEDED = "LimitExceeded"
-//  MISSINGPARAMETER = "MissingParameter"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-func (c *Client) RegisterFunctionTargetsWithContext(ctx context.Context, request *RegisterFunctionTargetsRequest) (response *RegisterFunctionTargetsResponse, err error) {
-    if request == nil {
-        request = NewRegisterFunctionTargetsRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("RegisterFunctionTargets require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewRegisterFunctionTargetsResponse()
     err = c.Send(request, response)
     return
 }

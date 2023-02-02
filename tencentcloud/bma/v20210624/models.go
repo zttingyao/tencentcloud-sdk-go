@@ -1355,9 +1355,6 @@ type CreateCRWorkRequestParams struct {
 
 	// 申请人姓名，用于存证和取证
 	ApplierName *string `json:"ApplierName,omitempty" name:"ApplierName"`
-
-	// 是否自动续期
-	IsAutoRenew *string `json:"IsAutoRenew,omitempty" name:"IsAutoRenew"`
 }
 
 type CreateCRWorkRequest struct {
@@ -1455,9 +1452,6 @@ type CreateCRWorkRequest struct {
 
 	// 申请人姓名，用于存证和取证
 	ApplierName *string `json:"ApplierName,omitempty" name:"ApplierName"`
-
-	// 是否自动续期
-	IsAutoRenew *string `json:"IsAutoRenew,omitempty" name:"IsAutoRenew"`
 }
 
 func (r *CreateCRWorkRequest) ToJsonString() string {
@@ -1503,7 +1497,6 @@ func (r *CreateCRWorkRequest) FromJsonString(s string) error {
 	delete(f, "MonitorEndTime")
 	delete(f, "ApplierId")
 	delete(f, "ApplierName")
-	delete(f, "IsAutoRenew")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "CreateCRWorkRequest has unknown keys!", "")
 	}
@@ -2776,12 +2769,6 @@ type Monitor struct {
 
 	// 侵权站点数量
 	TortSiteNum *int64 `json:"TortSiteNum,omitempty" name:"TortSiteNum"`
-
-	// 监测截止时间
-	MonitorEndTime *string `json:"MonitorEndTime,omitempty" name:"MonitorEndTime"`
-
-	// 是否自动续费
-	AutoRenew *int64 `json:"AutoRenew,omitempty" name:"AutoRenew"`
 }
 
 type MonitorTort struct {

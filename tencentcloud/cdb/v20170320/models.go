@@ -971,15 +971,6 @@ type CommonTimeWindow struct {
 
 	// 周日的时间窗，格式如： 02:00-06:00
 	Sunday *string `json:"Sunday,omitempty" name:"Sunday"`
-
-	// 常规备份保留策略，weekly-按周备份，monthly-按月备份，默认为weekly
-	BackupPeriodStrategy *string `json:"BackupPeriodStrategy,omitempty" name:"BackupPeriodStrategy"`
-
-	// 如果设置为按月备份，需填入每月具体备份日期，相邻备份天数不得超过两天。例[1,4,7,9,11,14,17,19,22,25,28,30,31]
-	Days []*int64 `json:"Days,omitempty" name:"Days"`
-
-	// 月度备份时间窗，BackupPeriodStrategy为monthly时必填。格式如： 02:00-06:00
-	BackupPeriodTime *string `json:"BackupPeriodTime,omitempty" name:"BackupPeriodTime"`
 }
 
 type ConnectionPoolInfo struct {
@@ -1738,7 +1729,7 @@ type CreateDBInstanceHourRequestParams struct {
 	// 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用[查询子网列表](/document/api/215/15784)。
 	UniqSubnetId *string `json:"UniqSubnetId,omitempty" name:"UniqSubnetId"`
 
-	// 项目 ID，不填为默认项目。
+	// 项目 ID，不填为默认项目。请使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口获取项目 ID。
 	ProjectId *int64 `json:"ProjectId,omitempty" name:"ProjectId"`
 
 	// 可用区信息，该参数缺省时，系统会自动选择一个可用区，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
@@ -1853,7 +1844,7 @@ type CreateDBInstanceHourRequest struct {
 	// 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用[查询子网列表](/document/api/215/15784)。
 	UniqSubnetId *string `json:"UniqSubnetId,omitempty" name:"UniqSubnetId"`
 
-	// 项目 ID，不填为默认项目。
+	// 项目 ID，不填为默认项目。请使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口获取项目 ID。
 	ProjectId *int64 `json:"ProjectId,omitempty" name:"ProjectId"`
 
 	// 可用区信息，该参数缺省时，系统会自动选择一个可用区，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
@@ -2053,7 +2044,7 @@ type CreateDBInstanceRequestParams struct {
 	// 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
 	UniqSubnetId *string `json:"UniqSubnetId,omitempty" name:"UniqSubnetId"`
 
-	// 项目 ID，不填为默认项目。购买只读实例和灾备实例时，项目 ID 默认和主实例保持一致。
+	// 项目 ID，不填为默认项目。请使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口获取项目 ID。购买只读实例和灾备实例时，项目 ID 默认和主实例保持一致。
 	ProjectId *int64 `json:"ProjectId,omitempty" name:"ProjectId"`
 
 	// 自定义端口，端口支持范围：[ 1024-65535 ]。
@@ -2171,7 +2162,7 @@ type CreateDBInstanceRequest struct {
 	// 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
 	UniqSubnetId *string `json:"UniqSubnetId,omitempty" name:"UniqSubnetId"`
 
-	// 项目 ID，不填为默认项目。购买只读实例和灾备实例时，项目 ID 默认和主实例保持一致。
+	// 项目 ID，不填为默认项目。请使用 [查询项目列表](https://cloud.tencent.com/document/product/378/4400) 接口获取项目 ID。购买只读实例和灾备实例时，项目 ID 默认和主实例保持一致。
 	ProjectId *int64 `json:"ProjectId,omitempty" name:"ProjectId"`
 
 	// 自定义端口，端口支持范围：[ 1024-65535 ]。
@@ -4688,87 +4679,6 @@ func (r *DescribeCloneListResponse) FromJsonString(s string) error {
 }
 
 // Predefined struct for user
-type DescribeDBFeaturesRequestParams struct {
-	// 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
-	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
-}
-
-type DescribeDBFeaturesRequest struct {
-	*tchttp.BaseRequest
-	
-	// 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
-	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
-}
-
-func (r *DescribeDBFeaturesRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *DescribeDBFeaturesRequest) FromJsonString(s string) error {
-	f := make(map[string]interface{})
-	if err := json.Unmarshal([]byte(s), &f); err != nil {
-		return err
-	}
-	delete(f, "InstanceId")
-	if len(f) > 0 {
-		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeDBFeaturesRequest has unknown keys!", "")
-	}
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type DescribeDBFeaturesResponseParams struct {
-	// 是否支持数据库审计功能。
-	IsSupportAudit *bool `json:"IsSupportAudit,omitempty" name:"IsSupportAudit"`
-
-	// 开启审计是否需要升级内核版本。
-	AuditNeedUpgrade *bool `json:"AuditNeedUpgrade,omitempty" name:"AuditNeedUpgrade"`
-
-	// 是否支持数据库加密功能。
-	IsSupportEncryption *bool `json:"IsSupportEncryption,omitempty" name:"IsSupportEncryption"`
-
-	// 开启加密是否需要升级内核版本。
-	EncryptionNeedUpgrade *bool `json:"EncryptionNeedUpgrade,omitempty" name:"EncryptionNeedUpgrade"`
-
-	// 是否为异地只读实例。
-	IsRemoteRo *bool `json:"IsRemoteRo,omitempty" name:"IsRemoteRo"`
-
-	// 主实例所在地域。
-	MasterRegion *string `json:"MasterRegion,omitempty" name:"MasterRegion"`
-
-	// 是否支持小版本升级。
-	IsSupportUpdateSubVersion *bool `json:"IsSupportUpdateSubVersion,omitempty" name:"IsSupportUpdateSubVersion"`
-
-	// 当前内核版本。
-	CurrentSubVersion *string `json:"CurrentSubVersion,omitempty" name:"CurrentSubVersion"`
-
-	// 可供升级的内核版本。
-	TargetSubVersion *string `json:"TargetSubVersion,omitempty" name:"TargetSubVersion"`
-
-	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
-}
-
-type DescribeDBFeaturesResponse struct {
-	*tchttp.BaseResponse
-	Response *DescribeDBFeaturesResponseParams `json:"Response"`
-}
-
-func (r *DescribeDBFeaturesResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *DescribeDBFeaturesResponse) FromJsonString(s string) error {
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
 type DescribeDBImportRecordsRequestParams struct {
 	// 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
 	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
@@ -5276,12 +5186,6 @@ type DescribeDBInstancesRequestParams struct {
 
 	// 标签键值
 	Tags []*Tag `json:"Tags,omitempty" name:"Tags"`
-
-	// 数据库代理 IP 。
-	ProxyVips []*string `json:"ProxyVips,omitempty" name:"ProxyVips"`
-
-	// 数据库代理 ID 。
-	ProxyIds []*string `json:"ProxyIds,omitempty" name:"ProxyIds"`
 }
 
 type DescribeDBInstancesRequest struct {
@@ -5382,12 +5286,6 @@ type DescribeDBInstancesRequest struct {
 
 	// 标签键值
 	Tags []*Tag `json:"Tags,omitempty" name:"Tags"`
-
-	// 数据库代理 IP 。
-	ProxyVips []*string `json:"ProxyVips,omitempty" name:"ProxyVips"`
-
-	// 数据库代理 ID 。
-	ProxyIds []*string `json:"ProxyIds,omitempty" name:"ProxyIds"`
 }
 
 func (r *DescribeDBInstancesRequest) ToJsonString() string {
@@ -5434,8 +5332,6 @@ func (r *DescribeDBInstancesRequest) FromJsonString(s string) error {
 	delete(f, "UniqueVpcIds")
 	delete(f, "UniqSubnetIds")
 	delete(f, "Tags")
-	delete(f, "ProxyVips")
-	delete(f, "ProxyIds")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeDBInstancesRequest has unknown keys!", "")
 	}
@@ -10482,7 +10378,7 @@ type ModifyRemoteBackupConfigRequestParams struct {
 	// 用户设置异地备份地域列表
 	RemoteRegion []*string `json:"RemoteRegion,omitempty" name:"RemoteRegion"`
 
-	// 异地备份保留时间，单位为天
+	// 异地备份保留天时间，单位为天
 	ExpireDays *int64 `json:"ExpireDays,omitempty" name:"ExpireDays"`
 }
 
@@ -10501,7 +10397,7 @@ type ModifyRemoteBackupConfigRequest struct {
 	// 用户设置异地备份地域列表
 	RemoteRegion []*string `json:"RemoteRegion,omitempty" name:"RemoteRegion"`
 
-	// 异地备份保留时间，单位为天
+	// 异地备份保留天时间，单位为天
 	ExpireDays *int64 `json:"ExpireDays,omitempty" name:"ExpireDays"`
 }
 

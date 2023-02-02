@@ -21,86 +21,68 @@ import (
 )
 
 // Predefined struct for user
-type CreateDataRepositoryTaskRequestParams struct {
-	// 数据流通任务类型, FS_TO_COS(文件系统到COS Bucket),或者Bucket到文件系统(COS_TO_FS)
-	TaskType *string `json:"TaskType,omitempty" name:"TaskType"`
+type DescribeDataRepositoryTaskStatusRequestParams struct {
+	// task id
+	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
 
-	// bucket名
-	Bucket *string `json:"Bucket,omitempty" name:"Bucket"`
-
-	// 文件系统ID
+	// file system id
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
-
-	// 对于FS_TO_COS, TaskPath是Bucket映射目录的相对路径, 对于COS_TO_FS是COS上的路径。如果置位空, 则表示全部数据
-	TaskPath *string `json:"TaskPath,omitempty" name:"TaskPath"`
-
-	// 任务名称
-	TaskName *string `json:"TaskName,omitempty" name:"TaskName"`
 }
 
-type CreateDataRepositoryTaskRequest struct {
+type DescribeDataRepositoryTaskStatusRequest struct {
 	*tchttp.BaseRequest
 	
-	// 数据流通任务类型, FS_TO_COS(文件系统到COS Bucket),或者Bucket到文件系统(COS_TO_FS)
-	TaskType *string `json:"TaskType,omitempty" name:"TaskType"`
+	// task id
+	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
 
-	// bucket名
-	Bucket *string `json:"Bucket,omitempty" name:"Bucket"`
-
-	// 文件系统ID
+	// file system id
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
-
-	// 对于FS_TO_COS, TaskPath是Bucket映射目录的相对路径, 对于COS_TO_FS是COS上的路径。如果置位空, 则表示全部数据
-	TaskPath *string `json:"TaskPath,omitempty" name:"TaskPath"`
-
-	// 任务名称
-	TaskName *string `json:"TaskName,omitempty" name:"TaskName"`
 }
 
-func (r *CreateDataRepositoryTaskRequest) ToJsonString() string {
+func (r *DescribeDataRepositoryTaskStatusRequest) ToJsonString() string {
     b, _ := json.Marshal(r)
     return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
 // because it has no param check, nor strict type check
-func (r *CreateDataRepositoryTaskRequest) FromJsonString(s string) error {
+func (r *DescribeDataRepositoryTaskStatusRequest) FromJsonString(s string) error {
 	f := make(map[string]interface{})
 	if err := json.Unmarshal([]byte(s), &f); err != nil {
 		return err
 	}
-	delete(f, "TaskType")
-	delete(f, "Bucket")
+	delete(f, "TaskId")
 	delete(f, "FileSystemId")
-	delete(f, "TaskPath")
-	delete(f, "TaskName")
 	if len(f) > 0 {
-		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "CreateDataRepositoryTaskRequest has unknown keys!", "")
+		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeDataRepositoryTaskStatusRequest has unknown keys!", "")
 	}
 	return json.Unmarshal([]byte(s), &r)
 }
 
 // Predefined struct for user
-type CreateDataRepositoryTaskResponseParams struct {
-	// 任务ID
+type DescribeDataRepositoryTaskStatusResponseParams struct {
+	// 任务id
 	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
+
+	// 任务状态 0(初始化中), 1(运行中), 2(已完成), 3(任务失败)
+	Status *int64 `json:"Status,omitempty" name:"Status"`
 
 	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
 	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
 }
 
-type CreateDataRepositoryTaskResponse struct {
+type DescribeDataRepositoryTaskStatusResponse struct {
 	*tchttp.BaseResponse
-	Response *CreateDataRepositoryTaskResponseParams `json:"Response"`
+	Response *DescribeDataRepositoryTaskStatusResponseParams `json:"Response"`
 }
 
-func (r *CreateDataRepositoryTaskResponse) ToJsonString() string {
+func (r *DescribeDataRepositoryTaskStatusResponse) ToJsonString() string {
     b, _ := json.Marshal(r)
     return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
 // because it has no param check, nor strict type check
-func (r *CreateDataRepositoryTaskResponse) FromJsonString(s string) error {
+func (r *DescribeDataRepositoryTaskStatusResponse) FromJsonString(s string) error {
 	return json.Unmarshal([]byte(s), &r)
 }

@@ -23,17 +23,11 @@ const (
 	// 用户没有权限进行此查询操作。
 	AUTHFAILURE_CHECKRESOURCERESPONSECODEERROR = "AuthFailure.CheckResourceResponseCodeError"
 
-	// 鉴权错误。
-	AUTHFAILURE_INVALIDAUTHORIZATION = "AuthFailure.InvalidAuthorization"
-
 	// 未授权操作。
 	AUTHFAILURE_UNAUTHORIZEDOPERATION = "AuthFailure.UnauthorizedOperation"
 
 	// 操作失败。
 	FAILEDOPERATION = "FailedOperation"
-
-	// 鉴权错误。
-	FAILEDOPERATION_CHECKAUTHINFOFAILED = "FailedOperation.CheckAuthInfoFailed"
 
 	// 下载音频文件失败。
 	FAILEDOPERATION_ERRORDOWNFILE = "FailedOperation.ErrorDownFile"
@@ -187,9 +181,6 @@ const (
 
 	// 请求的次数超过了频率限制。
 	REQUESTLIMITEXCEEDED = "RequestLimitExceeded"
-
-	// 超出请求频率。
-	REQUESTLIMITEXCEEDED_UINLIMITEXCEEDED = "RequestLimitExceeded.UinLimitExceeded"
 
 	// 未知参数错误。
 	UNKNOWNPARAMETER = "UnknownParameter"

@@ -729,9 +729,6 @@ type CreateInstanceRequestParams struct {
 	// 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
 	RegistryChargeType *int64 `json:"RegistryChargeType,omitempty" name:"RegistryChargeType"`
 
-	// 预付费自动续费标识和购买时长
-	RegistryChargePrepaid *RegistryChargePrepaid `json:"RegistryChargePrepaid,omitempty" name:"RegistryChargePrepaid"`
-
 	// 是否同步TCR云标签至生成的COS Bucket
 	SyncTag *bool `json:"SyncTag,omitempty" name:"SyncTag"`
 }
@@ -750,9 +747,6 @@ type CreateInstanceRequest struct {
 
 	// 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
 	RegistryChargeType *int64 `json:"RegistryChargeType,omitempty" name:"RegistryChargeType"`
-
-	// 预付费自动续费标识和购买时长
-	RegistryChargePrepaid *RegistryChargePrepaid `json:"RegistryChargePrepaid,omitempty" name:"RegistryChargePrepaid"`
 
 	// 是否同步TCR云标签至生成的COS Bucket
 	SyncTag *bool `json:"SyncTag,omitempty" name:"SyncTag"`
@@ -774,7 +768,6 @@ func (r *CreateInstanceRequest) FromJsonString(s string) error {
 	delete(f, "RegistryType")
 	delete(f, "TagSpecification")
 	delete(f, "RegistryChargeType")
-	delete(f, "RegistryChargePrepaid")
 	delete(f, "SyncTag")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "CreateInstanceRequest has unknown keys!", "")
@@ -1400,6 +1393,77 @@ func (r *CreateRepositoryResponse) ToJsonString() string {
 // FromJsonString It is highly **NOT** recommended to use this function
 // because it has no param check, nor strict type check
 func (r *CreateRepositoryResponse) FromJsonString(s string) error {
+	return json.Unmarshal([]byte(s), &r)
+}
+
+// Predefined struct for user
+type CreateSecurityPoliciesRequestParams struct {
+	// 实例Id
+	RegistryId *string `json:"RegistryId,omitempty" name:"RegistryId"`
+
+	// 192.168.0.0/24
+	CidrBlock *string `json:"CidrBlock,omitempty" name:"CidrBlock"`
+
+	// 描述
+	Description *string `json:"Description,omitempty" name:"Description"`
+}
+
+type CreateSecurityPoliciesRequest struct {
+	*tchttp.BaseRequest
+	
+	// 实例Id
+	RegistryId *string `json:"RegistryId,omitempty" name:"RegistryId"`
+
+	// 192.168.0.0/24
+	CidrBlock *string `json:"CidrBlock,omitempty" name:"CidrBlock"`
+
+	// 描述
+	Description *string `json:"Description,omitempty" name:"Description"`
+}
+
+func (r *CreateSecurityPoliciesRequest) ToJsonString() string {
+    b, _ := json.Marshal(r)
+    return string(b)
+}
+
+// FromJsonString It is highly **NOT** recommended to use this function
+// because it has no param check, nor strict type check
+func (r *CreateSecurityPoliciesRequest) FromJsonString(s string) error {
+	f := make(map[string]interface{})
+	if err := json.Unmarshal([]byte(s), &f); err != nil {
+		return err
+	}
+	delete(f, "RegistryId")
+	delete(f, "CidrBlock")
+	delete(f, "Description")
+	if len(f) > 0 {
+		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "CreateSecurityPoliciesRequest has unknown keys!", "")
+	}
+	return json.Unmarshal([]byte(s), &r)
+}
+
+// Predefined struct for user
+type CreateSecurityPoliciesResponseParams struct {
+	// 实例Id
+	RegistryId *string `json:"RegistryId,omitempty" name:"RegistryId"`
+
+	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
+}
+
+type CreateSecurityPoliciesResponse struct {
+	*tchttp.BaseResponse
+	Response *CreateSecurityPoliciesResponseParams `json:"Response"`
+}
+
+func (r *CreateSecurityPoliciesResponse) ToJsonString() string {
+    b, _ := json.Marshal(r)
+    return string(b)
+}
+
+// FromJsonString It is highly **NOT** recommended to use this function
+// because it has no param check, nor strict type check
+func (r *CreateSecurityPoliciesResponse) FromJsonString(s string) error {
 	return json.Unmarshal([]byte(s), &r)
 }
 

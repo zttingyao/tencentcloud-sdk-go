@@ -790,7 +790,6 @@ func NewCreateExportTaskResponse() (response *CreateExportTaskResponse) {
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
-//  FAILEDOPERATION_NOPERMISSION = "FailedOperation.NoPermission"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER = "InvalidParameter"
 //  INVALIDPARAMETERVALUE = "InvalidParameterValue"
@@ -804,7 +803,6 @@ func (c *Client) CreateExportTask(request *CreateExportTaskRequest) (response *C
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
-//  FAILEDOPERATION_NOPERMISSION = "FailedOperation.NoPermission"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER = "InvalidParameter"
 //  INVALIDPARAMETERVALUE = "InvalidParameterValue"
@@ -1403,7 +1401,6 @@ func NewCreateUserResponse() (response *CreateUserResponse) {
 // 创建用户
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_GRANTPOLICYFAILED = "FailedOperation.GrantPolicyFailed"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER_DUPLICATEUSERNAME = "InvalidParameter.DuplicateUserName"
@@ -1425,7 +1422,6 @@ func (c *Client) CreateUser(request *CreateUserRequest) (response *CreateUserRes
 // 创建用户
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_GRANTPOLICYFAILED = "FailedOperation.GrantPolicyFailed"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER_DUPLICATEUSERNAME = "InvalidParameter.DuplicateUserName"
@@ -3365,60 +3361,6 @@ func (c *Client) ReportHeartbeatMetaDataWithContext(ctx context.Context, request
     request.SetContext(ctx)
     
     response = NewReportHeartbeatMetaDataResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewSuspendResumeDataEngineRequest() (request *SuspendResumeDataEngineRequest) {
-    request = &SuspendResumeDataEngineRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("dlc", APIVersion, "SuspendResumeDataEngine")
-    
-    
-    return
-}
-
-func NewSuspendResumeDataEngineResponse() (response *SuspendResumeDataEngineResponse) {
-    response = &SuspendResumeDataEngineResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// SuspendResumeDataEngine
-// 本接口用于控制暂停或恢复数据引擎
-//
-// 可能返回的错误码:
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_INVALIDSQL = "InvalidParameter.InvalidSQL"
-//  UNAUTHORIZEDOPERATION_OPERATECOMPUTINGENGINE = "UnauthorizedOperation.OperateComputingEngine"
-func (c *Client) SuspendResumeDataEngine(request *SuspendResumeDataEngineRequest) (response *SuspendResumeDataEngineResponse, err error) {
-    return c.SuspendResumeDataEngineWithContext(context.Background(), request)
-}
-
-// SuspendResumeDataEngine
-// 本接口用于控制暂停或恢复数据引擎
-//
-// 可能返回的错误码:
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_INVALIDSQL = "InvalidParameter.InvalidSQL"
-//  UNAUTHORIZEDOPERATION_OPERATECOMPUTINGENGINE = "UnauthorizedOperation.OperateComputingEngine"
-func (c *Client) SuspendResumeDataEngineWithContext(ctx context.Context, request *SuspendResumeDataEngineRequest) (response *SuspendResumeDataEngineResponse, err error) {
-    if request == nil {
-        request = NewSuspendResumeDataEngineRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("SuspendResumeDataEngine require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewSuspendResumeDataEngineResponse()
     err = c.Send(request, response)
     return
 }

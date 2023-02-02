@@ -2008,7 +2008,6 @@ func NewDescribeConfigExtrasResponse() (response *DescribeConfigExtrasResponse) 
 //  OPERATIONDENIED_ACCOUNTDESTROY = "OperationDenied.AccountDestroy"
 //  OPERATIONDENIED_ACCOUNTISOLATE = "OperationDenied.AccountIsolate"
 //  OPERATIONDENIED_ACCOUNTNOTEXISTS = "OperationDenied.AccountNotExists"
-//  RESOURCENOTFOUND_TOPICNOTEXIST = "ResourceNotFound.TopicNotExist"
 func (c *Client) DescribeConfigExtras(request *DescribeConfigExtrasRequest) (response *DescribeConfigExtrasResponse, err error) {
     return c.DescribeConfigExtrasWithContext(context.Background(), request)
 }
@@ -2026,7 +2025,6 @@ func (c *Client) DescribeConfigExtras(request *DescribeConfigExtrasRequest) (res
 //  OPERATIONDENIED_ACCOUNTDESTROY = "OperationDenied.AccountDestroy"
 //  OPERATIONDENIED_ACCOUNTISOLATE = "OperationDenied.AccountIsolate"
 //  OPERATIONDENIED_ACCOUNTNOTEXISTS = "OperationDenied.AccountNotExists"
-//  RESOURCENOTFOUND_TOPICNOTEXIST = "ResourceNotFound.TopicNotExist"
 func (c *Client) DescribeConfigExtrasWithContext(ctx context.Context, request *DescribeConfigExtrasRequest) (response *DescribeConfigExtrasResponse, err error) {
     if request == nil {
         request = NewDescribeConfigExtrasRequest()
@@ -2488,7 +2486,6 @@ func NewDescribeLogHistogramResponse() (response *DescribeLogHistogramResponse) 
 //  FAILEDOPERATION_QUERYERROR = "FailedOperation.QueryError"
 //  FAILEDOPERATION_SEARCHTIMEOUT = "FailedOperation.SearchTimeout"
 //  FAILEDOPERATION_SYNTAXERROR = "FailedOperation.SyntaxError"
-//  FAILEDOPERATION_TAGQPSLIMIT = "FailedOperation.TagQpsLimit"
 //  FAILEDOPERATION_TOPICISOLATED = "FailedOperation.TopicIsolated"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER = "InvalidParameter"
@@ -2513,7 +2510,6 @@ func (c *Client) DescribeLogHistogram(request *DescribeLogHistogramRequest) (res
 //  FAILEDOPERATION_QUERYERROR = "FailedOperation.QueryError"
 //  FAILEDOPERATION_SEARCHTIMEOUT = "FailedOperation.SearchTimeout"
 //  FAILEDOPERATION_SYNTAXERROR = "FailedOperation.SyntaxError"
-//  FAILEDOPERATION_TAGQPSLIMIT = "FailedOperation.TagQpsLimit"
 //  FAILEDOPERATION_TOPICISOLATED = "FailedOperation.TopicIsolated"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER = "InvalidParameter"
@@ -3614,7 +3610,7 @@ func NewModifyIndexResponse() (response *ModifyIndexResponse) {
 }
 
 // ModifyIndex
-// 本接口用于修改索引配置，该接口除受默认接口请求频率限制外，针对单个日志主题，并发数不能超过1，即同一时间同一个日志主题只能有一个正在执行的索引配置修改操作。
+// 本接口用于修改索引配置
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -3635,7 +3631,7 @@ func (c *Client) ModifyIndex(request *ModifyIndexRequest) (response *ModifyIndex
 }
 
 // ModifyIndex
-// 本接口用于修改索引配置，该接口除受默认接口请求频率限制外，针对单个日志主题，并发数不能超过1，即同一时间同一个日志主题只能有一个正在执行的索引配置修改操作。
+// 本接口用于修改索引配置
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -4288,7 +4284,7 @@ func NewUploadLogResponse() (response *UploadLogResponse) {
 // UploadLog
 // ## 提示
 //
-// 为了保障您日志数据的可靠性以及更高效地使用日志服务，建议您使用CLS优化后的接口[上传结构化日志](https://cloud.tencent.com/document/product/614/16873)上传日志。
+// 为了保障您日志数据的可靠性以及更高效地使用日志服务，建议您使用CLS优化后的接口[上传结构化日志](https://cloud.tencent.com/document/api/614/16873)上传日志。
 //
 // 
 //
@@ -4625,7 +4621,7 @@ func (c *Client) UploadLog(request *UploadLogRequest, data []byte) (response *Up
 // UploadLog
 // ## 提示
 //
-// 为了保障您日志数据的可靠性以及更高效地使用日志服务，建议您使用CLS优化后的接口[上传结构化日志](https://cloud.tencent.com/document/product/614/16873)上传日志。
+// 为了保障您日志数据的可靠性以及更高效地使用日志服务，建议您使用CLS优化后的接口[上传结构化日志](https://cloud.tencent.com/document/api/614/16873)上传日志。
 //
 // 
 //

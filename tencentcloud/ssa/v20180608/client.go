@@ -95,56 +95,6 @@ func (c *Client) DescribeAssetDetailWithContext(ctx context.Context, request *De
     return
 }
 
-func NewDescribeAssetDetailListRequest() (request *DescribeAssetDetailListRequest) {
-    request = &DescribeAssetDetailListRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("ssa", APIVersion, "DescribeAssetDetailList")
-    
-    
-    return
-}
-
-func NewDescribeAssetDetailListResponse() (response *DescribeAssetDetailListResponse) {
-    response = &DescribeAssetDetailListResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// DescribeAssetDetailList
-// 资产条件查询
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INVALIDPARAMETER = "InvalidParameter"
-func (c *Client) DescribeAssetDetailList(request *DescribeAssetDetailListRequest) (response *DescribeAssetDetailListResponse, err error) {
-    return c.DescribeAssetDetailListWithContext(context.Background(), request)
-}
-
-// DescribeAssetDetailList
-// 资产条件查询
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INVALIDPARAMETER = "InvalidParameter"
-func (c *Client) DescribeAssetDetailListWithContext(ctx context.Context, request *DescribeAssetDetailListRequest) (response *DescribeAssetDetailListResponse, err error) {
-    if request == nil {
-        request = NewDescribeAssetDetailListRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("DescribeAssetDetailList require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewDescribeAssetDetailListResponse()
-    err = c.Send(request, response)
-    return
-}
-
 func NewDescribeAssetListRequest() (request *DescribeAssetListRequest) {
     request = &DescribeAssetListRequest{
         BaseRequest: &tchttp.BaseRequest{},
@@ -383,7 +333,6 @@ func NewDescribeComplianceAssetListResponse() (response *DescribeComplianceAsset
 // 合规管理-资产列表
 //
 // 可能返回的错误码:
-//  AUTHFAILURE_AUTHMODULEFAILED = "AuthFailure.AuthModuleFailed"
 //  FAILEDOPERATION = "FailedOperation"
 //  INTERNALERROR_PARAMERROR = "InternalError.ParamError"
 //  INVALIDPARAMETER = "InvalidParameter"
@@ -395,7 +344,6 @@ func (c *Client) DescribeComplianceAssetList(request *DescribeComplianceAssetLis
 // 合规管理-资产列表
 //
 // 可能返回的错误码:
-//  AUTHFAILURE_AUTHMODULEFAILED = "AuthFailure.AuthModuleFailed"
 //  FAILEDOPERATION = "FailedOperation"
 //  INTERNALERROR_PARAMERROR = "InternalError.ParamError"
 //  INVALIDPARAMETER = "InvalidParameter"

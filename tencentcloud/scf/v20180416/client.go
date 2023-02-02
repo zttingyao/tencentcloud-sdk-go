@@ -264,7 +264,6 @@ func NewCreateFunctionResponse() (response *CreateFunctionResponse) {
 //  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_APMCONFIGINSTANCEID = "FailedOperation.ApmConfigInstanceId"
 //  FAILEDOPERATION_CALLROLEFAILED = "FailedOperation.CallRoleFailed"
-//  FAILEDOPERATION_CLSSERVICEUNREGISTERED = "FailedOperation.ClsServiceUnregistered"
 //  FAILEDOPERATION_CREATEFUNCTION = "FailedOperation.CreateFunction"
 //  FAILEDOPERATION_INSTANCENOTFOUND = "FailedOperation.InstanceNotFound"
 //  FAILEDOPERATION_NAMESPACE = "FailedOperation.Namespace"
@@ -274,7 +273,6 @@ func NewCreateFunctionResponse() (response *CreateFunctionResponse) {
 //  FAILEDOPERATION_UNOPENEDSERVICE = "FailedOperation.UnOpenedService"
 //  INTERNALERROR = "InternalError"
 //  INTERNALERROR_GETROLEERROR = "InternalError.GetRoleError"
-//  INTERNALERROR_GETSTSTOKENFAILED = "InternalError.GetStsTokenFailed"
 //  INTERNALERROR_SYSTEM = "InternalError.System"
 //  INTERNALERROR_SYSTEMERROR = "InternalError.SystemError"
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
@@ -383,7 +381,6 @@ func (c *Client) CreateFunction(request *CreateFunctionRequest) (response *Creat
 //  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_APMCONFIGINSTANCEID = "FailedOperation.ApmConfigInstanceId"
 //  FAILEDOPERATION_CALLROLEFAILED = "FailedOperation.CallRoleFailed"
-//  FAILEDOPERATION_CLSSERVICEUNREGISTERED = "FailedOperation.ClsServiceUnregistered"
 //  FAILEDOPERATION_CREATEFUNCTION = "FailedOperation.CreateFunction"
 //  FAILEDOPERATION_INSTANCENOTFOUND = "FailedOperation.InstanceNotFound"
 //  FAILEDOPERATION_NAMESPACE = "FailedOperation.Namespace"
@@ -393,7 +390,6 @@ func (c *Client) CreateFunction(request *CreateFunctionRequest) (response *Creat
 //  FAILEDOPERATION_UNOPENEDSERVICE = "FailedOperation.UnOpenedService"
 //  INTERNALERROR = "InternalError"
 //  INTERNALERROR_GETROLEERROR = "InternalError.GetRoleError"
-//  INTERNALERROR_GETSTSTOKENFAILED = "InternalError.GetStsTokenFailed"
 //  INTERNALERROR_SYSTEM = "InternalError.System"
 //  INTERNALERROR_SYSTEMERROR = "InternalError.SystemError"
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
@@ -542,7 +538,6 @@ func NewCreateNamespaceResponse() (response *CreateNamespaceResponse) {
 //  RESOURCEINUSE = "ResourceInUse"
 //  RESOURCEINUSE_NAMESPACE = "ResourceInUse.Namespace"
 //  UNAUTHORIZEDOPERATION_CAM = "UnauthorizedOperation.CAM"
-//  UNAUTHORIZEDOPERATION_ROLE = "UnauthorizedOperation.Role"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) CreateNamespace(request *CreateNamespaceRequest) (response *CreateNamespaceResponse, err error) {
     return c.CreateNamespaceWithContext(context.Background(), request)
@@ -565,7 +560,6 @@ func (c *Client) CreateNamespace(request *CreateNamespaceRequest) (response *Cre
 //  RESOURCEINUSE = "ResourceInUse"
 //  RESOURCEINUSE_NAMESPACE = "ResourceInUse.Namespace"
 //  UNAUTHORIZEDOPERATION_CAM = "UnauthorizedOperation.CAM"
-//  UNAUTHORIZEDOPERATION_ROLE = "UnauthorizedOperation.Role"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) CreateNamespaceWithContext(ctx context.Context, request *CreateNamespaceRequest) (response *CreateNamespaceResponse, err error) {
     if request == nil {
@@ -3357,7 +3351,6 @@ func NewUpdateFunctionConfigurationResponse() (response *UpdateFunctionConfigura
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_APMCONFIGINSTANCEID = "FailedOperation.ApmConfigInstanceId"
-//  FAILEDOPERATION_CLSSERVICEUNREGISTERED = "FailedOperation.ClsServiceUnregistered"
 //  FAILEDOPERATION_DEBUGMODEUPDATETIMEOUTFAIL = "FailedOperation.DebugModeUpdateTimeOutFail"
 //  FAILEDOPERATION_INSTANCENOTFOUND = "FailedOperation.InstanceNotFound"
 //  FAILEDOPERATION_INSUFFICIENTBALANCE = "FailedOperation.InsufficientBalance"
@@ -3419,7 +3412,6 @@ func NewUpdateFunctionConfigurationResponse() (response *UpdateFunctionConfigura
 //  RESOURCENOTFOUND_ROLE = "ResourceNotFound.Role"
 //  RESOURCENOTFOUND_VPC = "ResourceNotFound.Vpc"
 //  UNAUTHORIZEDOPERATION_CAM = "UnauthorizedOperation.CAM"
-//  UNAUTHORIZEDOPERATION_ROLE = "UnauthorizedOperation.Role"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 //  UNSUPPORTEDOPERATION_EIPFIXED = "UnsupportedOperation.EipFixed"
 //  UNSUPPORTEDOPERATION_VPCCONFIG = "UnsupportedOperation.VpcConfig"
@@ -3433,7 +3425,6 @@ func (c *Client) UpdateFunctionConfiguration(request *UpdateFunctionConfiguratio
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_APMCONFIGINSTANCEID = "FailedOperation.ApmConfigInstanceId"
-//  FAILEDOPERATION_CLSSERVICEUNREGISTERED = "FailedOperation.ClsServiceUnregistered"
 //  FAILEDOPERATION_DEBUGMODEUPDATETIMEOUTFAIL = "FailedOperation.DebugModeUpdateTimeOutFail"
 //  FAILEDOPERATION_INSTANCENOTFOUND = "FailedOperation.InstanceNotFound"
 //  FAILEDOPERATION_INSUFFICIENTBALANCE = "FailedOperation.InsufficientBalance"
@@ -3495,7 +3486,6 @@ func (c *Client) UpdateFunctionConfiguration(request *UpdateFunctionConfiguratio
 //  RESOURCENOTFOUND_ROLE = "ResourceNotFound.Role"
 //  RESOURCENOTFOUND_VPC = "ResourceNotFound.Vpc"
 //  UNAUTHORIZEDOPERATION_CAM = "UnauthorizedOperation.CAM"
-//  UNAUTHORIZEDOPERATION_ROLE = "UnauthorizedOperation.Role"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 //  UNSUPPORTEDOPERATION_EIPFIXED = "UnsupportedOperation.EipFixed"
 //  UNSUPPORTEDOPERATION_VPCCONFIG = "UnsupportedOperation.VpcConfig"

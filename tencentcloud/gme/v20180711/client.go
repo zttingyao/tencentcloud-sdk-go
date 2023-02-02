@@ -1442,7 +1442,7 @@ func NewScanVoiceResponse() (response *ScanVoiceResponse) {
 //
 // 		"RoomId": "123",
 //
-// 		"OpenId": "111",
+// 		"OpenId": "xxx",
 //
 // 		"Info":"",
 //
@@ -1456,7 +1456,7 @@ func NewScanVoiceResponse() (response *ScanVoiceResponse) {
 //
 // 			"EndTime": 1110,
 //
-// 			"KeyWord": "违规字",
+// 			"KeyWord": "xxx",
 //
 // 			"Label": "abuse",
 //
@@ -1468,7 +1468,7 @@ func NewScanVoiceResponse() (response *ScanVoiceResponse) {
 //
 // 			"EndTime": 1380,
 //
-// 			"KeyWord": "违规字",
+// 			"KeyWord": "xxx",
 //
 // 			"Label": "abuse",
 //
@@ -1480,7 +1480,7 @@ func NewScanVoiceResponse() (response *ScanVoiceResponse) {
 //
 // 			"EndTime": 1560,
 //
-// 			"KeyWord": "违规字",
+// 			"KeyWord": "xxx",
 //
 // 			"Label": "abuse",
 //
@@ -1492,7 +1492,7 @@ func NewScanVoiceResponse() (response *ScanVoiceResponse) {
 //
 // 			"EndTime": 2820,
 //
-// 			"KeyWord": "违规字",
+// 			"KeyWord": "xxx",
 //
 // 			"Label": "abuse",
 //
@@ -1514,7 +1514,7 @@ func NewScanVoiceResponse() (response *ScanVoiceResponse) {
 //
 // 	"Status": "Success",
 //
-// 	"TaskId": "6330xxxx-9xx7-11ed-98e3-52xxxxe4ac3b",
+// 	"TaskId": "xxx",
 //
 // 	"Url": "https://xxx/xxx.m4a"
 //
@@ -1731,7 +1731,7 @@ func (c *Client) ScanVoice(request *ScanVoiceRequest) (response *ScanVoiceRespon
 //
 // 		"RoomId": "123",
 //
-// 		"OpenId": "111",
+// 		"OpenId": "xxx",
 //
 // 		"Info":"",
 //
@@ -1745,7 +1745,7 @@ func (c *Client) ScanVoice(request *ScanVoiceRequest) (response *ScanVoiceRespon
 //
 // 			"EndTime": 1110,
 //
-// 			"KeyWord": "违规字",
+// 			"KeyWord": "xxx",
 //
 // 			"Label": "abuse",
 //
@@ -1757,7 +1757,7 @@ func (c *Client) ScanVoice(request *ScanVoiceRequest) (response *ScanVoiceRespon
 //
 // 			"EndTime": 1380,
 //
-// 			"KeyWord": "违规字",
+// 			"KeyWord": "xxx",
 //
 // 			"Label": "abuse",
 //
@@ -1769,7 +1769,7 @@ func (c *Client) ScanVoice(request *ScanVoiceRequest) (response *ScanVoiceRespon
 //
 // 			"EndTime": 1560,
 //
-// 			"KeyWord": "违规字",
+// 			"KeyWord": "xxx",
 //
 // 			"Label": "abuse",
 //
@@ -1781,7 +1781,7 @@ func (c *Client) ScanVoice(request *ScanVoiceRequest) (response *ScanVoiceRespon
 //
 // 			"EndTime": 2820,
 //
-// 			"KeyWord": "违规字",
+// 			"KeyWord": "xxx",
 //
 // 			"Label": "abuse",
 //
@@ -1803,7 +1803,7 @@ func (c *Client) ScanVoice(request *ScanVoiceRequest) (response *ScanVoiceRespon
 //
 // 	"Status": "Success",
 //
-// 	"TaskId": "6330xxxx-9xx7-11ed-98e3-52xxxxe4ac3b",
+// 	"TaskId": "xxx",
 //
 // 	"Url": "https://xxx/xxx.m4a"
 //

@@ -32,14 +32,8 @@ const (
 	// 对密钥对的删除操作失败。
 	FAILEDOPERATION_DELETEKEYPAIRFAILED = "FailedOperation.DeleteKeyPairFailed"
 
-	// 查询镜像失败，请稍后再试。
-	FAILEDOPERATION_DESCRIBEBLUEPRINTSFAILED = "FailedOperation.DescribeBlueprintsFailed"
-
 	// 查询实例状态错误。
 	FAILEDOPERATION_DESCRIBEINSTANCESTATUS = "FailedOperation.DescribeInstanceStatus"
-
-	// 查询实例变配套餐失败。
-	FAILEDOPERATION_DESCRIBEINSTANCESMODIFICATIONERROR = "FailedOperation.DescribeInstancesModificationError"
 
 	// 查询实例退还错误。
 	FAILEDOPERATION_DESCRIBEINSTANCESRETURNABLEERROR = "FailedOperation.DescribeInstancesReturnableError"
@@ -281,18 +275,6 @@ const (
 	// 参数值非法，不在合法范围内。
 	INVALIDPARAMETERVALUE_OUTOFRANGE = "InvalidParameterValue.OutOfRange"
 
-	// 地域不存在。
-	INVALIDPARAMETERVALUE_REGIONNOTFOUND = "InvalidParameterValue.RegionNotFound"
-
-	// 地域不匹配。
-	INVALIDPARAMETERVALUE_REGIONNOTMATCH = "InvalidParameterValue.RegionNotMatch"
-
-	// 不支持的地域。
-	INVALIDPARAMETERVALUE_REGIONNOTSUPPORTED = "InvalidParameterValue.RegionNotSupported"
-
-	// 该地域不可用。
-	INVALIDPARAMETERVALUE_REGIONUNAVAILABLE = "InvalidParameterValue.RegionUnavailable"
-
 	// 参数值非法，快照 ID 格式非法。
 	INVALIDPARAMETERVALUE_SNAPSHOTIDMALFORMED = "InvalidParameterValue.SnapshotIdMalformed"
 
@@ -421,9 +403,6 @@ const (
 
 	// 服务角色不存在, 请为账号添加这个角色。
 	RESOURCENOTFOUND_ROLENOTFOUND = "ResourceNotFound.RoleNotFound"
-
-	// 未查询到场景ID
-	RESOURCENOTFOUND_SCENEIDNOTFOUND = "ResourceNotFound.SceneIdNotFound"
 
 	// 快照 ID 不存在。
 	RESOURCENOTFOUND_SNAPSHOTIDNOTFOUND = "ResourceNotFound.SnapshotIdNotFound"

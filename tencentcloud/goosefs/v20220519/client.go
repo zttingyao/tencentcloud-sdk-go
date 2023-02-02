@@ -45,44 +45,44 @@ func NewClient(credential common.CredentialIface, region string, clientProfile *
 }
 
 
-func NewCreateDataRepositoryTaskRequest() (request *CreateDataRepositoryTaskRequest) {
-    request = &CreateDataRepositoryTaskRequest{
+func NewDescribeDataRepositoryTaskStatusRequest() (request *DescribeDataRepositoryTaskStatusRequest) {
+    request = &DescribeDataRepositoryTaskStatusRequest{
         BaseRequest: &tchttp.BaseRequest{},
     }
     
-    request.Init().WithApiInfo("goosefs", APIVersion, "CreateDataRepositoryTask")
+    request.Init().WithApiInfo("goosefs", APIVersion, "DescribeDataRepositoryTaskStatus")
     
     
     return
 }
 
-func NewCreateDataRepositoryTaskResponse() (response *CreateDataRepositoryTaskResponse) {
-    response = &CreateDataRepositoryTaskResponse{
+func NewDescribeDataRepositoryTaskStatusResponse() (response *DescribeDataRepositoryTaskStatusResponse) {
+    response = &DescribeDataRepositoryTaskStatusResponse{
         BaseResponse: &tchttp.BaseResponse{},
     }
     return
 }
 
-// CreateDataRepositoryTask
-// 创建数据流通任务,包括从将文件系统的数据上传到存储桶下, 以及从存储桶下载到文件系统里。
-func (c *Client) CreateDataRepositoryTask(request *CreateDataRepositoryTaskRequest) (response *CreateDataRepositoryTaskResponse, err error) {
-    return c.CreateDataRepositoryTaskWithContext(context.Background(), request)
+// DescribeDataRepositoryTaskStatus
+// 获取数据流通任务实时状态，用作客户端控制
+func (c *Client) DescribeDataRepositoryTaskStatus(request *DescribeDataRepositoryTaskStatusRequest) (response *DescribeDataRepositoryTaskStatusResponse, err error) {
+    return c.DescribeDataRepositoryTaskStatusWithContext(context.Background(), request)
 }
 
-// CreateDataRepositoryTask
-// 创建数据流通任务,包括从将文件系统的数据上传到存储桶下, 以及从存储桶下载到文件系统里。
-func (c *Client) CreateDataRepositoryTaskWithContext(ctx context.Context, request *CreateDataRepositoryTaskRequest) (response *CreateDataRepositoryTaskResponse, err error) {
+// DescribeDataRepositoryTaskStatus
+// 获取数据流通任务实时状态，用作客户端控制
+func (c *Client) DescribeDataRepositoryTaskStatusWithContext(ctx context.Context, request *DescribeDataRepositoryTaskStatusRequest) (response *DescribeDataRepositoryTaskStatusResponse, err error) {
     if request == nil {
-        request = NewCreateDataRepositoryTaskRequest()
+        request = NewDescribeDataRepositoryTaskStatusRequest()
     }
     
     if c.GetCredential() == nil {
-        return nil, errors.New("CreateDataRepositoryTask require credential")
+        return nil, errors.New("DescribeDataRepositoryTaskStatus require credential")
     }
 
     request.SetContext(ctx)
     
-    response = NewCreateDataRepositoryTaskResponse()
+    response = NewDescribeDataRepositoryTaskStatusResponse()
     err = c.Send(request, response)
     return
 }

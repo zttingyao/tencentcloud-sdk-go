@@ -140,9 +140,6 @@ const (
 	// 查询独享集群信息失败。
 	INTERNALERROR_FENCEERROR = "InternalError.FenceError"
 
-	// 获取数据库加密密钥失败。
-	INTERNALERROR_GETCIPHERTEXTFAILED = "InternalError.GetCipherTextFailed"
-
 	// 获取数据库实例参数失败。
 	INTERNALERROR_GETDBCONFIGFAILED = "InternalError.GetDbConfigFailed"
 
@@ -418,7 +415,4 @@ const (
 
 	// Proxy软件版本太旧，请联系客服升级到新版本后再试。
 	UNSUPPORTEDOPERATION_OLDPROXYVERSION = "UnsupportedOperation.OldProxyVersion"
-
-	// 不适用的操作。
-	UNSUPPORTEDOPERATION_OPERATIONNOTAPPLICABLE = "UnsupportedOperation.OperationNotApplicable"
 )

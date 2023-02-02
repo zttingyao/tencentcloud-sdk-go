@@ -175,7 +175,6 @@ func NewCreateAuditTrackResponse() (response *CreateAuditTrackResponse) {
 // 创建跟踪集
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_CHECKCLSTOPICISEXISTFAILED = "FailedOperation.CheckClsTopicIsExistFailed"
 //  FAILEDOPERATION_CHECKCOSBUCKETISEXISTFAILED = "FailedOperation.CheckCosBucketIsExistFailed"
 //  FAILEDOPERATION_GETCLSTOPICFAILED = "FailedOperation.GetClsTopicFailed"
@@ -195,7 +194,6 @@ func (c *Client) CreateAuditTrack(request *CreateAuditTrackRequest) (response *C
 // 创建跟踪集
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_CHECKCLSTOPICISEXISTFAILED = "FailedOperation.CheckClsTopicIsExistFailed"
 //  FAILEDOPERATION_CHECKCOSBUCKETISEXISTFAILED = "FailedOperation.CheckCosBucketIsExistFailed"
 //  FAILEDOPERATION_GETCLSTOPICFAILED = "FailedOperation.GetClsTopicFailed"

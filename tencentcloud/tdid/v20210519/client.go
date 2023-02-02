@@ -1058,10 +1058,6 @@ func NewGetAgencyTDidResponse() (response *GetAgencyTDidResponse) {
 }
 
 // GetAgencyTDid
-// 该接口已废弃
-//
-// 
-//
 // 本机构DID详情
 //
 // 可能返回的错误码:
@@ -1083,10 +1079,6 @@ func (c *Client) GetAgencyTDid(request *GetAgencyTDidRequest) (response *GetAgen
 }
 
 // GetAgencyTDid
-// 该接口已废弃
-//
-// 
-//
 // 本机构DID详情
 //
 // 可能返回的错误码:
@@ -3475,6 +3467,62 @@ func (c *Client) VerifyCredentialWithContext(ctx context.Context, request *Verif
     request.SetContext(ctx)
     
     response = NewVerifyCredentialResponse()
+    err = c.Send(request, response)
+    return
+}
+
+func NewVerifyPurchaseRequest() (request *VerifyPurchaseRequest) {
+    request = &VerifyPurchaseRequest{
+        BaseRequest: &tchttp.BaseRequest{},
+    }
+    
+    request.Init().WithApiInfo("tdid", APIVersion, "VerifyPurchase")
+    
+    
+    return
+}
+
+func NewVerifyPurchaseResponse() (response *VerifyPurchaseResponse) {
+    response = &VerifyPurchaseResponse{
+        BaseResponse: &tchttp.BaseResponse{},
+    }
+    return
+}
+
+// VerifyPurchase
+// 验证购买
+//
+// 可能返回的错误码:
+//  AUTHFAILURE = "AuthFailure"
+//  INTERNALERROR = "InternalError"
+//  INVALIDPARAMETER = "InvalidParameter"
+//  RESOURCENOTFOUND = "ResourceNotFound"
+//  UNSUPPORTEDOPERATION = "UnsupportedOperation"
+func (c *Client) VerifyPurchase(request *VerifyPurchaseRequest) (response *VerifyPurchaseResponse, err error) {
+    return c.VerifyPurchaseWithContext(context.Background(), request)
+}
+
+// VerifyPurchase
+// 验证购买
+//
+// 可能返回的错误码:
+//  AUTHFAILURE = "AuthFailure"
+//  INTERNALERROR = "InternalError"
+//  INVALIDPARAMETER = "InvalidParameter"
+//  RESOURCENOTFOUND = "ResourceNotFound"
+//  UNSUPPORTEDOPERATION = "UnsupportedOperation"
+func (c *Client) VerifyPurchaseWithContext(ctx context.Context, request *VerifyPurchaseRequest) (response *VerifyPurchaseResponse, err error) {
+    if request == nil {
+        request = NewVerifyPurchaseRequest()
+    }
+    
+    if c.GetCredential() == nil {
+        return nil, errors.New("VerifyPurchase require credential")
+    }
+
+    request.SetContext(ctx)
+    
+    response = NewVerifyPurchaseResponse()
     err = c.Send(request, response)
     return
 }

@@ -67,7 +67,6 @@ func NewCheckRecordSnapshotRollbackResponse() (response *CheckRecordSnapshotRoll
 // 回滚前检查单条记录
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_UNKNOWERROR = "FailedOperation.UnknowError"
 //  INVALIDPARAMETER_DOMAINIDINVALID = "InvalidParameter.DomainIdInvalid"
 //  INVALIDPARAMETER_DOMAININVALID = "InvalidParameter.DomainInvalid"
@@ -83,7 +82,6 @@ func (c *Client) CheckRecordSnapshotRollback(request *CheckRecordSnapshotRollbac
 // 回滚前检查单条记录
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_UNKNOWERROR = "FailedOperation.UnknowError"
 //  INVALIDPARAMETER_DOMAINIDINVALID = "InvalidParameter.DomainIdInvalid"
 //  INVALIDPARAMETER_DOMAININVALID = "InvalidParameter.DomainInvalid"
@@ -434,7 +432,6 @@ func NewCreateDomainResponse() (response *CreateDomainResponse) {
 //  INVALIDPARAMETER_DOMAINISALIASER = "InvalidParameter.DomainIsAliaser"
 //  INVALIDPARAMETER_DOMAINNOTREGED = "InvalidParameter.DomainNotReged"
 //  INVALIDPARAMETER_EMAILNOTVERIFIED = "InvalidParameter.EmailNotVerified"
-//  INVALIDPARAMETER_QUHUITXTRECORDWAIT = "InvalidParameter.QuhuiTxtRecordWait"
 //  INVALIDPARAMETER_TOOLSDOMAININVALID = "InvalidParameter.ToolsDomainInvalid"
 //  INVALIDPARAMETER_UNREALNAMEUSER = "InvalidParameter.UnrealNameUser"
 func (c *Client) CreateDomain(request *CreateDomainRequest) (response *CreateDomainResponse, err error) {
@@ -454,7 +451,6 @@ func (c *Client) CreateDomain(request *CreateDomainRequest) (response *CreateDom
 //  INVALIDPARAMETER_DOMAINISALIASER = "InvalidParameter.DomainIsAliaser"
 //  INVALIDPARAMETER_DOMAINNOTREGED = "InvalidParameter.DomainNotReged"
 //  INVALIDPARAMETER_EMAILNOTVERIFIED = "InvalidParameter.EmailNotVerified"
-//  INVALIDPARAMETER_QUHUITXTRECORDWAIT = "InvalidParameter.QuhuiTxtRecordWait"
 //  INVALIDPARAMETER_TOOLSDOMAININVALID = "InvalidParameter.ToolsDomainInvalid"
 //  INVALIDPARAMETER_UNREALNAMEUSER = "InvalidParameter.UnrealNameUser"
 func (c *Client) CreateDomainWithContext(ctx context.Context, request *CreateDomainRequest) (response *CreateDomainResponse, err error) {
@@ -583,7 +579,6 @@ func NewCreateDomainBatchResponse() (response *CreateDomainBatchResponse) {
 // 批量添加域名
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_DOMAINISLOCKED = "FailedOperation.DomainIsLocked"
 //  FAILEDOPERATION_DOMAINISSPAM = "FailedOperation.DomainIsSpam"
 //  INVALIDPARAMETER_BATCHDOMAINCREATEACTIONERROR = "InvalidParameter.BatchDomainCreateActionError"
@@ -609,7 +604,6 @@ func (c *Client) CreateDomainBatch(request *CreateDomainBatchRequest) (response 
 // 批量添加域名
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_DOMAINISLOCKED = "FailedOperation.DomainIsLocked"
 //  FAILEDOPERATION_DOMAINISSPAM = "FailedOperation.DomainIsSpam"
 //  INVALIDPARAMETER_BATCHDOMAINCREATEACTIONERROR = "InvalidParameter.BatchDomainCreateActionError"
@@ -2426,7 +2420,6 @@ func NewDescribeRecordSnapshotRollbackResultResponse() (response *DescribeRecord
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION_UNKNOWERROR = "FailedOperation.UnknowError"
-//  INVALIDPARAMETER_BATCHTASKNOTEXIST = "InvalidParameter.BatchTaskNotExist"
 //  INVALIDPARAMETER_DOMAINIDINVALID = "InvalidParameter.DomainIdInvalid"
 //  INVALIDPARAMETER_DOMAININVALID = "InvalidParameter.DomainInvalid"
 //  INVALIDPARAMETER_DOMAINISALIASER = "InvalidParameter.DomainIsAliaser"
@@ -2442,7 +2435,6 @@ func (c *Client) DescribeRecordSnapshotRollbackResult(request *DescribeRecordSna
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION_UNKNOWERROR = "FailedOperation.UnknowError"
-//  INVALIDPARAMETER_BATCHTASKNOTEXIST = "InvalidParameter.BatchTaskNotExist"
 //  INVALIDPARAMETER_DOMAINIDINVALID = "InvalidParameter.DomainIdInvalid"
 //  INVALIDPARAMETER_DOMAININVALID = "InvalidParameter.DomainInvalid"
 //  INVALIDPARAMETER_DOMAINISALIASER = "InvalidParameter.DomainIsAliaser"
@@ -3548,7 +3540,7 @@ func NewModifyPackageAutoRenewResponse() (response *ModifyPackageAutoRenewRespon
 }
 
 // ModifyPackageAutoRenew
-// DNS 解析套餐自动续费设置
+//  DNS 解析套餐自动续费设置
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -3653,7 +3645,7 @@ func (c *Client) ModifyPackageAutoRenew(request *ModifyPackageAutoRenewRequest) 
 }
 
 // ModifyPackageAutoRenew
-// DNS 解析套餐自动续费设置
+//  DNS 解析套餐自动续费设置
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -3799,7 +3791,6 @@ func NewModifyRecordResponse() (response *ModifyRecordResponse) {
 //  FAILEDOPERATION_UNKNOWERROR = "FailedOperation.UnknowError"
 //  INVALIDPARAMETER_ACCOUNTISBANNED = "InvalidParameter.AccountIsBanned"
 //  INVALIDPARAMETER_CUSTOMMESSAGE = "InvalidParameter.CustomMessage"
-//  INVALIDPARAMETER_DNSSECADDCNAMEERROR = "InvalidParameter.DnssecAddCnameError"
 //  INVALIDPARAMETER_DOMAINIDINVALID = "InvalidParameter.DomainIdInvalid"
 //  INVALIDPARAMETER_DOMAININVALID = "InvalidParameter.DomainInvalid"
 //  INVALIDPARAMETER_DOMAINISALIASER = "InvalidParameter.DomainIsAliaser"
@@ -3859,7 +3850,6 @@ func (c *Client) ModifyRecord(request *ModifyRecordRequest) (response *ModifyRec
 //  FAILEDOPERATION_UNKNOWERROR = "FailedOperation.UnknowError"
 //  INVALIDPARAMETER_ACCOUNTISBANNED = "InvalidParameter.AccountIsBanned"
 //  INVALIDPARAMETER_CUSTOMMESSAGE = "InvalidParameter.CustomMessage"
-//  INVALIDPARAMETER_DNSSECADDCNAMEERROR = "InvalidParameter.DnssecAddCnameError"
 //  INVALIDPARAMETER_DOMAINIDINVALID = "InvalidParameter.DomainIdInvalid"
 //  INVALIDPARAMETER_DOMAININVALID = "InvalidParameter.DomainInvalid"
 //  INVALIDPARAMETER_DOMAINISALIASER = "InvalidParameter.DomainIsAliaser"
@@ -4535,7 +4525,6 @@ func NewModifySnapshotConfigResponse() (response *ModifySnapshotConfigResponse) 
 // 修改快照配置
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_UNKNOWERROR = "FailedOperation.UnknowError"
 //  INVALIDPARAMETER_DOMAINIDINVALID = "InvalidParameter.DomainIdInvalid"
 //  INVALIDPARAMETER_DOMAININVALID = "InvalidParameter.DomainInvalid"
@@ -4551,7 +4540,6 @@ func (c *Client) ModifySnapshotConfig(request *ModifySnapshotConfigRequest) (res
 // 修改快照配置
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  FAILEDOPERATION_UNKNOWERROR = "FailedOperation.UnknowError"
 //  INVALIDPARAMETER_DOMAINIDINVALID = "InvalidParameter.DomainIdInvalid"
 //  INVALIDPARAMETER_DOMAININVALID = "InvalidParameter.DomainInvalid"

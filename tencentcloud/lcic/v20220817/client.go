@@ -45,64 +45,6 @@ func NewClient(credential common.CredentialIface, region string, clientProfile *
 }
 
 
-func NewBatchRegisterRequest() (request *BatchRegisterRequest) {
-    request = &BatchRegisterRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("lcic", APIVersion, "BatchRegister")
-    
-    
-    return
-}
-
-func NewBatchRegisterResponse() (response *BatchRegisterResponse) {
-    response = &BatchRegisterResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// BatchRegister
-// 如果批量注册的用户已存在，则会被覆盖。一次最多注册1000个用户。默认请求频率限制：10次/秒
-//
-// 可能返回的错误码:
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_SDKAPPID = "InvalidParameter.SdkAppId"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  MISSINGPARAMETER = "MissingParameter"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-func (c *Client) BatchRegister(request *BatchRegisterRequest) (response *BatchRegisterResponse, err error) {
-    return c.BatchRegisterWithContext(context.Background(), request)
-}
-
-// BatchRegister
-// 如果批量注册的用户已存在，则会被覆盖。一次最多注册1000个用户。默认请求频率限制：10次/秒
-//
-// 可能返回的错误码:
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_SDKAPPID = "InvalidParameter.SdkAppId"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  MISSINGPARAMETER = "MissingParameter"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-func (c *Client) BatchRegisterWithContext(ctx context.Context, request *BatchRegisterRequest) (response *BatchRegisterResponse, err error) {
-    if request == nil {
-        request = NewBatchRegisterRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("BatchRegister require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewBatchRegisterResponse()
-    err = c.Send(request, response)
-    return
-}
-
 func NewBindDocumentToRoomRequest() (request *BindDocumentToRoomRequest) {
     request = &BindDocumentToRoomRequest{
         BaseRequest: &tchttp.BaseRequest{},
@@ -377,68 +319,6 @@ func (c *Client) DeleteRoomWithContext(ctx context.Context, request *DeleteRoomR
     request.SetContext(ctx)
     
     response = NewDeleteRoomResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewDescribeAppDetailRequest() (request *DescribeAppDetailRequest) {
-    request = &DescribeAppDetailRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("lcic", APIVersion, "DescribeAppDetail")
-    
-    
-    return
-}
-
-func NewDescribeAppDetailResponse() (response *DescribeAppDetailResponse) {
-    response = &DescribeAppDetailResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// DescribeAppDetail
-// 获取应用详情
-//
-// 可能返回的错误码:
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_SDKAPPID = "InvalidParameter.SdkAppId"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  MISSINGPARAMETER = "MissingParameter"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNKNOWNPARAMETER = "UnknownParameter"
-func (c *Client) DescribeAppDetail(request *DescribeAppDetailRequest) (response *DescribeAppDetailResponse, err error) {
-    return c.DescribeAppDetailWithContext(context.Background(), request)
-}
-
-// DescribeAppDetail
-// 获取应用详情
-//
-// 可能返回的错误码:
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_SDKAPPID = "InvalidParameter.SdkAppId"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  MISSINGPARAMETER = "MissingParameter"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNKNOWNPARAMETER = "UnknownParameter"
-func (c *Client) DescribeAppDetailWithContext(ctx context.Context, request *DescribeAppDetailRequest) (response *DescribeAppDetailResponse, err error) {
-    if request == nil {
-        request = NewDescribeAppDetailRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("DescribeAppDetail require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewDescribeAppDetailResponse()
     err = c.Send(request, response)
     return
 }
@@ -745,66 +625,6 @@ func (c *Client) ModifyAppWithContext(ctx context.Context, request *ModifyAppReq
     request.SetContext(ctx)
     
     response = NewModifyAppResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewModifyRoomRequest() (request *ModifyRoomRequest) {
-    request = &ModifyRoomRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("lcic", APIVersion, "ModifyRoom")
-    
-    
-    return
-}
-
-func NewModifyRoomResponse() (response *ModifyRoomResponse) {
-    response = &ModifyRoomResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// ModifyRoom
-// 修改房间
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION_CLASSTOOLONG = "FailedOperation.ClassTooLong"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER_CONTENT = "InvalidParameter.Content"
-//  INVALIDPARAMETER_ENDTIME = "InvalidParameter.EndTime"
-//  INVALIDPARAMETER_STARTTIME = "InvalidParameter.StartTime"
-//  RESOURCENOTFOUND_ROOM = "ResourceNotFound.Room"
-//  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
-func (c *Client) ModifyRoom(request *ModifyRoomRequest) (response *ModifyRoomResponse, err error) {
-    return c.ModifyRoomWithContext(context.Background(), request)
-}
-
-// ModifyRoom
-// 修改房间
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION_CLASSTOOLONG = "FailedOperation.ClassTooLong"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER_CONTENT = "InvalidParameter.Content"
-//  INVALIDPARAMETER_ENDTIME = "InvalidParameter.EndTime"
-//  INVALIDPARAMETER_STARTTIME = "InvalidParameter.StartTime"
-//  RESOURCENOTFOUND_ROOM = "ResourceNotFound.Room"
-//  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
-func (c *Client) ModifyRoomWithContext(ctx context.Context, request *ModifyRoomRequest) (response *ModifyRoomResponse, err error) {
-    if request == nil {
-        request = NewModifyRoomRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("ModifyRoom require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewModifyRoomResponse()
     err = c.Send(request, response)
     return
 }

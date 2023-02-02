@@ -3599,20 +3599,6 @@ func (r *DescribeCkafkaZoneResponse) FromJsonString(s string) error {
 	return json.Unmarshal([]byte(s), &r)
 }
 
-type DescribeConnectInfoResultDTO struct {
-	// ip地址
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	IpAddr *string `json:"IpAddr,omitempty" name:"IpAddr"`
-
-	// 连结时间
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	Time *string `json:"Time,omitempty" name:"Time"`
-
-	// 是否支持的版本
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	IsUnSupportVersion *bool `json:"IsUnSupportVersion,omitempty" name:"IsUnSupportVersion"`
-}
-
 type DescribeConnectResource struct {
 	// 连接源的Id
 	// 注意：此字段可能返回 null，表示取不到有效值。
@@ -4612,7 +4598,7 @@ type DescribeInstancesDetailRequestParams struct {
 	// （过滤条件）按照实例ID过滤
 	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
 
-	// （过滤条件）按照实例名,实例Id,可用区,私有网络id,子网id 过滤，支持模糊查询
+	// （过滤条件）按照实例名称过滤，支持模糊查询
 	SearchWord *string `json:"SearchWord,omitempty" name:"SearchWord"`
 
 	// （过滤条件）实例的状态。0：创建中，1：运行中，2：删除中，不填默认返回全部
@@ -4643,7 +4629,7 @@ type DescribeInstancesDetailRequest struct {
 	// （过滤条件）按照实例ID过滤
 	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
 
-	// （过滤条件）按照实例名,实例Id,可用区,私有网络id,子网id 过滤，支持模糊查询
+	// （过滤条件）按照实例名称过滤，支持模糊查询
 	SearchWord *string `json:"SearchWord,omitempty" name:"SearchWord"`
 
 	// （过滤条件）实例的状态。0：创建中，1：运行中，2：删除中，不填默认返回全部
@@ -5101,70 +5087,6 @@ func (r *DescribeTopicDetailResponse) ToJsonString() string {
 // FromJsonString It is highly **NOT** recommended to use this function
 // because it has no param check, nor strict type check
 func (r *DescribeTopicDetailResponse) FromJsonString(s string) error {
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type DescribeTopicProduceConnectionRequestParams struct {
-	// 实例id
-	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
-
-	// topic名称
-	TopicName *string `json:"TopicName,omitempty" name:"TopicName"`
-}
-
-type DescribeTopicProduceConnectionRequest struct {
-	*tchttp.BaseRequest
-	
-	// 实例id
-	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
-
-	// topic名称
-	TopicName *string `json:"TopicName,omitempty" name:"TopicName"`
-}
-
-func (r *DescribeTopicProduceConnectionRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *DescribeTopicProduceConnectionRequest) FromJsonString(s string) error {
-	f := make(map[string]interface{})
-	if err := json.Unmarshal([]byte(s), &f); err != nil {
-		return err
-	}
-	delete(f, "InstanceId")
-	delete(f, "TopicName")
-	if len(f) > 0 {
-		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeTopicProduceConnectionRequest has unknown keys!", "")
-	}
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type DescribeTopicProduceConnectionResponseParams struct {
-	// 链接信息返回结果集
-	Result []*DescribeConnectInfoResultDTO `json:"Result,omitempty" name:"Result"`
-
-	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
-}
-
-type DescribeTopicProduceConnectionResponse struct {
-	*tchttp.BaseResponse
-	Response *DescribeTopicProduceConnectionResponseParams `json:"Response"`
-}
-
-func (r *DescribeTopicProduceConnectionResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *DescribeTopicProduceConnectionResponse) FromJsonString(s string) error {
 	return json.Unmarshal([]byte(s), &r)
 }
 
@@ -6345,10 +6267,6 @@ type GroupResponse struct {
 	// GroupList
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	GroupList []*DescribeGroup `json:"GroupList,omitempty" name:"GroupList"`
-
-	// 消费分组配额
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	GroupCountQuota *uint64 `json:"GroupCountQuota,omitempty" name:"GroupCountQuota"`
 }
 
 // Predefined struct for user

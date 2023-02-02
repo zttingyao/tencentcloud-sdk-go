@@ -4026,8 +4026,7 @@ type CreateProcedureTemplateRequestParams struct {
 	// 视频处理类型任务参数。
 	MediaProcessTask *MediaProcessTaskInput `json:"MediaProcessTask,omitempty" name:"MediaProcessTask"`
 
-	// AI 内容审核类型任务参数 \*。
-	// <font color=red>\*：该参数用于发起旧版审核，不建议使用。推荐使用 ReviewAudioVideoTask 参数发起审核。</font> 
+	// AI 内容审核类型任务参数。
 	AiContentReviewTask *AiContentReviewTaskInput `json:"AiContentReviewTask,omitempty" name:"AiContentReviewTask"`
 
 	// AI 内容分析类型任务参数。
@@ -4035,9 +4034,6 @@ type CreateProcedureTemplateRequestParams struct {
 
 	// AI 内容识别类型任务参数。
 	AiRecognitionTask *AiRecognitionTaskInput `json:"AiRecognitionTask,omitempty" name:"AiRecognitionTask"`
-
-	// 音视频审核类型任务参数。
-	ReviewAudioVideoTask *ProcedureReviewAudioVideoTaskInput `json:"ReviewAudioVideoTask,omitempty" name:"ReviewAudioVideoTask"`
 }
 
 type CreateProcedureTemplateRequest struct {
@@ -4055,8 +4051,7 @@ type CreateProcedureTemplateRequest struct {
 	// 视频处理类型任务参数。
 	MediaProcessTask *MediaProcessTaskInput `json:"MediaProcessTask,omitempty" name:"MediaProcessTask"`
 
-	// AI 内容审核类型任务参数 \*。
-	// <font color=red>\*：该参数用于发起旧版审核，不建议使用。推荐使用 ReviewAudioVideoTask 参数发起审核。</font> 
+	// AI 内容审核类型任务参数。
 	AiContentReviewTask *AiContentReviewTaskInput `json:"AiContentReviewTask,omitempty" name:"AiContentReviewTask"`
 
 	// AI 内容分析类型任务参数。
@@ -4064,9 +4059,6 @@ type CreateProcedureTemplateRequest struct {
 
 	// AI 内容识别类型任务参数。
 	AiRecognitionTask *AiRecognitionTaskInput `json:"AiRecognitionTask,omitempty" name:"AiRecognitionTask"`
-
-	// 音视频审核类型任务参数。
-	ReviewAudioVideoTask *ProcedureReviewAudioVideoTaskInput `json:"ReviewAudioVideoTask,omitempty" name:"ReviewAudioVideoTask"`
 }
 
 func (r *CreateProcedureTemplateRequest) ToJsonString() string {
@@ -4088,7 +4080,6 @@ func (r *CreateProcedureTemplateRequest) FromJsonString(s string) error {
 	delete(f, "AiContentReviewTask")
 	delete(f, "AiAnalysisTask")
 	delete(f, "AiRecognitionTask")
-	delete(f, "ReviewAudioVideoTask")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "CreateProcedureTemplateRequest has unknown keys!", "")
 	}
@@ -9002,9 +8993,6 @@ func (r *DescribePrepaidProductsResponse) FromJsonString(s string) error {
 
 // Predefined struct for user
 type DescribeProcedureTemplatesRequestParams struct {
-	// <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
-
 	// 任务流模板名字过滤条件，数组长度限制：100。
 	Names []*string `json:"Names,omitempty" name:"Names"`
 
@@ -9018,14 +9006,14 @@ type DescribeProcedureTemplatesRequestParams struct {
 
 	// 返回记录条数，默认值：10，最大值：100。
 	Limit *uint64 `json:"Limit,omitempty" name:"Limit"`
+
+	// 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
 }
 
 type DescribeProcedureTemplatesRequest struct {
 	*tchttp.BaseRequest
 	
-	// <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
-
 	// 任务流模板名字过滤条件，数组长度限制：100。
 	Names []*string `json:"Names,omitempty" name:"Names"`
 
@@ -9039,6 +9027,9 @@ type DescribeProcedureTemplatesRequest struct {
 
 	// 返回记录条数，默认值：10，最大值：100。
 	Limit *uint64 `json:"Limit,omitempty" name:"Limit"`
+
+	// 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
 }
 
 func (r *DescribeProcedureTemplatesRequest) ToJsonString() string {
@@ -9053,11 +9044,11 @@ func (r *DescribeProcedureTemplatesRequest) FromJsonString(s string) error {
 	if err := json.Unmarshal([]byte(s), &f); err != nil {
 		return err
 	}
-	delete(f, "SubAppId")
 	delete(f, "Names")
 	delete(f, "Type")
 	delete(f, "Offset")
 	delete(f, "Limit")
+	delete(f, "SubAppId")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeProcedureTemplatesRequest has unknown keys!", "")
 	}
@@ -10622,18 +10613,6 @@ type DrmStreamingsInfoForUpdate struct {
 	FairPlayDefinition *uint64 `json:"FairPlayDefinition,omitempty" name:"FairPlayDefinition"`
 }
 
-type DynamicRangeInfo struct {
-	// 画面动态范围信息。可取值：
-	// <li>SDR：Standard Dynamic Range 标准动态范围；</li>
-	// <li>HDR：High Dynamic Range 高动态范围。</li>
-	Type *string `json:"Type,omitempty" name:"Type"`
-
-	// 高动态范围类型，当 Type 为 HDR 时有效。目前支持的可取值：
-	// <li>hdr10：表示 hdr10 标准；</li>
-	// <li>hlg：表示 hlg 标准。</li>
-	HDRType *string `json:"HDRType,omitempty" name:"HDRType"`
-}
-
 type EditMediaFileInfo struct {
 	// 视频的 ID。
 	FileId *string `json:"FileId,omitempty" name:"FileId"`
@@ -10848,11 +10827,8 @@ type EditMediaTask struct {
 	// 输出视频的元信息。
 	MetaData *MediaMetaData `json:"MetaData,omitempty" name:"MetaData"`
 
-	// 任务类型为 Procedure 的任务 ID。若发起[编辑视频](https://cloud.tencent.com/document/api/266/34783)任务时指定了任务流模板(ProcedureName)，当该任务流模板指定了 MediaProcessTask、AiAnalysisTask、AiRecognitionTask 中的一个或多个时发起该任务。
+	// 若发起视频编辑任务时指定了视频处理流程，则该字段为流程任务 ID。
 	ProcedureTaskId *string `json:"ProcedureTaskId,omitempty" name:"ProcedureTaskId"`
-
-	// 任务类型为 ReviewAudioVideo 的任务 ID。若发起[编辑视频](https://cloud.tencent.com/document/api/266/34783)任务时指定了任务流模板(ProcedureName)，当该任务流模板指定了 ReviewAudioVideoTask 时，发起该任务。
-	ReviewAudioVideoTaskId *string `json:"ReviewAudioVideoTaskId,omitempty" name:"ReviewAudioVideoTaskId"`
 
 	// 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
 	SessionId *string `json:"SessionId,omitempty" name:"SessionId"`
@@ -11126,10 +11102,6 @@ type ExtractTraceWatermarkRequestParams struct {
 	// 需要提取水印的媒体 URL。
 	Url *string `json:"Url,omitempty" name:"Url"`
 
-	// 媒体文件 ID。Url 对应的原始媒体文件 ID。
-	// <li><font color=red>注意</font>：此字段必填。</li>
-	FileId *string `json:"FileId,omitempty" name:"FileId"`
-
 	// <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
 	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
 
@@ -11151,10 +11123,6 @@ type ExtractTraceWatermarkRequest struct {
 	
 	// 需要提取水印的媒体 URL。
 	Url *string `json:"Url,omitempty" name:"Url"`
-
-	// 媒体文件 ID。Url 对应的原始媒体文件 ID。
-	// <li><font color=red>注意</font>：此字段必填。</li>
-	FileId *string `json:"FileId,omitempty" name:"FileId"`
 
 	// <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
 	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
@@ -11185,7 +11153,6 @@ func (r *ExtractTraceWatermarkRequest) FromJsonString(s string) error {
 		return err
 	}
 	delete(f, "Url")
-	delete(f, "FileId")
 	delete(f, "SubAppId")
 	delete(f, "SessionContext")
 	delete(f, "SessionId")
@@ -11360,11 +11327,8 @@ type FileUploadTask struct {
 	// 上传完成后生成的媒体文件基础信息。
 	MediaBasicInfo *MediaBasicInfo `json:"MediaBasicInfo,omitempty" name:"MediaBasicInfo"`
 
-	// 任务类型为 Procedure 的任务 ID。若视频[上传时指定要执行的任务(procedure)](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E5.8F.91.E8.B5.B7)，当该任务流模板指定了 MediaProcessTask、AiAnalysisTask、AiRecognitionTask 中的一个或多个时发起该任务。
+	// 若视频上传时指定了视频处理流程，则该字段为流程任务 ID。
 	ProcedureTaskId *string `json:"ProcedureTaskId,omitempty" name:"ProcedureTaskId"`
-
-	// 任务类型为 ReviewAudioVideo 的任务 ID。若视频[上传时指定要执行的任务(procedure)](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E5.8F.91.E8.B5.B7)，当该任务流模板指定了 ReviewAudioVideoTask 时，发起该任务。
-	ReviewAudioVideoTaskId *string `json:"ReviewAudioVideoTaskId,omitempty" name:"ReviewAudioVideoTaskId"`
 
 	// 元信息。包括大小、时长、视频流信息、音频流信息等。
 	// 注意：此字段可能返回 null，表示取不到有效值。
@@ -13072,10 +13036,6 @@ type MediaVideoStreamItem struct {
 
 	// 编码标签，仅当 Codec 为 hevc 时有效。
 	CodecTag *string `json:"CodecTag,omitempty" name:"CodecTag"`
-
-	// 画面动态范围信息。
-	// <li><font color=red>注意</font>：在 2023-01-10T00:00:00Z 后处理的转码文件，此字段有效。</li>
-	DynamicRangeInfo *DynamicRangeInfo `json:"DynamicRangeInfo,omitempty" name:"DynamicRangeInfo"`
 }
 
 // Predefined struct for user
@@ -16392,17 +16352,6 @@ type PornOcrReviewTemplateInfoForUpdate struct {
 	ReviewConfidence *int64 `json:"ReviewConfidence,omitempty" name:"ReviewConfidence"`
 }
 
-type ProcedureReviewAudioVideoTaskInput struct {
-	// 审核模板。
-	Definition *uint64 `json:"Definition,omitempty" name:"Definition"`
-
-	// 审核的内容，可选值：
-	// <li>Media：原始音视频；</li>
-	// <li>Cover：封面。</li>
-	// 不填或填空数组时，默认为审核 Media。
-	ReviewContents []*string `json:"ReviewContents,omitempty" name:"ReviewContents"`
-}
-
 type ProcedureTask struct {
 	// 音视频处理任务 ID。
 	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
@@ -16489,8 +16438,7 @@ type ProcedureTemplate struct {
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	MediaProcessTask *MediaProcessTaskInput `json:"MediaProcessTask,omitempty" name:"MediaProcessTask"`
 
-	// AI 智能审核类型任务参数 \*。
-	// <font color=red>\*：该参数用于发起旧版审核，不建议使用。推荐使用 ReviewAudioVideoTask 参数发起审核。</font> 
+	// AI 智能审核类型任务参数。
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	AiContentReviewTask *AiContentReviewTaskInput `json:"AiContentReviewTask,omitempty" name:"AiContentReviewTask"`
 
@@ -16505,10 +16453,6 @@ type ProcedureTemplate struct {
 	// 微信小程序发布任务参数。
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	MiniProgramPublishTask *WechatMiniProgramPublishTaskInput `json:"MiniProgramPublishTask,omitempty" name:"MiniProgramPublishTask"`
-
-	// 音视频审核类型任务参数。
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	ReviewAudioVideoTask *ProcedureReviewAudioVideoTaskInput `json:"ReviewAudioVideoTask,omitempty" name:"ReviewAudioVideoTask"`
 
 	// 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
 	CreateTime *string `json:"CreateTime,omitempty" name:"CreateTime"`
@@ -16678,11 +16622,8 @@ func (r *ProcessMediaByProcedureRequest) FromJsonString(s string) error {
 
 // Predefined struct for user
 type ProcessMediaByProcedureResponseParams struct {
-	// 任务类型为 Procedure 的任务 ID，当入参 ProcedureName 对应的任务流模板指定了 MediaProcessTask、AiAnalysisTask、AiRecognitionTask 中的一个或多个时发起该任务。
+	// 任务 ID。
 	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
-
-	// 任务类型为 ReviewAudioVideo 的任务 ID，当入参 ProcedureName 对应的任务流模板指定了 ReviewAudioVideoTask 时，发起该任务。
-	ReviewAudioVideoTaskId *string `json:"ReviewAudioVideoTaskId,omitempty" name:"ReviewAudioVideoTaskId"`
 
 	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
 	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
@@ -16835,8 +16776,7 @@ type ProcessMediaRequestParams struct {
 	// 视频处理类型任务参数。
 	MediaProcessTask *MediaProcessTaskInput `json:"MediaProcessTask,omitempty" name:"MediaProcessTask"`
 
-	// 音视频内容审核类型任务参数 \*。
-	// <font color=red>\* 不建议使用</font>，推荐使用 [音视频审核(ReviewAudioVideo)](https://cloud.tencent.com/document/api/266/80283) 或 [图片审核(ReviewImage)](https://cloud.tencent.com/document/api/266/73217)。
+	// 音视频内容审核类型任务参数。
 	AiContentReviewTask *AiContentReviewTaskInput `json:"AiContentReviewTask,omitempty" name:"AiContentReviewTask"`
 
 	// 音视频内容分析类型任务参数。
@@ -16873,8 +16813,7 @@ type ProcessMediaRequest struct {
 	// 视频处理类型任务参数。
 	MediaProcessTask *MediaProcessTaskInput `json:"MediaProcessTask,omitempty" name:"MediaProcessTask"`
 
-	// 音视频内容审核类型任务参数 \*。
-	// <font color=red>\* 不建议使用</font>，推荐使用 [音视频审核(ReviewAudioVideo)](https://cloud.tencent.com/document/api/266/80283) 或 [图片审核(ReviewImage)](https://cloud.tencent.com/document/api/266/73217)。
+	// 音视频内容审核类型任务参数。
 	AiContentReviewTask *AiContentReviewTaskInput `json:"AiContentReviewTask,omitempty" name:"AiContentReviewTask"`
 
 	// 音视频内容分析类型任务参数。
@@ -17300,7 +17239,7 @@ func (r *PullUploadResponse) FromJsonString(s string) error {
 }
 
 type PullUploadTask struct {
-	// 拉取上传任务 ID。
+	// 转拉上传任务 ID。
 	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
 
 	// 任务流状态，取值：
@@ -17317,32 +17256,29 @@ type PullUploadTask struct {
 	// 错误信息。
 	Message *string `json:"Message,omitempty" name:"Message"`
 
-	// 拉取上传完成后生成的视频 ID。
+	// 转拉上传完成后生成的视频 ID。
 	FileId *string `json:"FileId,omitempty" name:"FileId"`
 
-	// 拉取上传完成后生成的媒体文件基础信息。
+	// 转拉完成后生成的媒体文件基础信息。
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	MediaBasicInfo *MediaBasicInfo `json:"MediaBasicInfo,omitempty" name:"MediaBasicInfo"`
 
 	// 输出视频的元信息。
 	MetaData *MediaMetaData `json:"MetaData,omitempty" name:"MetaData"`
 
-	// 拉取上传完成后生成的播放地址。
+	// 转拉上传完成后生成的播放地址。
 	FileUrl *string `json:"FileUrl,omitempty" name:"FileUrl"`
 
-	// 任务类型为 Procedure 的任务 ID。若[拉取上传](https://cloud.tencent.com/document/api/266/35575)时指定了媒体后续任务操作(Procedure)，当该任务流模板指定了 MediaProcessTask、AiAnalysisTask、AiRecognitionTask 中的一个或多个时发起该任务。
+	// 若转拉上传时指定了视频处理流程，则该参数为流程任务 ID。
 	ProcedureTaskId *string `json:"ProcedureTaskId,omitempty" name:"ProcedureTaskId"`
 
-	// 任务类型为 ReviewAudioVideo 的任务 ID。若[拉取上传](https://cloud.tencent.com/document/api/266/35575)时指定了媒体后续任务操作(Procedure)，当该任务流模板指定了 ReviewAudioVideoTask 时，发起该任务。
-	ReviewAudioVideoTaskId *string `json:"ReviewAudioVideoTaskId,omitempty" name:"ReviewAudioVideoTaskId"`
-
-	// 来源上下文，用于透传用户请求信息，[URL 拉取视频上传完成](https://cloud.tencent.com/document/product/266/7831)将返回该字段值，最长 1000 个字符。
+	// 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长 1000 个字符。
 	SessionContext *string `json:"SessionContext,omitempty" name:"SessionContext"`
 
 	// 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
 	SessionId *string `json:"SessionId,omitempty" name:"SessionId"`
 
-	// 拉取上传进度，取值范围 [0-100] 。
+	// 转拉任务进度，取值范围 [0-100] 。
 	Progress *int64 `json:"Progress,omitempty" name:"Progress"`
 }
 
@@ -17735,17 +17671,13 @@ type ResetProcedureTemplateRequestParams struct {
 	// 任务流名字
 	Name *string `json:"Name,omitempty" name:"Name"`
 
-	// <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
-
 	// 模板描述信息，长度限制：256 个字符。
 	Comment *string `json:"Comment,omitempty" name:"Comment"`
 
 	// 视频处理类型任务参数。
 	MediaProcessTask *MediaProcessTaskInput `json:"MediaProcessTask,omitempty" name:"MediaProcessTask"`
 
-	// AI 智能内容审核类型任务参数 \*。
-	// <font color=red>\*：该参数用于发起旧版审核，不建议使用。推荐使用 ReviewAudioVideoTask 参数发起审核。</font> 
+	// AI 智能内容审核类型任务参数。
 	AiContentReviewTask *AiContentReviewTaskInput `json:"AiContentReviewTask,omitempty" name:"AiContentReviewTask"`
 
 	// AI 智能内容分析类型任务参数。
@@ -17754,8 +17686,8 @@ type ResetProcedureTemplateRequestParams struct {
 	// AI 内容识别类型任务参数。
 	AiRecognitionTask *AiRecognitionTaskInput `json:"AiRecognitionTask,omitempty" name:"AiRecognitionTask"`
 
-	// 音视频审核类型任务参数。
-	ReviewAudioVideoTask *ProcedureReviewAudioVideoTaskInput `json:"ReviewAudioVideoTask,omitempty" name:"ReviewAudioVideoTask"`
+	// 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
 }
 
 type ResetProcedureTemplateRequest struct {
@@ -17764,17 +17696,13 @@ type ResetProcedureTemplateRequest struct {
 	// 任务流名字
 	Name *string `json:"Name,omitempty" name:"Name"`
 
-	// <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
-
 	// 模板描述信息，长度限制：256 个字符。
 	Comment *string `json:"Comment,omitempty" name:"Comment"`
 
 	// 视频处理类型任务参数。
 	MediaProcessTask *MediaProcessTaskInput `json:"MediaProcessTask,omitempty" name:"MediaProcessTask"`
 
-	// AI 智能内容审核类型任务参数 \*。
-	// <font color=red>\*：该参数用于发起旧版审核，不建议使用。推荐使用 ReviewAudioVideoTask 参数发起审核。</font> 
+	// AI 智能内容审核类型任务参数。
 	AiContentReviewTask *AiContentReviewTaskInput `json:"AiContentReviewTask,omitempty" name:"AiContentReviewTask"`
 
 	// AI 智能内容分析类型任务参数。
@@ -17783,8 +17711,8 @@ type ResetProcedureTemplateRequest struct {
 	// AI 内容识别类型任务参数。
 	AiRecognitionTask *AiRecognitionTaskInput `json:"AiRecognitionTask,omitempty" name:"AiRecognitionTask"`
 
-	// 音视频审核类型任务参数。
-	ReviewAudioVideoTask *ProcedureReviewAudioVideoTaskInput `json:"ReviewAudioVideoTask,omitempty" name:"ReviewAudioVideoTask"`
+	// 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
 }
 
 func (r *ResetProcedureTemplateRequest) ToJsonString() string {
@@ -17800,13 +17728,12 @@ func (r *ResetProcedureTemplateRequest) FromJsonString(s string) error {
 		return err
 	}
 	delete(f, "Name")
-	delete(f, "SubAppId")
 	delete(f, "Comment")
 	delete(f, "MediaProcessTask")
 	delete(f, "AiContentReviewTask")
 	delete(f, "AiAnalysisTask")
 	delete(f, "AiRecognitionTask")
-	delete(f, "ReviewAudioVideoTask")
+	delete(f, "SubAppId")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "ResetProcedureTemplateRequest has unknown keys!", "")
 	}
@@ -17972,13 +17899,7 @@ type ReviewAudioVideoRequestParams struct {
 	// <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
 	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
 
-	// 审核的内容，可选值有：
-	// <li>Media：原始音视频；</li>
-	// <li>Cover：封面。</li>
-	// 不填或填空数组时，默认为审核 Media。
-	ReviewContents []*string `json:"ReviewContents,omitempty" name:"ReviewContents"`
-
-	// 审核模板 ID，默认值为 10。取值范围：
+	// 音视频审核模板 ID，默认值为 10。取值范围：
 	// <li>10：预置模板，支持检测的违规标签包括色情（Porn）、暴恐（Terror）和不适宜的信息（Polity）。</li>
 	Definition *uint64 `json:"Definition,omitempty" name:"Definition"`
 
@@ -18004,13 +17925,7 @@ type ReviewAudioVideoRequest struct {
 	// <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
 	SubAppId *uint64 `json:"SubAppId,omitempty" name:"SubAppId"`
 
-	// 审核的内容，可选值有：
-	// <li>Media：原始音视频；</li>
-	// <li>Cover：封面。</li>
-	// 不填或填空数组时，默认为审核 Media。
-	ReviewContents []*string `json:"ReviewContents,omitempty" name:"ReviewContents"`
-
-	// 审核模板 ID，默认值为 10。取值范围：
+	// 音视频审核模板 ID，默认值为 10。取值范围：
 	// <li>10：预置模板，支持检测的违规标签包括色情（Porn）、暴恐（Terror）和不适宜的信息（Polity）。</li>
 	Definition *uint64 `json:"Definition,omitempty" name:"Definition"`
 
@@ -18041,7 +17956,6 @@ func (r *ReviewAudioVideoRequest) FromJsonString(s string) error {
 	}
 	delete(f, "FileId")
 	delete(f, "SubAppId")
-	delete(f, "ReviewContents")
 	delete(f, "Definition")
 	delete(f, "TasksPriority")
 	delete(f, "SessionContext")
@@ -18167,11 +18081,6 @@ type ReviewAudioVideoTaskInput struct {
 
 	// 音视频审核模板 ID。
 	Definition *uint64 `json:"Definition,omitempty" name:"Definition"`
-
-	// 审核的内容，可选值：
-	// <li>Media：原始音视频；</li>
-	// <li>Cover：封面。</li>
-	ReviewContents []*string `json:"ReviewContents,omitempty" name:"ReviewContents"`
 }
 
 type ReviewAudioVideoTaskOutput struct {
@@ -18208,10 +18117,6 @@ type ReviewAudioVideoTaskOutput struct {
 
 	// 涉及违规信息的嫌疑的视频片段列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
 	SegmentSetFileUrlExpireTime *string `json:"SegmentSetFileUrlExpireTime,omitempty" name:"SegmentSetFileUrlExpireTime"`
-
-	// 封面审核结果。
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	CoverReviewResult *ReviewImageResult `json:"CoverReviewResult,omitempty" name:"CoverReviewResult"`
 }
 
 // Predefined struct for user
@@ -18265,7 +18170,7 @@ func (r *ReviewImageRequest) FromJsonString(s string) error {
 // Predefined struct for user
 type ReviewImageResponseParams struct {
 	// 图片审核任务结果。
-	// <font color=red>注意：该字段已废弃，建议使用 MediaReviewResult。</font> 
+	// <font color=red>注意：该字段已废弃，建议使用 ReviewResult。</font> 
 	ReviewResultSet []*ContentReviewResult `json:"ReviewResultSet,omitempty" name:"ReviewResultSet"`
 
 	// 图片审核任务结果。
@@ -18512,12 +18417,12 @@ type SearchMediaRequestParams struct {
 	FileIds []*string `json:"FileIds,omitempty" name:"FileIds"`
 
 	// 文件名集合，模糊匹配媒体文件的文件名，匹配度越高，排序越优先。
-	// <li>单个文件名长度限制：100个字符。</li>
+	// <li>单个文件名长度限制：40个字符。</li>
 	// <li>数组长度限制：10。</li>
 	Names []*string `json:"Names,omitempty" name:"Names"`
 
 	// 文件名前缀，前缀匹配媒体文件的文件名。
-	// <li>单个文件名前缀长度限制：100个字符。</li>
+	// <li>单个文件名前缀长度限制：20个字符。</li>
 	// <li>数组长度限制：10。</li>
 	NamePrefixes []*string `json:"NamePrefixes,omitempty" name:"NamePrefixes"`
 
@@ -18531,8 +18436,8 @@ type SearchMediaRequestParams struct {
 	ClassIds []*int64 `json:"ClassIds,omitempty" name:"ClassIds"`
 
 	// 标签集合，匹配集合中任意元素。
-	// <li>单个标签长度限制：32个字符。</li>
-	// <li>数组长度限制：16。</li>
+	// <li>单个标签长度限制：16个字符。</li>
+	// <li>数组长度限制：10。</li>
 	Tags []*string `json:"Tags,omitempty" name:"Tags"`
 
 	// 文件类型。匹配集合中的任意元素：
@@ -18649,12 +18554,12 @@ type SearchMediaRequest struct {
 	FileIds []*string `json:"FileIds,omitempty" name:"FileIds"`
 
 	// 文件名集合，模糊匹配媒体文件的文件名，匹配度越高，排序越优先。
-	// <li>单个文件名长度限制：100个字符。</li>
+	// <li>单个文件名长度限制：40个字符。</li>
 	// <li>数组长度限制：10。</li>
 	Names []*string `json:"Names,omitempty" name:"Names"`
 
 	// 文件名前缀，前缀匹配媒体文件的文件名。
-	// <li>单个文件名前缀长度限制：100个字符。</li>
+	// <li>单个文件名前缀长度限制：20个字符。</li>
 	// <li>数组长度限制：10。</li>
 	NamePrefixes []*string `json:"NamePrefixes,omitempty" name:"NamePrefixes"`
 
@@ -18668,8 +18573,8 @@ type SearchMediaRequest struct {
 	ClassIds []*int64 `json:"ClassIds,omitempty" name:"ClassIds"`
 
 	// 标签集合，匹配集合中任意元素。
-	// <li>单个标签长度限制：32个字符。</li>
-	// <li>数组长度限制：16。</li>
+	// <li>单个标签长度限制：16个字符。</li>
+	// <li>数组长度限制：10。</li>
 	Tags []*string `json:"Tags,omitempty" name:"Tags"`
 
 	// 文件类型。匹配集合中的任意元素：
@@ -19367,11 +19272,8 @@ type SplitMediaTaskSegmentInfo struct {
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	Output *TaskOutputMediaInfo `json:"Output,omitempty" name:"Output"`
 
-	// 任务类型为 Procedure 的任务 ID。若发起[视频拆条](https://cloud.tencent.com/document/api/266/51098)任务时，视频拆条任务信息列表指定了任务流模板(ProcedureName)，当该任务流模板指定了 MediaProcessTask、AiAnalysisTask、AiRecognitionTask 中的一个或多个时发起该任务。
+	// 若发起视频拆条任务时指定了视频处理流程，则该字段为流程任务 ID。
 	ProcedureTaskId *string `json:"ProcedureTaskId,omitempty" name:"ProcedureTaskId"`
-
-	// 任务类型为 ReviewAudioVideo 的任务 ID。若发起[视频拆条](https://cloud.tencent.com/document/api/266/51098)任务时，视频拆条任务信息列表指定了任务流模板(ProcedureName)，当该任务流模板指定了 ReviewAudioVideoTask 时，发起该任务。
-	ReviewAudioVideoTaskId *string `json:"ReviewAudioVideoTaskId,omitempty" name:"ReviewAudioVideoTaskId"`
 }
 
 type StatDataItem struct {
@@ -19625,10 +19527,9 @@ type TaskSimpleInfo struct {
 
 	// 任务类型，取值：
 	// <li>Procedure：视频处理任务；</li>
-	// <li>EditMedia：视频编辑任务；</li>
-	// <li>ReduceMediaBitrate：降码率任务；</li>
-	// <li>WechatDistribute：微信发布任务；</li>
-	// <li>ReviewAudioVideo：音视频审核任务。</li>
+	// <li>EditMedia：视频编辑任务</li>
+	// <li>ReduceMediaBitrate：降码率任务</li>
+	// <li>WechatDistribute：微信发布任务。</li>
 	// 兼容 2017 版的任务类型：
 	// <li>Transcode：视频转码任务；</li>
 	// <li>SnapshotByTimeOffset：视频截图任务；</li>

@@ -81,7 +81,6 @@ func NewChannelBatchCancelFlowsResponse() (response *ChannelBatchCancelFlowsResp
 //  OPERATIONDENIED_USERNOTINORGANIZATION = "OperationDenied.UserNotInOrganization"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelBatchCancelFlows(request *ChannelBatchCancelFlowsRequest) (response *ChannelBatchCancelFlowsResponse, err error) {
     return c.ChannelBatchCancelFlowsWithContext(context.Background(), request)
 }
@@ -104,7 +103,6 @@ func (c *Client) ChannelBatchCancelFlows(request *ChannelBatchCancelFlowsRequest
 //  OPERATIONDENIED_USERNOTINORGANIZATION = "OperationDenied.UserNotInOrganization"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelBatchCancelFlowsWithContext(ctx context.Context, request *ChannelBatchCancelFlowsRequest) (response *ChannelBatchCancelFlowsResponse, err error) {
     if request == nil {
         request = NewChannelBatchCancelFlowsRequest()
@@ -160,7 +158,6 @@ func NewChannelCancelFlowResponse() (response *ChannelCancelFlowResponse) {
 //  OPERATIONDENIED_FORBID = "OperationDenied.Forbid"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) ChannelCancelFlow(request *ChannelCancelFlowRequest) (response *ChannelCancelFlowResponse, err error) {
@@ -188,7 +185,6 @@ func (c *Client) ChannelCancelFlow(request *ChannelCancelFlowRequest) (response 
 //  OPERATIONDENIED_FORBID = "OperationDenied.Forbid"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) ChannelCancelFlowWithContext(ctx context.Context, request *ChannelCancelFlowRequest) (response *ChannelCancelFlowResponse, err error) {
@@ -235,7 +231,6 @@ func NewChannelCancelMultiFlowSignQRCodeResponse() (response *ChannelCancelMulti
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
 //  MISSINGPARAMETER = "MissingParameter"
 //  OPERATIONDENIED_FORBID = "OperationDenied.Forbid"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCancelMultiFlowSignQRCode(request *ChannelCancelMultiFlowSignQRCodeRequest) (response *ChannelCancelMultiFlowSignQRCodeResponse, err error) {
     return c.ChannelCancelMultiFlowSignQRCodeWithContext(context.Background(), request)
 }
@@ -250,7 +245,6 @@ func (c *Client) ChannelCancelMultiFlowSignQRCode(request *ChannelCancelMultiFlo
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
 //  MISSINGPARAMETER = "MissingParameter"
 //  OPERATIONDENIED_FORBID = "OperationDenied.Forbid"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCancelMultiFlowSignQRCodeWithContext(ctx context.Context, request *ChannelCancelMultiFlowSignQRCodeRequest) (response *ChannelCancelMultiFlowSignQRCodeResponse, err error) {
     if request == nil {
         request = NewChannelCancelMultiFlowSignQRCodeRequest()
@@ -286,7 +280,7 @@ func NewChannelCreateBatchCancelFlowUrlResponse() (response *ChannelCreateBatchC
 }
 
 // ChannelCreateBatchCancelFlowUrl
-// 指定需要批量撤销的签署流程Id，获取批量撤销链接 - 不建议使用此接口，可使用ChannelBatchCancelFlows
+// 指定需要批量撤销的签署流程Id，获取批量撤销链接
 //
 // 客户指定需要撤销的签署流程Id，最多100个，超过100不处理；
 //
@@ -302,13 +296,12 @@ func NewChannelCreateBatchCancelFlowUrlResponse() (response *ChannelCreateBatchC
 //  FAILEDOPERATION = "FailedOperation"
 //  OPERATIONDENIED = "OperationDenied"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateBatchCancelFlowUrl(request *ChannelCreateBatchCancelFlowUrlRequest) (response *ChannelCreateBatchCancelFlowUrlResponse, err error) {
     return c.ChannelCreateBatchCancelFlowUrlWithContext(context.Background(), request)
 }
 
 // ChannelCreateBatchCancelFlowUrl
-// 指定需要批量撤销的签署流程Id，获取批量撤销链接 - 不建议使用此接口，可使用ChannelBatchCancelFlows
+// 指定需要批量撤销的签署流程Id，获取批量撤销链接
 //
 // 客户指定需要撤销的签署流程Id，最多100个，超过100不处理；
 //
@@ -324,7 +317,6 @@ func (c *Client) ChannelCreateBatchCancelFlowUrl(request *ChannelCreateBatchCanc
 //  FAILEDOPERATION = "FailedOperation"
 //  OPERATIONDENIED = "OperationDenied"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateBatchCancelFlowUrlWithContext(ctx context.Context, request *ChannelCreateBatchCancelFlowUrlRequest) (response *ChannelCreateBatchCancelFlowUrlResponse, err error) {
     if request == nil {
         request = NewChannelCreateBatchCancelFlowUrlRequest()
@@ -391,7 +383,6 @@ func NewChannelCreateBoundFlowsResponse() (response *ChannelCreateBoundFlowsResp
 //  RESOURCENOTFOUND_APPLICATIONID = "ResourceNotFound.ApplicationId"
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) ChannelCreateBoundFlows(request *ChannelCreateBoundFlowsRequest) (response *ChannelCreateBoundFlowsResponse, err error) {
@@ -430,7 +421,6 @@ func (c *Client) ChannelCreateBoundFlows(request *ChannelCreateBoundFlowsRequest
 //  RESOURCENOTFOUND_APPLICATIONID = "ResourceNotFound.ApplicationId"
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) ChannelCreateBoundFlowsWithContext(ctx context.Context, request *ChannelCreateBoundFlowsRequest) (response *ChannelCreateBoundFlowsResponse, err error) {
@@ -473,7 +463,6 @@ func NewChannelCreateConvertTaskApiResponse() (response *ChannelCreateConvertTas
 // 可能返回的错误码:
 //  INTERNALERROR_DEPENDSAPI = "InternalError.DependsApi"
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateConvertTaskApi(request *ChannelCreateConvertTaskApiRequest) (response *ChannelCreateConvertTaskApiResponse, err error) {
     return c.ChannelCreateConvertTaskApiWithContext(context.Background(), request)
 }
@@ -484,7 +473,6 @@ func (c *Client) ChannelCreateConvertTaskApi(request *ChannelCreateConvertTaskAp
 // 可能返回的错误码:
 //  INTERNALERROR_DEPENDSAPI = "InternalError.DependsApi"
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateConvertTaskApiWithContext(ctx context.Context, request *ChannelCreateConvertTaskApiRequest) (response *ChannelCreateConvertTaskApiResponse, err error) {
     if request == nil {
         request = NewChannelCreateConvertTaskApiRequest()
@@ -577,7 +565,6 @@ func NewChannelCreateFlowByFilesResponse() (response *ChannelCreateFlowByFilesRe
 //  RESOURCENOTFOUND_RESOURCE = "ResourceNotFound.Resource"
 //  RESOURCENOTFOUND_SEAL = "ResourceNotFound.Seal"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateFlowByFiles(request *ChannelCreateFlowByFilesRequest) (response *ChannelCreateFlowByFilesResponse, err error) {
     return c.ChannelCreateFlowByFilesWithContext(context.Background(), request)
 }
@@ -640,7 +627,6 @@ func (c *Client) ChannelCreateFlowByFiles(request *ChannelCreateFlowByFilesReque
 //  RESOURCENOTFOUND_RESOURCE = "ResourceNotFound.Resource"
 //  RESOURCENOTFOUND_SEAL = "ResourceNotFound.Seal"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateFlowByFilesWithContext(ctx context.Context, request *ChannelCreateFlowByFilesRequest) (response *ChannelCreateFlowByFilesResponse, err error) {
     if request == nil {
         request = NewChannelCreateFlowByFilesRequest()
@@ -724,7 +710,6 @@ func NewChannelCreateFlowGroupByFilesResponse() (response *ChannelCreateFlowGrou
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_RESOURCE = "ResourceNotFound.Resource"
 //  RESOURCENOTFOUND_SEAL = "ResourceNotFound.Seal"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateFlowGroupByFiles(request *ChannelCreateFlowGroupByFilesRequest) (response *ChannelCreateFlowGroupByFilesResponse, err error) {
     return c.ChannelCreateFlowGroupByFilesWithContext(context.Background(), request)
 }
@@ -778,7 +763,6 @@ func (c *Client) ChannelCreateFlowGroupByFiles(request *ChannelCreateFlowGroupBy
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_RESOURCE = "ResourceNotFound.Resource"
 //  RESOURCENOTFOUND_SEAL = "ResourceNotFound.Seal"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateFlowGroupByFilesWithContext(ctx context.Context, request *ChannelCreateFlowGroupByFilesRequest) (response *ChannelCreateFlowGroupByFilesResponse, err error) {
     if request == nil {
         request = NewChannelCreateFlowGroupByFilesRequest()
@@ -791,68 +775,6 @@ func (c *Client) ChannelCreateFlowGroupByFilesWithContext(ctx context.Context, r
     request.SetContext(ctx)
     
     response = NewChannelCreateFlowGroupByFilesResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewChannelCreateFlowRemindsRequest() (request *ChannelCreateFlowRemindsRequest) {
-    request = &ChannelCreateFlowRemindsRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("essbasic", APIVersion, "ChannelCreateFlowReminds")
-    
-    
-    return
-}
-
-func NewChannelCreateFlowRemindsResponse() (response *ChannelCreateFlowRemindsResponse) {
-    response = &ChannelCreateFlowRemindsResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// ChannelCreateFlowReminds
-// 指定需要批量催办的签署流程Id，批量催办合同，最多100个；接口失败后返回错误信息
-//
-// 注意:
-//
-// 该接口需要开白后使用
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  OPERATIONDENIED = "OperationDenied"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
-func (c *Client) ChannelCreateFlowReminds(request *ChannelCreateFlowRemindsRequest) (response *ChannelCreateFlowRemindsResponse, err error) {
-    return c.ChannelCreateFlowRemindsWithContext(context.Background(), request)
-}
-
-// ChannelCreateFlowReminds
-// 指定需要批量催办的签署流程Id，批量催办合同，最多100个；接口失败后返回错误信息
-//
-// 注意:
-//
-// 该接口需要开白后使用
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  OPERATIONDENIED = "OperationDenied"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
-func (c *Client) ChannelCreateFlowRemindsWithContext(ctx context.Context, request *ChannelCreateFlowRemindsRequest) (response *ChannelCreateFlowRemindsResponse, err error) {
-    if request == nil {
-        request = NewChannelCreateFlowRemindsRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("ChannelCreateFlowReminds require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewChannelCreateFlowRemindsResponse()
     err = c.Send(request, response)
     return
 }
@@ -896,7 +818,6 @@ func NewChannelCreateFlowSignReviewResponse() (response *ChannelCreateFlowSignRe
 //  OPERATIONDENIED_NOFLOWPERMISSION = "OperationDenied.NoFlowPermission"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) ChannelCreateFlowSignReview(request *ChannelCreateFlowSignReviewRequest) (response *ChannelCreateFlowSignReviewResponse, err error) {
@@ -924,7 +845,6 @@ func (c *Client) ChannelCreateFlowSignReview(request *ChannelCreateFlowSignRevie
 //  OPERATIONDENIED_NOFLOWPERMISSION = "OperationDenied.NoFlowPermission"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) ChannelCreateFlowSignReviewWithContext(ctx context.Context, request *ChannelCreateFlowSignReviewRequest) (response *ChannelCreateFlowSignReviewResponse, err error) {
@@ -939,64 +859,6 @@ func (c *Client) ChannelCreateFlowSignReviewWithContext(ctx context.Context, req
     request.SetContext(ctx)
     
     response = NewChannelCreateFlowSignReviewResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewChannelCreateFlowSignUrlRequest() (request *ChannelCreateFlowSignUrlRequest) {
-    request = &ChannelCreateFlowSignUrlRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("essbasic", APIVersion, "ChannelCreateFlowSignUrl")
-    
-    
-    return
-}
-
-func NewChannelCreateFlowSignUrlResponse() (response *ChannelCreateFlowSignUrlResponse) {
-    response = &ChannelCreateFlowSignUrlResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// ChannelCreateFlowSignUrl
-// 渠道版创建签署链接，需要联系运营人员开白后才可使用
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  MISSINGPARAMETER = "MissingParameter"
-//  OPERATIONDENIED = "OperationDenied"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
-func (c *Client) ChannelCreateFlowSignUrl(request *ChannelCreateFlowSignUrlRequest) (response *ChannelCreateFlowSignUrlResponse, err error) {
-    return c.ChannelCreateFlowSignUrlWithContext(context.Background(), request)
-}
-
-// ChannelCreateFlowSignUrl
-// 渠道版创建签署链接，需要联系运营人员开白后才可使用
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  MISSINGPARAMETER = "MissingParameter"
-//  OPERATIONDENIED = "OperationDenied"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
-func (c *Client) ChannelCreateFlowSignUrlWithContext(ctx context.Context, request *ChannelCreateFlowSignUrlRequest) (response *ChannelCreateFlowSignUrlResponse, err error) {
-    if request == nil {
-        request = NewChannelCreateFlowSignUrlRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("ChannelCreateFlowSignUrl require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewChannelCreateFlowSignUrlResponse()
     err = c.Send(request, response)
     return
 }
@@ -1036,7 +898,6 @@ func NewChannelCreateMultiFlowSignQRCodeResponse() (response *ChannelCreateMulti
 //  OPERATIONDENIED_NOQUOTA = "OperationDenied.NoQuota"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateMultiFlowSignQRCode(request *ChannelCreateMultiFlowSignQRCodeRequest) (response *ChannelCreateMultiFlowSignQRCodeResponse, err error) {
     return c.ChannelCreateMultiFlowSignQRCodeWithContext(context.Background(), request)
 }
@@ -1058,7 +919,6 @@ func (c *Client) ChannelCreateMultiFlowSignQRCode(request *ChannelCreateMultiFlo
 //  OPERATIONDENIED_NOQUOTA = "OperationDenied.NoQuota"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateMultiFlowSignQRCodeWithContext(ctx context.Context, request *ChannelCreateMultiFlowSignQRCodeRequest) (response *ChannelCreateMultiFlowSignQRCodeResponse, err error) {
     if request == nil {
         request = NewChannelCreateMultiFlowSignQRCodeRequest()
@@ -1111,7 +971,6 @@ func NewChannelCreateReleaseFlowResponse() (response *ChannelCreateReleaseFlowRe
 //  MISSINGPARAMETER = "MissingParameter"
 //  OPERATIONDENIED_USERNOTINORGANIZATION = "OperationDenied.UserNotInOrganization"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateReleaseFlow(request *ChannelCreateReleaseFlowRequest) (response *ChannelCreateReleaseFlowResponse, err error) {
     return c.ChannelCreateReleaseFlowWithContext(context.Background(), request)
 }
@@ -1134,7 +993,6 @@ func (c *Client) ChannelCreateReleaseFlow(request *ChannelCreateReleaseFlowReque
 //  MISSINGPARAMETER = "MissingParameter"
 //  OPERATIONDENIED_USERNOTINORGANIZATION = "OperationDenied.UserNotInOrganization"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelCreateReleaseFlowWithContext(ctx context.Context, request *ChannelCreateReleaseFlowRequest) (response *ChannelCreateReleaseFlowResponse, err error) {
     if request == nil {
         request = NewChannelCreateReleaseFlowRequest()
@@ -1190,7 +1048,6 @@ func NewChannelDescribeEmployeesResponse() (response *ChannelDescribeEmployeesRe
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelDescribeEmployees(request *ChannelDescribeEmployeesRequest) (response *ChannelDescribeEmployeesResponse, err error) {
     return c.ChannelDescribeEmployeesWithContext(context.Background(), request)
 }
@@ -1216,7 +1073,6 @@ func (c *Client) ChannelDescribeEmployees(request *ChannelDescribeEmployeesReque
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelDescribeEmployeesWithContext(ctx context.Context, request *ChannelDescribeEmployeesRequest) (response *ChannelDescribeEmployeesResponse, err error) {
     if request == nil {
         request = NewChannelDescribeEmployeesRequest()
@@ -1261,7 +1117,6 @@ func NewChannelDescribeOrganizationSealsResponse() (response *ChannelDescribeOrg
 //  INVALIDPARAMETER = "InvalidParameter"
 //  OPERATIONDENIED = "OperationDenied"
 //  OPERATIONDENIED_OPERATORHASNOPERMISSION = "OperationDenied.OperatorHasNoPermission"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelDescribeOrganizationSeals(request *ChannelDescribeOrganizationSealsRequest) (response *ChannelDescribeOrganizationSealsResponse, err error) {
     return c.ChannelDescribeOrganizationSealsWithContext(context.Background(), request)
 }
@@ -1276,7 +1131,6 @@ func (c *Client) ChannelDescribeOrganizationSeals(request *ChannelDescribeOrgani
 //  INVALIDPARAMETER = "InvalidParameter"
 //  OPERATIONDENIED = "OperationDenied"
 //  OPERATIONDENIED_OPERATORHASNOPERMISSION = "OperationDenied.OperatorHasNoPermission"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelDescribeOrganizationSealsWithContext(ctx context.Context, request *ChannelDescribeOrganizationSealsRequest) (response *ChannelDescribeOrganizationSealsResponse, err error) {
     if request == nil {
         request = NewChannelDescribeOrganizationSealsRequest()
@@ -1316,7 +1170,6 @@ func NewChannelGetTaskResultApiResponse() (response *ChannelGetTaskResultApiResp
 //
 // 可能返回的错误码:
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelGetTaskResultApi(request *ChannelGetTaskResultApiRequest) (response *ChannelGetTaskResultApiResponse, err error) {
     return c.ChannelGetTaskResultApiWithContext(context.Background(), request)
 }
@@ -1326,7 +1179,6 @@ func (c *Client) ChannelGetTaskResultApi(request *ChannelGetTaskResultApiRequest
 //
 // 可能返回的错误码:
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelGetTaskResultApiWithContext(ctx context.Context, request *ChannelGetTaskResultApiRequest) (response *ChannelGetTaskResultApiResponse, err error) {
     if request == nil {
         request = NewChannelGetTaskResultApiRequest()
@@ -1367,10 +1219,8 @@ func NewChannelVerifyPdfResponse() (response *ChannelVerifyPdfResponse) {
 // 可能返回的错误码:
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
-//  OPERATIONDENIED = "OperationDenied"
 //  OPERATIONDENIED_ERRNORESOURCEACCESS = "OperationDenied.ErrNoResourceAccess"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelVerifyPdf(request *ChannelVerifyPdfRequest) (response *ChannelVerifyPdfResponse, err error) {
     return c.ChannelVerifyPdfWithContext(context.Background(), request)
 }
@@ -1381,10 +1231,8 @@ func (c *Client) ChannelVerifyPdf(request *ChannelVerifyPdfRequest) (response *C
 // 可能返回的错误码:
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
-//  OPERATIONDENIED = "OperationDenied"
 //  OPERATIONDENIED_ERRNORESOURCEACCESS = "OperationDenied.ErrNoResourceAccess"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) ChannelVerifyPdfWithContext(ctx context.Context, request *ChannelVerifyPdfRequest) (response *ChannelVerifyPdfResponse, err error) {
     if request == nil {
         request = NewChannelVerifyPdfRequest()
@@ -1420,9 +1268,7 @@ func NewCreateChannelFlowEvidenceReportResponse() (response *CreateChannelFlowEv
 }
 
 // CreateChannelFlowEvidenceReport
-// 创建出证报告，返回报告 ID。需要配合出证套餐才能调用。
-//
-// 出证需要一定时间，建议调用创建出证24小时之后再通过DescribeChannelFlowEvidenceReport进行查询。
+// 创建出证报告，返回报告 ID
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -1436,15 +1282,12 @@ func NewCreateChannelFlowEvidenceReportResponse() (response *CreateChannelFlowEv
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
 //  RESOURCENOTFOUND_FLOWAPPROVER = "ResourceNotFound.FlowApprover"
 //  RESOURCENOTFOUND_URL = "ResourceNotFound.URL"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) CreateChannelFlowEvidenceReport(request *CreateChannelFlowEvidenceReportRequest) (response *CreateChannelFlowEvidenceReportResponse, err error) {
     return c.CreateChannelFlowEvidenceReportWithContext(context.Background(), request)
 }
 
 // CreateChannelFlowEvidenceReport
-// 创建出证报告，返回报告 ID。需要配合出证套餐才能调用。
-//
-// 出证需要一定时间，建议调用创建出证24小时之后再通过DescribeChannelFlowEvidenceReport进行查询。
+// 创建出证报告，返回报告 ID
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -1458,7 +1301,6 @@ func (c *Client) CreateChannelFlowEvidenceReport(request *CreateChannelFlowEvide
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
 //  RESOURCENOTFOUND_FLOWAPPROVER = "ResourceNotFound.FlowApprover"
 //  RESOURCENOTFOUND_URL = "ResourceNotFound.URL"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) CreateChannelFlowEvidenceReportWithContext(ctx context.Context, request *CreateChannelFlowEvidenceReportRequest) (response *CreateChannelFlowEvidenceReportResponse, err error) {
     if request == nil {
         request = NewCreateChannelFlowEvidenceReportRequest()
@@ -1532,7 +1374,6 @@ func NewCreateConsoleLoginUrlResponse() (response *CreateConsoleLoginUrlResponse
 //  RESOURCENOTFOUND_APPLICATIONID = "ResourceNotFound.ApplicationId"
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) CreateConsoleLoginUrl(request *CreateConsoleLoginUrlRequest) (response *CreateConsoleLoginUrlResponse, err error) {
@@ -1578,7 +1419,6 @@ func (c *Client) CreateConsoleLoginUrl(request *CreateConsoleLoginUrlRequest) (r
 //  RESOURCENOTFOUND_APPLICATIONID = "ResourceNotFound.ApplicationId"
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) CreateConsoleLoginUrlWithContext(ctx context.Context, request *CreateConsoleLoginUrlRequest) (response *CreateConsoleLoginUrlResponse, err error) {
@@ -1643,13 +1483,11 @@ func NewCreateFlowsByTemplatesResponse() (response *CreateFlowsByTemplatesRespon
 //  MISSINGPARAMETER = "MissingParameter"
 //  OPERATIONDENIED = "OperationDenied"
 //  OPERATIONDENIED_NOIDENTITYVERIFY = "OperationDenied.NoIdentityVerify"
-//  OPERATIONDENIED_USERNOTINORGANIZATION = "OperationDenied.UserNotInOrganization"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) CreateFlowsByTemplates(request *CreateFlowsByTemplatesRequest) (response *CreateFlowsByTemplatesResponse, err error) {
     return c.CreateFlowsByTemplatesWithContext(context.Background(), request)
 }
@@ -1682,13 +1520,11 @@ func (c *Client) CreateFlowsByTemplates(request *CreateFlowsByTemplatesRequest) 
 //  MISSINGPARAMETER = "MissingParameter"
 //  OPERATIONDENIED = "OperationDenied"
 //  OPERATIONDENIED_NOIDENTITYVERIFY = "OperationDenied.NoIdentityVerify"
-//  OPERATIONDENIED_USERNOTINORGANIZATION = "OperationDenied.UserNotInOrganization"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) CreateFlowsByTemplatesWithContext(ctx context.Context, request *CreateFlowsByTemplatesRequest) (response *CreateFlowsByTemplatesResponse, err error) {
     if request == nil {
         request = NewCreateFlowsByTemplatesRequest()
@@ -1742,7 +1578,6 @@ func NewCreateSealByImageResponse() (response *CreateSealByImageResponse) {
 //  OPERATIONDENIED = "OperationDenied"
 //  RESOURCENOTFOUND_ORGANIZATION = "ResourceNotFound.Organization"
 //  RESOURCENOTFOUND_VERIFYUSER = "ResourceNotFound.VerifyUser"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) CreateSealByImage(request *CreateSealByImageRequest) (response *CreateSealByImageResponse, err error) {
     return c.CreateSealByImageWithContext(context.Background(), request)
 }
@@ -1766,7 +1601,6 @@ func (c *Client) CreateSealByImage(request *CreateSealByImageRequest) (response 
 //  OPERATIONDENIED = "OperationDenied"
 //  RESOURCENOTFOUND_ORGANIZATION = "ResourceNotFound.Organization"
 //  RESOURCENOTFOUND_VERIFYUSER = "ResourceNotFound.VerifyUser"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) CreateSealByImageWithContext(ctx context.Context, request *CreateSealByImageRequest) (response *CreateSealByImageResponse, err error) {
     if request == nil {
         request = NewCreateSealByImageRequest()
@@ -1854,10 +1688,8 @@ func NewCreateSignUrlsResponse() (response *CreateSignUrlsResponse) {
 //  OPERATIONDENIED_NOIDENTITYVERIFY = "OperationDenied.NoIdentityVerify"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
-//  RESOURCENOTFOUND_FLOWGROUP = "ResourceNotFound.FlowGroup"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  RESOURCEUNAVAILABLE = "ResourceUnavailable"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) CreateSignUrls(request *CreateSignUrlsRequest) (response *CreateSignUrlsResponse, err error) {
     return c.CreateSignUrlsWithContext(context.Background(), request)
 }
@@ -1915,10 +1747,8 @@ func (c *Client) CreateSignUrls(request *CreateSignUrlsRequest) (response *Creat
 //  OPERATIONDENIED_NOIDENTITYVERIFY = "OperationDenied.NoIdentityVerify"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
-//  RESOURCENOTFOUND_FLOWGROUP = "ResourceNotFound.FlowGroup"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  RESOURCEUNAVAILABLE = "ResourceUnavailable"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) CreateSignUrlsWithContext(ctx context.Context, request *CreateSignUrlsRequest) (response *CreateSignUrlsResponse, err error) {
     if request == nil {
         request = NewCreateSignUrlsRequest()
@@ -1967,7 +1797,6 @@ func NewDescribeChannelFlowEvidenceReportResponse() (response *DescribeChannelFl
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
 //  RESOURCENOTFOUND_FLOWAPPROVER = "ResourceNotFound.FlowApprover"
 //  RESOURCENOTFOUND_URL = "ResourceNotFound.URL"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) DescribeChannelFlowEvidenceReport(request *DescribeChannelFlowEvidenceReportRequest) (response *DescribeChannelFlowEvidenceReportResponse, err error) {
     return c.DescribeChannelFlowEvidenceReportWithContext(context.Background(), request)
 }
@@ -1986,7 +1815,6 @@ func (c *Client) DescribeChannelFlowEvidenceReport(request *DescribeChannelFlowE
 //  RESOURCENOTFOUND_FLOW = "ResourceNotFound.Flow"
 //  RESOURCENOTFOUND_FLOWAPPROVER = "ResourceNotFound.FlowApprover"
 //  RESOURCENOTFOUND_URL = "ResourceNotFound.URL"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) DescribeChannelFlowEvidenceReportWithContext(ctx context.Context, request *DescribeChannelFlowEvidenceReportRequest) (response *DescribeChannelFlowEvidenceReportResponse, err error) {
     if request == nil {
         request = NewDescribeChannelFlowEvidenceReportRequest()
@@ -1999,64 +1827,6 @@ func (c *Client) DescribeChannelFlowEvidenceReportWithContext(ctx context.Contex
     request.SetContext(ctx)
     
     response = NewDescribeChannelFlowEvidenceReportResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewDescribeExtendedServiceAuthInfoRequest() (request *DescribeExtendedServiceAuthInfoRequest) {
-    request = &DescribeExtendedServiceAuthInfoRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("essbasic", APIVersion, "DescribeExtendedServiceAuthInfo")
-    
-    
-    return
-}
-
-func NewDescribeExtendedServiceAuthInfoResponse() (response *DescribeExtendedServiceAuthInfoResponse) {
-    response = &DescribeExtendedServiceAuthInfoResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// DescribeExtendedServiceAuthInfo
-// 查询企业扩展服务授权信息，企业经办人需要是企业超管或者法人
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  MISSINGPARAMETER = "MissingParameter"
-//  OPERATIONDENIED = "OperationDenied"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
-func (c *Client) DescribeExtendedServiceAuthInfo(request *DescribeExtendedServiceAuthInfoRequest) (response *DescribeExtendedServiceAuthInfoResponse, err error) {
-    return c.DescribeExtendedServiceAuthInfoWithContext(context.Background(), request)
-}
-
-// DescribeExtendedServiceAuthInfo
-// 查询企业扩展服务授权信息，企业经办人需要是企业超管或者法人
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  MISSINGPARAMETER = "MissingParameter"
-//  OPERATIONDENIED = "OperationDenied"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
-func (c *Client) DescribeExtendedServiceAuthInfoWithContext(ctx context.Context, request *DescribeExtendedServiceAuthInfoRequest) (response *DescribeExtendedServiceAuthInfoResponse, err error) {
-    if request == nil {
-        request = NewDescribeExtendedServiceAuthInfoRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("DescribeExtendedServiceAuthInfo require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewDescribeExtendedServiceAuthInfoResponse()
     err = c.Send(request, response)
     return
 }
@@ -2098,7 +1868,6 @@ func NewDescribeFlowDetailInfoResponse() (response *DescribeFlowDetailInfoRespon
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_FLOWAPPROVERS = "ResourceNotFound.FlowApprovers"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) DescribeFlowDetailInfo(request *DescribeFlowDetailInfoRequest) (response *DescribeFlowDetailInfoResponse, err error) {
@@ -2124,7 +1893,6 @@ func (c *Client) DescribeFlowDetailInfo(request *DescribeFlowDetailInfoRequest) 
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_FLOWAPPROVERS = "ResourceNotFound.FlowApprovers"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) DescribeFlowDetailInfoWithContext(ctx context.Context, request *DescribeFlowDetailInfoRequest) (response *DescribeFlowDetailInfoResponse, err error) {
@@ -2188,7 +1956,6 @@ func NewDescribeResourceUrlsByFlowsResponse() (response *DescribeResourceUrlsByF
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  RESOURCEUNAVAILABLE = "ResourceUnavailable"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONDOWNLOAD = "UnauthorizedOperation.UnauthorizedOperationDownload"
 //  UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONORGANIZATION = "UnauthorizedOperation.UnauthorizedOperationOrganization"
 func (c *Client) DescribeResourceUrlsByFlows(request *DescribeResourceUrlsByFlowsRequest) (response *DescribeResourceUrlsByFlowsResponse, err error) {
@@ -2222,7 +1989,6 @@ func (c *Client) DescribeResourceUrlsByFlows(request *DescribeResourceUrlsByFlow
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  RESOURCEUNAVAILABLE = "ResourceUnavailable"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONDOWNLOAD = "UnauthorizedOperation.UnauthorizedOperationDownload"
 //  UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONORGANIZATION = "UnauthorizedOperation.UnauthorizedOperationOrganization"
 func (c *Client) DescribeResourceUrlsByFlowsWithContext(ctx context.Context, request *DescribeResourceUrlsByFlowsRequest) (response *DescribeResourceUrlsByFlowsResponse, err error) {
@@ -2286,7 +2052,6 @@ func NewDescribeTemplatesResponse() (response *DescribeTemplatesResponse) {
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) DescribeTemplates(request *DescribeTemplatesRequest) (response *DescribeTemplatesResponse, err error) {
     return c.DescribeTemplatesWithContext(context.Background(), request)
 }
@@ -2318,7 +2083,6 @@ func (c *Client) DescribeTemplates(request *DescribeTemplatesRequest) (response 
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) DescribeTemplatesWithContext(ctx context.Context, request *DescribeTemplatesRequest) (response *DescribeTemplatesResponse, err error) {
     if request == nil {
         request = NewDescribeTemplatesRequest()
@@ -2373,7 +2137,6 @@ func NewDescribeUsageResponse() (response *DescribeUsageResponse) {
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) DescribeUsage(request *DescribeUsageRequest) (response *DescribeUsageResponse, err error) {
@@ -2400,7 +2163,6 @@ func (c *Client) DescribeUsage(request *DescribeUsageRequest) (response *Describ
 //  RESOURCENOTFOUND = "ResourceNotFound"
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) DescribeUsageWithContext(ctx context.Context, request *DescribeUsageRequest) (response *DescribeUsageResponse, err error) {
@@ -2466,7 +2228,6 @@ func NewGetDownloadFlowUrlResponse() (response *GetDownloadFlowUrlResponse) {
 //  RESOURCENOTFOUND_TEAMWORKORGANIZATION = "ResourceNotFound.TeamWorkOrganization"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONDOWNLOAD = "UnauthorizedOperation.UnauthorizedOperationDownload"
 //  UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONORGANIZATION = "UnauthorizedOperation.UnauthorizedOperationOrganization"
 //  UNKNOWNPARAMETER = "UnknownParameter"
@@ -2504,7 +2265,6 @@ func (c *Client) GetDownloadFlowUrl(request *GetDownloadFlowUrlRequest) (respons
 //  RESOURCENOTFOUND_TEAMWORKORGANIZATION = "ResourceNotFound.TeamWorkOrganization"
 //  RESOURCENOTFOUND_USER = "ResourceNotFound.User"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONDOWNLOAD = "UnauthorizedOperation.UnauthorizedOperationDownload"
 //  UNAUTHORIZEDOPERATION_UNAUTHORIZEDOPERATIONORGANIZATION = "UnauthorizedOperation.UnauthorizedOperationOrganization"
 //  UNKNOWNPARAMETER = "UnknownParameter"
@@ -2521,62 +2281,6 @@ func (c *Client) GetDownloadFlowUrlWithContext(ctx context.Context, request *Get
     request.SetContext(ctx)
     
     response = NewGetDownloadFlowUrlResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewModifyExtendedServiceRequest() (request *ModifyExtendedServiceRequest) {
-    request = &ModifyExtendedServiceRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("essbasic", APIVersion, "ModifyExtendedService")
-    
-    
-    return
-}
-
-func NewModifyExtendedServiceResponse() (response *ModifyExtendedServiceResponse) {
-    response = &ModifyExtendedServiceResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// ModifyExtendedService
-// 修改（操作）企业扩展服务 ，企业经办人需要是企业超管或者法人
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  MISSINGPARAMETER = "MissingParameter"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
-func (c *Client) ModifyExtendedService(request *ModifyExtendedServiceRequest) (response *ModifyExtendedServiceResponse, err error) {
-    return c.ModifyExtendedServiceWithContext(context.Background(), request)
-}
-
-// ModifyExtendedService
-// 修改（操作）企业扩展服务 ，企业经办人需要是企业超管或者法人
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  MISSINGPARAMETER = "MissingParameter"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
-func (c *Client) ModifyExtendedServiceWithContext(ctx context.Context, request *ModifyExtendedServiceRequest) (response *ModifyExtendedServiceResponse, err error) {
-    if request == nil {
-        request = NewModifyExtendedServiceRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("ModifyExtendedService require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewModifyExtendedServiceResponse()
     err = c.Send(request, response)
     return
 }
@@ -2639,7 +2343,6 @@ func NewOperateChannelTemplateResponse() (response *OperateChannelTemplateRespon
 //  RESOURCENOTFOUND_ORGANIZATION = "ResourceNotFound.Organization"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) OperateChannelTemplate(request *OperateChannelTemplateRequest) (response *OperateChannelTemplateResponse, err error) {
@@ -2686,7 +2389,6 @@ func (c *Client) OperateChannelTemplate(request *OperateChannelTemplateRequest) 
 //  RESOURCENOTFOUND_ORGANIZATION = "ResourceNotFound.Organization"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) OperateChannelTemplateWithContext(ctx context.Context, request *OperateChannelTemplateRequest) (response *OperateChannelTemplateResponse, err error) {
@@ -2739,7 +2441,6 @@ func NewPrepareFlowsResponse() (response *PrepareFlowsResponse) {
 //  INVALIDPARAMETER_DATANOTFOUND = "InvalidParameter.DataNotFound"
 //  INVALIDPARAMETER_FLOWDEADLINE = "InvalidParameter.FlowDeadLine"
 //  INVALIDPARAMETER_FLOWNAME = "InvalidParameter.FlowName"
-//  INVALIDPARAMETER_NAME = "InvalidParameter.Name"
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
 //  LIMITEXCEEDED_FLOWINFOS = "LimitExceeded.FlowInfos"
 //  MISSINGPARAMETER = "MissingParameter"
@@ -2747,7 +2448,6 @@ func NewPrepareFlowsResponse() (response *PrepareFlowsResponse) {
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_ORGANIZATION = "ResourceNotFound.Organization"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) PrepareFlows(request *PrepareFlowsRequest) (response *PrepareFlowsResponse, err error) {
     return c.PrepareFlowsWithContext(context.Background(), request)
 }
@@ -2768,7 +2468,6 @@ func (c *Client) PrepareFlows(request *PrepareFlowsRequest) (response *PrepareFl
 //  INVALIDPARAMETER_DATANOTFOUND = "InvalidParameter.DataNotFound"
 //  INVALIDPARAMETER_FLOWDEADLINE = "InvalidParameter.FlowDeadLine"
 //  INVALIDPARAMETER_FLOWNAME = "InvalidParameter.FlowName"
-//  INVALIDPARAMETER_NAME = "InvalidParameter.Name"
 //  INVALIDPARAMETER_PARAMERROR = "InvalidParameter.ParamError"
 //  LIMITEXCEEDED_FLOWINFOS = "LimitExceeded.FlowInfos"
 //  MISSINGPARAMETER = "MissingParameter"
@@ -2776,7 +2475,6 @@ func (c *Client) PrepareFlows(request *PrepareFlowsRequest) (response *PrepareFl
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_ORGANIZATION = "ResourceNotFound.Organization"
 //  RESOURCENOTFOUND_TEMPLATE = "ResourceNotFound.Template"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) PrepareFlowsWithContext(ctx context.Context, request *PrepareFlowsRequest) (response *PrepareFlowsResponse, err error) {
     if request == nil {
         request = NewPrepareFlowsRequest()
@@ -2835,7 +2533,6 @@ func NewSyncProxyOrganizationResponse() (response *SyncProxyOrganizationResponse
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_APPLICATIONID = "ResourceNotFound.ApplicationId"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) SyncProxyOrganization(request *SyncProxyOrganizationRequest) (response *SyncProxyOrganizationResponse, err error) {
@@ -2866,7 +2563,6 @@ func (c *Client) SyncProxyOrganization(request *SyncProxyOrganizationRequest) (r
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_APPLICATIONID = "ResourceNotFound.ApplicationId"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) SyncProxyOrganizationWithContext(ctx context.Context, request *SyncProxyOrganizationRequest) (response *SyncProxyOrganizationResponse, err error) {
@@ -2932,7 +2628,6 @@ func NewSyncProxyOrganizationOperatorsResponse() (response *SyncProxyOrganizatio
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_APPLICATIONID = "ResourceNotFound.ApplicationId"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) SyncProxyOrganizationOperators(request *SyncProxyOrganizationOperatorsRequest) (response *SyncProxyOrganizationOperatorsResponse, err error) {
@@ -2968,7 +2663,6 @@ func (c *Client) SyncProxyOrganizationOperators(request *SyncProxyOrganizationOp
 //  RESOURCENOTFOUND_APPLICATION = "ResourceNotFound.Application"
 //  RESOURCENOTFOUND_APPLICATIONID = "ResourceNotFound.ApplicationId"
 //  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) SyncProxyOrganizationOperatorsWithContext(ctx context.Context, request *SyncProxyOrganizationOperatorsRequest) (response *SyncProxyOrganizationOperatorsResponse, err error) {
@@ -3023,7 +2717,6 @@ func NewUploadFilesResponse() (response *UploadFilesResponse) {
 //  INVALIDPARAMETER = "InvalidParameter"
 //  OPERATIONDENIED = "OperationDenied"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) UploadFiles(request *UploadFilesRequest) (response *UploadFilesResponse, err error) {
     return c.UploadFilesWithContext(context.Background(), request)
 }
@@ -3046,7 +2739,6 @@ func (c *Client) UploadFiles(request *UploadFilesRequest) (response *UploadFiles
 //  INVALIDPARAMETER = "InvalidParameter"
 //  OPERATIONDENIED = "OperationDenied"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  UNAUTHORIZEDOPERATION_NOPERMISSIONFEATURE = "UnauthorizedOperation.NoPermissionFeature"
 func (c *Client) UploadFilesWithContext(ctx context.Context, request *UploadFilesRequest) (response *UploadFilesResponse, err error) {
     if request == nil {
         request = NewUploadFilesRequest()

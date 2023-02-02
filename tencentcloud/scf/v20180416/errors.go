@@ -38,9 +38,6 @@ const (
 	// 请求role信息失败。
 	FAILEDOPERATION_CALLROLEFAILED = "FailedOperation.CallRoleFailed"
 
-	// CLS服务未注册。
-	FAILEDOPERATION_CLSSERVICEUNREGISTERED = "FailedOperation.ClsServiceUnregistered"
-
 	// CopyAsyncRun 传参异常。
 	FAILEDOPERATION_COPYASYNCRUN = "FailedOperation.CopyAsyncRun"
 
@@ -193,9 +190,6 @@ const (
 
 	// 内部服务错误。
 	INTERNALERROR_GETROLEERROR = "InternalError.GetRoleError"
-
-	// 获取sts票据信息失败。
-	INTERNALERROR_GETSTSTOKENFAILED = "InternalError.GetStsTokenFailed"
 
 	// 内部系统错误。
 	INTERNALERROR_SYSTEM = "InternalError.System"

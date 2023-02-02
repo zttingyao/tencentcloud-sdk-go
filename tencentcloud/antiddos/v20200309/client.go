@@ -597,7 +597,6 @@ func NewCreateDDoSAIResponse() (response *CreateDDoSAIResponse) {
 // 设置DDoS防护的AI防护开关
 //
 // 可能返回的错误码:
-//  RESOURCEINUSE = "ResourceInUse"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 func (c *Client) CreateDDoSAI(request *CreateDDoSAIRequest) (response *CreateDDoSAIResponse, err error) {
     return c.CreateDDoSAIWithContext(context.Background(), request)
@@ -607,7 +606,6 @@ func (c *Client) CreateDDoSAI(request *CreateDDoSAIRequest) (response *CreateDDo
 // 设置DDoS防护的AI防护开关
 //
 // 可能返回的错误码:
-//  RESOURCEINUSE = "ResourceInUse"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 func (c *Client) CreateDDoSAIWithContext(ctx context.Context, request *CreateDDoSAIRequest) (response *CreateDDoSAIResponse, err error) {
     if request == nil {
@@ -1912,7 +1910,6 @@ func NewDeleteCcGeoIPBlockConfigResponse() (response *DeleteCcGeoIPBlockConfigRe
 //
 // 可能返回的错误码:
 //  LIMITEXCEEDED = "LimitExceeded"
-//  RESOURCENOTFOUND = "ResourceNotFound"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) DeleteCcGeoIPBlockConfig(request *DeleteCcGeoIPBlockConfigRequest) (response *DeleteCcGeoIPBlockConfigResponse, err error) {
     return c.DeleteCcGeoIPBlockConfigWithContext(context.Background(), request)
@@ -1923,7 +1920,6 @@ func (c *Client) DeleteCcGeoIPBlockConfig(request *DeleteCcGeoIPBlockConfigReque
 //
 // 可能返回的错误码:
 //  LIMITEXCEEDED = "LimitExceeded"
-//  RESOURCENOTFOUND = "ResourceNotFound"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) DeleteCcGeoIPBlockConfigWithContext(ctx context.Context, request *DeleteCcGeoIPBlockConfigRequest) (response *DeleteCcGeoIPBlockConfigResponse, err error) {
     if request == nil {
@@ -2109,7 +2105,6 @@ func NewDeletePacketFilterConfigResponse() (response *DeletePacketFilterConfigRe
 // 删除DDoS防护的特征过滤规则
 //
 // 可能返回的错误码:
-//  RESOURCEINUSE = "ResourceInUse"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 func (c *Client) DeletePacketFilterConfig(request *DeletePacketFilterConfigRequest) (response *DeletePacketFilterConfigResponse, err error) {
     return c.DeletePacketFilterConfigWithContext(context.Background(), request)
@@ -2119,7 +2114,6 @@ func (c *Client) DeletePacketFilterConfig(request *DeletePacketFilterConfigReque
 // 删除DDoS防护的特征过滤规则
 //
 // 可能返回的错误码:
-//  RESOURCEINUSE = "ResourceInUse"
 //  RESOURCENOTFOUND = "ResourceNotFound"
 func (c *Client) DeletePacketFilterConfigWithContext(ctx context.Context, request *DeletePacketFilterConfigRequest) (response *DeletePacketFilterConfigResponse, err error) {
     if request == nil {

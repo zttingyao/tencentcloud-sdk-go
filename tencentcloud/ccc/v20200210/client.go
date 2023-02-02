@@ -1032,11 +1032,7 @@ func NewDescribeChatMessagesResponse() (response *DescribeChatMessagesResponse) 
 }
 
 // DescribeChatMessages
-// 获取指定服务记录文本聊天内容，需要先使用查询在线客服记录（DescribeIMCdrs） API 获取服务记录 SessionId。
-//
-// 
-//
-// 文本聊天记录只保存了 1 年内的，1 年之前会自动清理。
+// 包括具体聊天内容
 //
 // 可能返回的错误码:
 //  INTERNALERROR = "InternalError"
@@ -1049,11 +1045,7 @@ func (c *Client) DescribeChatMessages(request *DescribeChatMessagesRequest) (res
 }
 
 // DescribeChatMessages
-// 获取指定服务记录文本聊天内容，需要先使用查询在线客服记录（DescribeIMCdrs） API 获取服务记录 SessionId。
-//
-// 
-//
-// 文本聊天记录只保存了 1 年内的，1 年之前会自动清理。
+// 包括具体聊天内容
 //
 // 可能返回的错误码:
 //  INTERNALERROR = "InternalError"
@@ -1200,7 +1192,7 @@ func NewDescribeIMCdrsResponse() (response *DescribeIMCdrsResponse) {
 }
 
 // DescribeIMCdrs
-// 获取包括全媒体和文本会话两种类型的服务记录。
+// 包括全媒体和文本两种类型
 //
 // 可能返回的错误码:
 //  INTERNALERROR = "InternalError"
@@ -1211,7 +1203,7 @@ func (c *Client) DescribeIMCdrs(request *DescribeIMCdrsRequest) (response *Descr
 }
 
 // DescribeIMCdrs
-// 获取包括全媒体和文本会话两种类型的服务记录。
+// 包括全媒体和文本两种类型
 //
 // 可能返回的错误码:
 //  INTERNALERROR = "InternalError"

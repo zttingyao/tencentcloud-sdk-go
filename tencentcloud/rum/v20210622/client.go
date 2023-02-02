@@ -180,7 +180,7 @@ func NewCreateProjectResponse() (response *CreateProjectResponse) {
 }
 
 // CreateProject
-// 创建 RUM 应用（归属于某个团队）
+// 创建项目（归属于某个团队）
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -197,7 +197,7 @@ func (c *Client) CreateProject(request *CreateProjectRequest) (response *CreateP
 }
 
 // CreateProject
-// 创建 RUM 应用（归属于某个团队）
+// 创建项目（归属于某个团队）
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -418,7 +418,7 @@ func NewCreateTawInstanceResponse() (response *CreateTawInstanceResponse) {
 }
 
 // CreateTawInstance
-// 创建 RUM 业务系统
+// 创建Rum实例
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -435,7 +435,7 @@ func (c *Client) CreateTawInstance(request *CreateTawInstanceRequest) (response 
 }
 
 // CreateTawInstance
-// 创建 RUM 业务系统
+// 创建Rum实例
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -2924,7 +2924,7 @@ func NewDescribeLogListResponse() (response *DescribeLogListResponse) {
 }
 
 // DescribeLogList
-// (已下线，请用DescribeRumLogList)
+// 获取项目下的日志列表（实例创建的项目下的日志列表）
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -2952,7 +2952,7 @@ func (c *Client) DescribeLogList(request *DescribeLogListRequest) (response *Des
 }
 
 // DescribeLogList
-// (已下线，请用DescribeRumLogList)
+// 获取项目下的日志列表（实例创建的项目下的日志列表）
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -3154,7 +3154,7 @@ func NewDescribeProjectLimitsResponse() (response *DescribeProjectLimitsResponse
 }
 
 // DescribeProjectLimits
-// 获取应用上报抽样信息
+// 获取项目上报率列表
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -3184,7 +3184,7 @@ func (c *Client) DescribeProjectLimits(request *DescribeProjectLimitsRequest) (r
 }
 
 // DescribeProjectLimits
-// 获取应用上报抽样信息
+// 获取项目上报率列表
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -3484,7 +3484,7 @@ func NewDescribeReleaseFilesResponse() (response *DescribeReleaseFilesResponse) 
 }
 
 // DescribeReleaseFiles
-// 获取应用对应sourcemap文件列表
+// 获取项目对应sourcemap文件列表
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -3513,7 +3513,7 @@ func (c *Client) DescribeReleaseFiles(request *DescribeReleaseFilesRequest) (res
 }
 
 // DescribeReleaseFiles
-// 获取应用对应sourcemap文件列表
+// 获取项目对应sourcemap文件列表
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -3549,92 +3549,6 @@ func (c *Client) DescribeReleaseFilesWithContext(ctx context.Context, request *D
     request.SetContext(ctx)
     
     response = NewDescribeReleaseFilesResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewDescribeRumGroupLogRequest() (request *DescribeRumGroupLogRequest) {
-    request = &DescribeRumGroupLogRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("rum", APIVersion, "DescribeRumGroupLog")
-    
-    
-    return
-}
-
-func NewDescribeRumGroupLogResponse() (response *DescribeRumGroupLogResponse) {
-    response = &DescribeRumGroupLogResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// DescribeRumGroupLog
-// 获取项目下的日志聚合信息
-//
-// 可能返回的错误码:
-//  AUTHFAILURE = "AuthFailure"
-//  DRYRUNOPERATION = "DryRunOperation"
-//  FAILEDOPERATION = "FailedOperation"
-//  FAILEDOPERATION_CLSCALLFAIL = "FailedOperation.ClsCallFail"
-//  FAILEDOPERATION_DATABASEEXCEPTION = "FailedOperation.DataBaseException"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  LIMITEXCEEDED = "LimitExceeded"
-//  MISSINGPARAMETER = "MissingParameter"
-//  OPERATIONDENIED = "OperationDenied"
-//  REQUESTLIMITEXCEEDED = "RequestLimitExceeded"
-//  RESOURCEINUSE = "ResourceInUse"
-//  RESOURCEINSUFFICIENT = "ResourceInsufficient"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-//  RESOURCEUNAVAILABLE = "ResourceUnavailable"
-//  RESOURCESSOLDOUT = "ResourcesSoldOut"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNKNOWNPARAMETER = "UnknownParameter"
-//  UNSUPPORTEDOPERATION = "UnsupportedOperation"
-func (c *Client) DescribeRumGroupLog(request *DescribeRumGroupLogRequest) (response *DescribeRumGroupLogResponse, err error) {
-    return c.DescribeRumGroupLogWithContext(context.Background(), request)
-}
-
-// DescribeRumGroupLog
-// 获取项目下的日志聚合信息
-//
-// 可能返回的错误码:
-//  AUTHFAILURE = "AuthFailure"
-//  DRYRUNOPERATION = "DryRunOperation"
-//  FAILEDOPERATION = "FailedOperation"
-//  FAILEDOPERATION_CLSCALLFAIL = "FailedOperation.ClsCallFail"
-//  FAILEDOPERATION_DATABASEEXCEPTION = "FailedOperation.DataBaseException"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  LIMITEXCEEDED = "LimitExceeded"
-//  MISSINGPARAMETER = "MissingParameter"
-//  OPERATIONDENIED = "OperationDenied"
-//  REQUESTLIMITEXCEEDED = "RequestLimitExceeded"
-//  RESOURCEINUSE = "ResourceInUse"
-//  RESOURCEINSUFFICIENT = "ResourceInsufficient"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-//  RESOURCEUNAVAILABLE = "ResourceUnavailable"
-//  RESOURCESSOLDOUT = "ResourcesSoldOut"
-//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
-//  UNKNOWNPARAMETER = "UnknownParameter"
-//  UNSUPPORTEDOPERATION = "UnsupportedOperation"
-func (c *Client) DescribeRumGroupLogWithContext(ctx context.Context, request *DescribeRumGroupLogRequest) (response *DescribeRumGroupLogResponse, err error) {
-    if request == nil {
-        request = NewDescribeRumGroupLogRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("DescribeRumGroupLog require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewDescribeRumGroupLogResponse()
     err = c.Send(request, response)
     return
 }
@@ -4196,7 +4110,7 @@ func NewModifyInstanceResponse() (response *ModifyInstanceResponse) {
 }
 
 // ModifyInstance
-// 修改 RUM 业务系统
+// 修改实例信息
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -4216,7 +4130,7 @@ func (c *Client) ModifyInstance(request *ModifyInstanceRequest) (response *Modif
 }
 
 // ModifyInstance
-// 修改 RUM 业务系统
+// 修改实例信息
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -4266,7 +4180,7 @@ func NewModifyProjectResponse() (response *ModifyProjectResponse) {
 }
 
 // ModifyProject
-// 修改 RUM 应用信息
+// 修改 rum 项目信息
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -4276,7 +4190,7 @@ func (c *Client) ModifyProject(request *ModifyProjectRequest) (response *ModifyP
 }
 
 // ModifyProject
-// 修改 RUM 应用信息
+// 修改 rum 项目信息
 //
 // 可能返回的错误码:
 //  FAILEDOPERATION = "FailedOperation"
@@ -4406,7 +4320,7 @@ func NewResumeInstanceResponse() (response *ResumeInstanceResponse) {
 }
 
 // ResumeInstance
-// 恢复 RUM 业务系统，恢复后，用户可以正常使用和上报数据
+// 恢复实例
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
@@ -4427,7 +4341,7 @@ func (c *Client) ResumeInstance(request *ResumeInstanceRequest) (response *Resum
 }
 
 // ResumeInstance
-// 恢复 RUM 业务系统，恢复后，用户可以正常使用和上报数据
+// 恢复实例
 //
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"

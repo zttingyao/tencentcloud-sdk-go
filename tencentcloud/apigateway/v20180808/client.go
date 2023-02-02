@@ -1109,7 +1109,6 @@ func NewCreateServiceResponse() (response *CreateServiceResponse) {
 //  FAILEDOPERATION_INSTANCENOTEXIST = "FailedOperation.InstanceNotExist"
 //  FAILEDOPERATION_TAGBINDSERVICEERROR = "FailedOperation.TagBindServiceError"
 //  INTERNALERROR = "InternalError"
-//  INTERNALERROR_APIGWEXCEPTION = "InternalError.ApigwException"
 //  INTERNALERROR_CAUTHEXCEPTION = "InternalError.CauthException"
 //  INTERNALERROR_OSSEXCEPTION = "InternalError.OssException"
 //  INTERNALERROR_VPCEXCEPTION = "InternalError.VpcException"
@@ -1146,7 +1145,6 @@ func (c *Client) CreateService(request *CreateServiceRequest) (response *CreateS
 //  FAILEDOPERATION_INSTANCENOTEXIST = "FailedOperation.InstanceNotExist"
 //  FAILEDOPERATION_TAGBINDSERVICEERROR = "FailedOperation.TagBindServiceError"
 //  INTERNALERROR = "InternalError"
-//  INTERNALERROR_APIGWEXCEPTION = "InternalError.ApigwException"
 //  INTERNALERROR_CAUTHEXCEPTION = "InternalError.CauthException"
 //  INTERNALERROR_OSSEXCEPTION = "InternalError.OssException"
 //  INTERNALERROR_VPCEXCEPTION = "InternalError.VpcException"
@@ -2462,7 +2460,6 @@ func NewDescribeApiBindApiAppsStatusResponse() (response *DescribeApiBindApiApps
 //
 // 可能返回的错误码:
 //  INTERNALERROR_APIGWEXCEPTION = "InternalError.ApigwException"
-//  INVALIDPARAMETER_FORMATERROR = "InvalidParameter.FormatError"
 func (c *Client) DescribeApiBindApiAppsStatus(request *DescribeApiBindApiAppsStatusRequest) (response *DescribeApiBindApiAppsStatusResponse, err error) {
     return c.DescribeApiBindApiAppsStatusWithContext(context.Background(), request)
 }
@@ -2472,7 +2469,6 @@ func (c *Client) DescribeApiBindApiAppsStatus(request *DescribeApiBindApiAppsSta
 //
 // 可能返回的错误码:
 //  INTERNALERROR_APIGWEXCEPTION = "InternalError.ApigwException"
-//  INVALIDPARAMETER_FORMATERROR = "InvalidParameter.FormatError"
 func (c *Client) DescribeApiBindApiAppsStatusWithContext(ctx context.Context, request *DescribeApiBindApiAppsStatusRequest) (response *DescribeApiBindApiAppsStatusResponse, err error) {
     if request == nil {
         request = NewDescribeApiBindApiAppsStatusRequest()
@@ -5513,7 +5509,6 @@ func NewModifyUpstreamResponse() (response *ModifyUpstreamResponse) {
 //  INVALIDPARAMETER = "InvalidParameter"
 //  INVALIDPARAMETER_FORMATERROR = "InvalidParameter.FormatError"
 //  INVALIDPARAMETERVALUE_INVALIDUPSTREAM = "InvalidParameterValue.InvalidUpstream"
-//  INVALIDPARAMETERVALUE_INVALIDVPCCONFIG = "InvalidParameterValue.InvalidVpcConfig"
 //  INVALIDPARAMETERVALUE_NOTINOPTIONS = "InvalidParameterValue.NotInOptions"
 //  INVALIDPARAMETERVALUE_RANGEEXCEEDED = "InvalidParameterValue.RangeExceeded"
 //  LIMITEXCEEDED = "LimitExceeded"
@@ -5537,7 +5532,6 @@ func (c *Client) ModifyUpstream(request *ModifyUpstreamRequest) (response *Modif
 //  INVALIDPARAMETER = "InvalidParameter"
 //  INVALIDPARAMETER_FORMATERROR = "InvalidParameter.FormatError"
 //  INVALIDPARAMETERVALUE_INVALIDUPSTREAM = "InvalidParameterValue.InvalidUpstream"
-//  INVALIDPARAMETERVALUE_INVALIDVPCCONFIG = "InvalidParameterValue.InvalidVpcConfig"
 //  INVALIDPARAMETERVALUE_NOTINOPTIONS = "InvalidParameterValue.NotInOptions"
 //  INVALIDPARAMETERVALUE_RANGEEXCEEDED = "InvalidParameterValue.RangeExceeded"
 //  LIMITEXCEEDED = "LimitExceeded"

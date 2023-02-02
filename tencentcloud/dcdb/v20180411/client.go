@@ -569,7 +569,6 @@ func NewCreateDCDBInstanceResponse() (response *CreateDCDBInstanceResponse) {
 //  INTERNALERROR_DBOPERATIONFAILED = "InternalError.DbOperationFailed"
 //  INTERNALERROR_GETSUBNETFAILED = "InternalError.GetSubnetFailed"
 //  INTERNALERROR_GETVPCFAILED = "InternalError.GetVpcFailed"
-//  INTERNALERROR_OPERATEDATABASEFAILED = "InternalError.OperateDatabaseFailed"
 //  INVALIDPARAMETER_CHECKPARAMNOTPASS = "InvalidParameter.CheckParamNotPass"
 //  INVALIDPARAMETER_GENERICPARAMETERERROR = "InvalidParameter.GenericParameterError"
 //  INVALIDPARAMETER_SPECNOTFOUND = "InvalidParameter.SpecNotFound"
@@ -595,7 +594,6 @@ func (c *Client) CreateDCDBInstance(request *CreateDCDBInstanceRequest) (respons
 //  INTERNALERROR_DBOPERATIONFAILED = "InternalError.DbOperationFailed"
 //  INTERNALERROR_GETSUBNETFAILED = "InternalError.GetSubnetFailed"
 //  INTERNALERROR_GETVPCFAILED = "InternalError.GetVpcFailed"
-//  INTERNALERROR_OPERATEDATABASEFAILED = "InternalError.OperateDatabaseFailed"
 //  INVALIDPARAMETER_CHECKPARAMNOTPASS = "InvalidParameter.CheckParamNotPass"
 //  INVALIDPARAMETER_GENERICPARAMETERERROR = "InvalidParameter.GenericParameterError"
 //  INVALIDPARAMETER_SPECNOTFOUND = "InvalidParameter.SpecNotFound"
@@ -3622,7 +3620,6 @@ func NewModifyRealServerAccessStrategyResponse() (response *ModifyRealServerAcce
 //  INVALIDPARAMETER_SUBNETUNAVAILABLE = "InvalidParameter.SubnetUnavailable"
 //  INVALIDPARAMETER_VPCNOTFOUND = "InvalidParameter.VpcNotFound"
 //  RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL = "ResourceUnavailable.InstanceStatusAbnormal"
-//  UNAUTHORIZEDOPERATION_PERMISSIONDENIED = "UnauthorizedOperation.PermissionDenied"
 func (c *Client) ModifyRealServerAccessStrategy(request *ModifyRealServerAccessStrategyRequest) (response *ModifyRealServerAccessStrategyResponse, err error) {
     return c.ModifyRealServerAccessStrategyWithContext(context.Background(), request)
 }
@@ -3650,7 +3647,6 @@ func (c *Client) ModifyRealServerAccessStrategy(request *ModifyRealServerAccessS
 //  INVALIDPARAMETER_SUBNETUNAVAILABLE = "InvalidParameter.SubnetUnavailable"
 //  INVALIDPARAMETER_VPCNOTFOUND = "InvalidParameter.VpcNotFound"
 //  RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL = "ResourceUnavailable.InstanceStatusAbnormal"
-//  UNAUTHORIZEDOPERATION_PERMISSIONDENIED = "UnauthorizedOperation.PermissionDenied"
 func (c *Client) ModifyRealServerAccessStrategyWithContext(ctx context.Context, request *ModifyRealServerAccessStrategyRequest) (response *ModifyRealServerAccessStrategyResponse, err error) {
     if request == nil {
         request = NewModifyRealServerAccessStrategyRequest()
@@ -4009,7 +4005,6 @@ func NewUpgradeDCDBInstanceResponse() (response *UpgradeDCDBInstanceResponse) {
 //  FAILEDOPERATION_PAYFAILED = "FailedOperation.PayFailed"
 //  INTERNALERROR_CAMAUTHFAILED = "InternalError.CamAuthFailed"
 //  INTERNALERROR_DBOPERATIONFAILED = "InternalError.DbOperationFailed"
-//  INTERNALERROR_QUERYPRICEFAILED = "InternalError.QueryPriceFailed"
 //  INVALIDPARAMETER_GENERICPARAMETERERROR = "InvalidParameter.GenericParameterError"
 //  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
 //  INVALIDPARAMETER_NOTSUPPORTEDPAYMODE = "InvalidParameter.NotSupportedPayMode"
@@ -4031,7 +4026,6 @@ func (c *Client) UpgradeDCDBInstance(request *UpgradeDCDBInstanceRequest) (respo
 //  FAILEDOPERATION_PAYFAILED = "FailedOperation.PayFailed"
 //  INTERNALERROR_CAMAUTHFAILED = "InternalError.CamAuthFailed"
 //  INTERNALERROR_DBOPERATIONFAILED = "InternalError.DbOperationFailed"
-//  INTERNALERROR_QUERYPRICEFAILED = "InternalError.QueryPriceFailed"
 //  INVALIDPARAMETER_GENERICPARAMETERERROR = "InvalidParameter.GenericParameterError"
 //  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
 //  INVALIDPARAMETER_NOTSUPPORTEDPAYMODE = "InvalidParameter.NotSupportedPayMode"
@@ -4053,70 +4047,6 @@ func (c *Client) UpgradeDCDBInstanceWithContext(ctx context.Context, request *Up
     request.SetContext(ctx)
     
     response = NewUpgradeDCDBInstanceResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewUpgradeHourDCDBInstanceRequest() (request *UpgradeHourDCDBInstanceRequest) {
-    request = &UpgradeHourDCDBInstanceRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("dcdb", APIVersion, "UpgradeHourDCDBInstance")
-    
-    
-    return
-}
-
-func NewUpgradeHourDCDBInstanceResponse() (response *UpgradeHourDCDBInstanceResponse) {
-    response = &UpgradeHourDCDBInstanceResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// UpgradeHourDCDBInstance
-// 本接口（UpgradeHourDCDBInstance）用于升级后付费分布式数据库实例。
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION_CREATEORDERFAILED = "FailedOperation.CreateOrderFailed"
-//  INTERNALERROR_CREATEFLOWERROR = "InternalError.CreateFlowError"
-//  INTERNALERROR_OPERATEDATABASEFAILED = "InternalError.OperateDatabaseFailed"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
-//  INVALIDPARAMETER_NOTSUPPORTEDPAYMODE = "InvalidParameter.NotSupportedPayMode"
-//  INVALIDPARAMETERVALUE_SPECIDILLEGAL = "InvalidParameterValue.SpecIdIllegal"
-//  RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL = "ResourceUnavailable.InstanceStatusAbnormal"
-//  UNAUTHORIZEDOPERATION_PERMISSIONDENIED = "UnauthorizedOperation.PermissionDenied"
-func (c *Client) UpgradeHourDCDBInstance(request *UpgradeHourDCDBInstanceRequest) (response *UpgradeHourDCDBInstanceResponse, err error) {
-    return c.UpgradeHourDCDBInstanceWithContext(context.Background(), request)
-}
-
-// UpgradeHourDCDBInstance
-// 本接口（UpgradeHourDCDBInstance）用于升级后付费分布式数据库实例。
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION_CREATEORDERFAILED = "FailedOperation.CreateOrderFailed"
-//  INTERNALERROR_CREATEFLOWERROR = "InternalError.CreateFlowError"
-//  INTERNALERROR_OPERATEDATABASEFAILED = "InternalError.OperateDatabaseFailed"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
-//  INVALIDPARAMETER_NOTSUPPORTEDPAYMODE = "InvalidParameter.NotSupportedPayMode"
-//  INVALIDPARAMETERVALUE_SPECIDILLEGAL = "InvalidParameterValue.SpecIdIllegal"
-//  RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL = "ResourceUnavailable.InstanceStatusAbnormal"
-//  UNAUTHORIZEDOPERATION_PERMISSIONDENIED = "UnauthorizedOperation.PermissionDenied"
-func (c *Client) UpgradeHourDCDBInstanceWithContext(ctx context.Context, request *UpgradeHourDCDBInstanceRequest) (response *UpgradeHourDCDBInstanceResponse, err error) {
-    if request == nil {
-        request = NewUpgradeHourDCDBInstanceRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("UpgradeHourDCDBInstance require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewUpgradeHourDCDBInstanceResponse()
     err = c.Send(request, response)
     return
 }

@@ -486,7 +486,7 @@ type ChannelCreateConvertTaskApiRequestParams struct {
 	// 资源Id，通过UploadFiles获取
 	ResourceId *string `json:"ResourceId,omitempty" name:"ResourceId"`
 
-	// 调用方用户信息，userId 必填
+	// 操作者信息
 	Operator *UserInfo `json:"Operator,omitempty" name:"Operator"`
 
 	// 暂未开放
@@ -508,7 +508,7 @@ type ChannelCreateConvertTaskApiRequest struct {
 	// 资源Id，通过UploadFiles获取
 	ResourceId *string `json:"ResourceId,omitempty" name:"ResourceId"`
 
-	// 调用方用户信息，userId 必填
+	// 操作者信息
 	Operator *UserInfo `json:"Operator,omitempty" name:"Operator"`
 
 	// 暂未开放
@@ -830,70 +830,6 @@ func (r *ChannelCreateFlowGroupByFilesResponse) FromJsonString(s string) error {
 }
 
 // Predefined struct for user
-type ChannelCreateFlowRemindsRequestParams struct {
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-
-	// 签署流程Id数组，最多100个，超过100不处理
-	FlowIds []*string `json:"FlowIds,omitempty" name:"FlowIds"`
-}
-
-type ChannelCreateFlowRemindsRequest struct {
-	*tchttp.BaseRequest
-	
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-
-	// 签署流程Id数组，最多100个，超过100不处理
-	FlowIds []*string `json:"FlowIds,omitempty" name:"FlowIds"`
-}
-
-func (r *ChannelCreateFlowRemindsRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *ChannelCreateFlowRemindsRequest) FromJsonString(s string) error {
-	f := make(map[string]interface{})
-	if err := json.Unmarshal([]byte(s), &f); err != nil {
-		return err
-	}
-	delete(f, "Agent")
-	delete(f, "FlowIds")
-	if len(f) > 0 {
-		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "ChannelCreateFlowRemindsRequest has unknown keys!", "")
-	}
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type ChannelCreateFlowRemindsResponseParams struct {
-	// 合同催办详情信息
-	RemindFlowRecords []*RemindFlowRecords `json:"RemindFlowRecords,omitempty" name:"RemindFlowRecords"`
-
-	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
-}
-
-type ChannelCreateFlowRemindsResponse struct {
-	*tchttp.BaseResponse
-	Response *ChannelCreateFlowRemindsResponseParams `json:"Response"`
-}
-
-func (r *ChannelCreateFlowRemindsResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *ChannelCreateFlowRemindsResponse) FromJsonString(s string) error {
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
 type ChannelCreateFlowSignReviewRequestParams struct {
 	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
 	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
@@ -980,91 +916,6 @@ func (r *ChannelCreateFlowSignReviewResponse) ToJsonString() string {
 // FromJsonString It is highly **NOT** recommended to use this function
 // because it has no param check, nor strict type check
 func (r *ChannelCreateFlowSignReviewResponse) FromJsonString(s string) error {
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type ChannelCreateFlowSignUrlRequestParams struct {
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-
-	// 流程编号
-	FlowId *string `json:"FlowId,omitempty" name:"FlowId"`
-
-	// 流程签署人，其中Name和Mobile必传，其他可不传，ApproverType目前只支持PERSON类型的签署人，如果不传默认为该值。还需注意签署人只能有手写签名和时间类型的签署控件，其他类型的填写控件和签署控件暂时都未支持。
-	FlowApproverInfos []*FlowApproverInfo `json:"FlowApproverInfos,omitempty" name:"FlowApproverInfos"`
-
-	// 用户信息，暂未开放
-	Operator *UserInfo `json:"Operator,omitempty" name:"Operator"`
-
-	// 机构信息，暂未开放
-	Organization *OrganizationInfo `json:"Organization,omitempty" name:"Organization"`
-}
-
-type ChannelCreateFlowSignUrlRequest struct {
-	*tchttp.BaseRequest
-	
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-
-	// 流程编号
-	FlowId *string `json:"FlowId,omitempty" name:"FlowId"`
-
-	// 流程签署人，其中Name和Mobile必传，其他可不传，ApproverType目前只支持PERSON类型的签署人，如果不传默认为该值。还需注意签署人只能有手写签名和时间类型的签署控件，其他类型的填写控件和签署控件暂时都未支持。
-	FlowApproverInfos []*FlowApproverInfo `json:"FlowApproverInfos,omitempty" name:"FlowApproverInfos"`
-
-	// 用户信息，暂未开放
-	Operator *UserInfo `json:"Operator,omitempty" name:"Operator"`
-
-	// 机构信息，暂未开放
-	Organization *OrganizationInfo `json:"Organization,omitempty" name:"Organization"`
-}
-
-func (r *ChannelCreateFlowSignUrlRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *ChannelCreateFlowSignUrlRequest) FromJsonString(s string) error {
-	f := make(map[string]interface{})
-	if err := json.Unmarshal([]byte(s), &f); err != nil {
-		return err
-	}
-	delete(f, "Agent")
-	delete(f, "FlowId")
-	delete(f, "FlowApproverInfos")
-	delete(f, "Operator")
-	delete(f, "Organization")
-	if len(f) > 0 {
-		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "ChannelCreateFlowSignUrlRequest has unknown keys!", "")
-	}
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type ChannelCreateFlowSignUrlResponseParams struct {
-	// 签署人签署链接信息
-	FlowApproverUrlInfos []*FlowApproverUrlInfo `json:"FlowApproverUrlInfos,omitempty" name:"FlowApproverUrlInfos"`
-
-	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
-}
-
-type ChannelCreateFlowSignUrlResponse struct {
-	*tchttp.BaseResponse
-	Response *ChannelCreateFlowSignUrlResponseParams `json:"Response"`
-}
-
-func (r *ChannelCreateFlowSignUrlResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *ChannelCreateFlowSignUrlResponse) FromJsonString(s string) error {
 	return json.Unmarshal([]byte(s), &r)
 }
 
@@ -1919,7 +1770,11 @@ func (r *CreateChannelFlowEvidenceReportRequest) FromJsonString(s string) error 
 
 // Predefined struct for user
 type CreateChannelFlowEvidenceReportResponseParams struct {
-	// 出证报告 ID，用于查询出证报告接口DescribeChannelFlowEvidenceReport时用到
+	// 废除，字段无效
+	// 注意：此字段可能返回 null，表示取不到有效值。
+	ReportUrl *string `json:"ReportUrl,omitempty" name:"ReportUrl"`
+
+	// 出证报告 ID
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	ReportId *string `json:"ReportId,omitempty" name:"ReportId"`
 
@@ -1927,10 +1782,6 @@ type CreateChannelFlowEvidenceReportResponseParams struct {
 	// 成功：EvidenceStatusSuccess
 	// 失败：EvidenceStatusFailed
 	Status *string `json:"Status,omitempty" name:"Status"`
-
-	// 废除，字段无效
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	ReportUrl *string `json:"ReportUrl,omitempty" name:"ReportUrl"`
 
 	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
 	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
@@ -2441,11 +2292,11 @@ type Department struct {
 
 // Predefined struct for user
 type DescribeChannelFlowEvidenceReportRequestParams struct {
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-
 	// 出证报告编号
 	ReportId *string `json:"ReportId,omitempty" name:"ReportId"`
+
+	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
+	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
 
 	// 操作者的信息
 	Operator *UserInfo `json:"Operator,omitempty" name:"Operator"`
@@ -2454,11 +2305,11 @@ type DescribeChannelFlowEvidenceReportRequestParams struct {
 type DescribeChannelFlowEvidenceReportRequest struct {
 	*tchttp.BaseRequest
 	
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-
 	// 出证报告编号
 	ReportId *string `json:"ReportId,omitempty" name:"ReportId"`
+
+	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
+	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
 
 	// 操作者的信息
 	Operator *UserInfo `json:"Operator,omitempty" name:"Operator"`
@@ -2476,8 +2327,8 @@ func (r *DescribeChannelFlowEvidenceReportRequest) FromJsonString(s string) erro
 	if err := json.Unmarshal([]byte(s), &f); err != nil {
 		return err
 	}
-	delete(f, "Agent")
 	delete(f, "ReportId")
+	delete(f, "Agent")
 	delete(f, "Operator")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeChannelFlowEvidenceReportRequest has unknown keys!", "")
@@ -2513,68 +2364,6 @@ func (r *DescribeChannelFlowEvidenceReportResponse) ToJsonString() string {
 // FromJsonString It is highly **NOT** recommended to use this function
 // because it has no param check, nor strict type check
 func (r *DescribeChannelFlowEvidenceReportResponse) FromJsonString(s string) error {
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type DescribeExtendedServiceAuthInfoRequestParams struct {
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
-	// 
-	// 注: 此接口 参数Agent. ProxyOperator.OpenId 需要传递超管或者法人的OpenId
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-}
-
-type DescribeExtendedServiceAuthInfoRequest struct {
-	*tchttp.BaseRequest
-	
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
-	// 
-	// 注: 此接口 参数Agent. ProxyOperator.OpenId 需要传递超管或者法人的OpenId
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-}
-
-func (r *DescribeExtendedServiceAuthInfoRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *DescribeExtendedServiceAuthInfoRequest) FromJsonString(s string) error {
-	f := make(map[string]interface{})
-	if err := json.Unmarshal([]byte(s), &f); err != nil {
-		return err
-	}
-	delete(f, "Agent")
-	if len(f) > 0 {
-		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeExtendedServiceAuthInfoRequest has unknown keys!", "")
-	}
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type DescribeExtendedServiceAuthInfoResponseParams struct {
-	// 企业扩展服务授权信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	AuthInfo []*ExtentServiceAuthInfo `json:"AuthInfo,omitempty" name:"AuthInfo"`
-
-	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
-}
-
-type DescribeExtendedServiceAuthInfoResponse struct {
-	*tchttp.BaseResponse
-	Response *DescribeExtendedServiceAuthInfoResponseParams `json:"Response"`
-}
-
-func (r *DescribeExtendedServiceAuthInfoResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *DescribeExtendedServiceAuthInfoResponse) FromJsonString(s string) error {
 	return json.Unmarshal([]byte(s), &r)
 }
 
@@ -2781,9 +2570,6 @@ type DescribeTemplatesRequestParams struct {
 
 	// 是否获取模板的PDF文件链接-渠道版需要开启白名单时才能使用。
 	WithPdfUrl *bool `json:"WithPdfUrl,omitempty" name:"WithPdfUrl"`
-
-	// 渠道模板ID
-	ChannelTemplateId *string `json:"ChannelTemplateId,omitempty" name:"ChannelTemplateId"`
 }
 
 type DescribeTemplatesRequest struct {
@@ -2818,9 +2604,6 @@ type DescribeTemplatesRequest struct {
 
 	// 是否获取模板的PDF文件链接-渠道版需要开启白名单时才能使用。
 	WithPdfUrl *bool `json:"WithPdfUrl,omitempty" name:"WithPdfUrl"`
-
-	// 渠道模板ID
-	ChannelTemplateId *string `json:"ChannelTemplateId,omitempty" name:"ChannelTemplateId"`
 }
 
 func (r *DescribeTemplatesRequest) ToJsonString() string {
@@ -2845,7 +2628,6 @@ func (r *DescribeTemplatesRequest) FromJsonString(s string) error {
 	delete(f, "Operator")
 	delete(f, "WithPreviewUrl")
 	delete(f, "WithPdfUrl")
-	delete(f, "ChannelTemplateId")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeTemplatesRequest has unknown keys!", "")
 	}
@@ -3003,32 +2785,6 @@ type DownloadFlowInfo struct {
 	FlowIdList []*string `json:"FlowIdList,omitempty" name:"FlowIdList"`
 }
 
-type ExtentServiceAuthInfo struct {
-	// 扩展服务类型
-	//   AUTO_SIGN             企业静默签（自动签署）
-	//   OVERSEA_SIGN          企业与港澳台居民*签署合同
-	//   MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-	//   PAGING_SEAL           骑缝章
-	//   DOWNLOAD_FLOW         授权渠道下载合同 
-	Type *string `json:"Type,omitempty" name:"Type"`
-
-	// 扩展服务名称 
-	Name *string `json:"Name,omitempty" name:"Name"`
-
-	// 服务状态 
-	// ENABLE 开启 
-	// DISABLE 关闭
-	Status *string `json:"Status,omitempty" name:"Status"`
-
-	// 最近操作人openid（经办人openid）
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	OperatorOpenId *string `json:"OperatorOpenId,omitempty" name:"OperatorOpenId"`
-
-	// 最近操作时间
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	OperateOn *int64 `json:"OperateOn,omitempty" name:"OperateOn"`
-}
-
 type Filter struct {
 	// 查询过滤条件的Key
 	Key *string `json:"Key,omitempty" name:"Key"`
@@ -3140,20 +2896,6 @@ type FlowApproverInfo struct {
 
 	// 当前签署方进行签署操作是否需要企业内部审批，true 则为需要
 	ApproverNeedSignReview *bool `json:"ApproverNeedSignReview,omitempty" name:"ApproverNeedSignReview"`
-}
-
-type FlowApproverUrlInfo struct {
-	// 签署链接，注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
-	SignUrl *string `json:"SignUrl,omitempty" name:"SignUrl"`
-
-	// 签署人手机号
-	Mobile *string `json:"Mobile,omitempty" name:"Mobile"`
-
-	// 签署人姓名
-	Name *string `json:"Name,omitempty" name:"Name"`
-
-	// 签署人类型 PERSON-个人
-	ApproverType *string `json:"ApproverType,omitempty" name:"ApproverType"`
 }
 
 type FlowDetailInfo struct {
@@ -3359,99 +3101,6 @@ func (r *GetDownloadFlowUrlResponse) ToJsonString() string {
 // FromJsonString It is highly **NOT** recommended to use this function
 // because it has no param check, nor strict type check
 func (r *GetDownloadFlowUrlResponse) FromJsonString(s string) error {
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type ModifyExtendedServiceRequestParams struct {
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-	// 
-	// 注: 此接口 参数Agent. ProxyOperator.OpenId 需要传递超管或者法人的OpenId
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-
-	//   扩展服务类型
-	//   AUTO_SIGN             企业静默签（自动签署）
-	//   OVERSEA_SIGN          企业与港澳台居民*签署合同
-	//   MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-	//   PAGING_SEAL           骑缝章
-	//   DOWNLOAD_FLOW         授权渠道下载合同 
-	ServiceType *string `json:"ServiceType,omitempty" name:"ServiceType"`
-
-	// 操作类型 
-	// OPEN:开通 
-	// CLOSE:关闭
-	Operate *string `json:"Operate,omitempty" name:"Operate"`
-}
-
-type ModifyExtendedServiceRequest struct {
-	*tchttp.BaseRequest
-	
-	// 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
-	// 
-	// 注: 此接口 参数Agent. ProxyOperator.OpenId 需要传递超管或者法人的OpenId
-	Agent *Agent `json:"Agent,omitempty" name:"Agent"`
-
-	//   扩展服务类型
-	//   AUTO_SIGN             企业静默签（自动签署）
-	//   OVERSEA_SIGN          企业与港澳台居民*签署合同
-	//   MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-	//   PAGING_SEAL           骑缝章
-	//   DOWNLOAD_FLOW         授权渠道下载合同 
-	ServiceType *string `json:"ServiceType,omitempty" name:"ServiceType"`
-
-	// 操作类型 
-	// OPEN:开通 
-	// CLOSE:关闭
-	Operate *string `json:"Operate,omitempty" name:"Operate"`
-}
-
-func (r *ModifyExtendedServiceRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *ModifyExtendedServiceRequest) FromJsonString(s string) error {
-	f := make(map[string]interface{})
-	if err := json.Unmarshal([]byte(s), &f); err != nil {
-		return err
-	}
-	delete(f, "Agent")
-	delete(f, "ServiceType")
-	delete(f, "Operate")
-	if len(f) > 0 {
-		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "ModifyExtendedServiceRequest has unknown keys!", "")
-	}
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type ModifyExtendedServiceResponseParams struct {
-	// 操作跳转链接，有效期24小时
-	// 若操作时没有返回跳转链接，表示无需跳转操作，此时会直接开通/关闭服务。
-	// 
-	// 当操作类型是 OPEN 且 扩展服务类型是  AUTO_SIGN 或 DOWNLOAD_FLOW 或者 OVERSEA_SIGN 时返回操作链接，
-	// 返回的链接需要平台方自行触达超管或法人，超管或法人点击链接完成服务开通操作。
-	OperateUrl *string `json:"OperateUrl,omitempty" name:"OperateUrl"`
-
-	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
-}
-
-type ModifyExtendedServiceResponse struct {
-	*tchttp.BaseResponse
-	Response *ModifyExtendedServiceResponseParams `json:"Response"`
-}
-
-func (r *ModifyExtendedServiceResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *ModifyExtendedServiceResponse) FromJsonString(s string) error {
 	return json.Unmarshal([]byte(s), &r)
 }
 
@@ -3841,17 +3490,6 @@ type RelieveInfo struct {
 
 	// 其他约定，最大支持200个字
 	OtherDeals *string `json:"OtherDeals,omitempty" name:"OtherDeals"`
-}
-
-type RemindFlowRecords struct {
-	// 是否能够催办
-	CanRemind *bool `json:"CanRemind,omitempty" name:"CanRemind"`
-
-	// 合同id
-	FlowId *string `json:"FlowId,omitempty" name:"FlowId"`
-
-	// 催办详情
-	RemindMessage *string `json:"RemindMessage,omitempty" name:"RemindMessage"`
 }
 
 type ResourceUrlInfo struct {

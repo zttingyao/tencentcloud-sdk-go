@@ -1101,68 +1101,6 @@ func (c *Client) DescribeBackupTimeWithContext(ctx context.Context, request *Des
     return
 }
 
-func NewDescribeDBEncryptAttributesRequest() (request *DescribeDBEncryptAttributesRequest) {
-    request = &DescribeDBEncryptAttributesRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("mariadb", APIVersion, "DescribeDBEncryptAttributes")
-    
-    
-    return
-}
-
-func NewDescribeDBEncryptAttributesResponse() (response *DescribeDBEncryptAttributesResponse) {
-    response = &DescribeDBEncryptAttributesResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// DescribeDBEncryptAttributes
-// 本接口(DescribeDBEncryptAttributes)用于查询实例数据加密状态。
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION_OSSOPERATIONFAILED = "FailedOperation.OssOperationFailed"
-//  INTERNALERROR = "InternalError"
-//  INTERNALERROR_GETCIPHERTEXTFAILED = "InternalError.GetCipherTextFailed"
-//  INTERNALERROR_OPERATEDATABASEFAILED = "InternalError.OperateDatabaseFailed"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
-//  RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL = "ResourceUnavailable.InstanceStatusAbnormal"
-//  UNSUPPORTEDOPERATION_INVALIDOPERATION = "UnsupportedOperation.InvalidOperation"
-func (c *Client) DescribeDBEncryptAttributes(request *DescribeDBEncryptAttributesRequest) (response *DescribeDBEncryptAttributesResponse, err error) {
-    return c.DescribeDBEncryptAttributesWithContext(context.Background(), request)
-}
-
-// DescribeDBEncryptAttributes
-// 本接口(DescribeDBEncryptAttributes)用于查询实例数据加密状态。
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION_OSSOPERATIONFAILED = "FailedOperation.OssOperationFailed"
-//  INTERNALERROR = "InternalError"
-//  INTERNALERROR_GETCIPHERTEXTFAILED = "InternalError.GetCipherTextFailed"
-//  INTERNALERROR_OPERATEDATABASEFAILED = "InternalError.OperateDatabaseFailed"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
-//  RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL = "ResourceUnavailable.InstanceStatusAbnormal"
-//  UNSUPPORTEDOPERATION_INVALIDOPERATION = "UnsupportedOperation.InvalidOperation"
-func (c *Client) DescribeDBEncryptAttributesWithContext(ctx context.Context, request *DescribeDBEncryptAttributesRequest) (response *DescribeDBEncryptAttributesResponse, err error) {
-    if request == nil {
-        request = NewDescribeDBEncryptAttributesRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("DescribeDBEncryptAttributes require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewDescribeDBEncryptAttributesResponse()
-    err = c.Send(request, response)
-    return
-}
-
 func NewDescribeDBInstanceSpecsRequest() (request *DescribeDBInstanceSpecsRequest) {
     request = &DescribeDBInstanceSpecsRequest{
         BaseRequest: &tchttp.BaseRequest{},
@@ -3583,7 +3521,6 @@ func NewModifyInstanceNetworkResponse() (response *ModifyInstanceNetworkResponse
 // 可能返回的错误码:
 //  FAILEDOPERATION_APPLYVIPFAILED = "FailedOperation.ApplyVipFailed"
 //  FAILEDOPERATION_WANSTATUSABNORMAL = "FailedOperation.WanStatusAbnormal"
-//  INTERNALERROR_CHECKVIPSTATUSFAILED = "InternalError.CheckVipStatusFailed"
 //  INTERNALERROR_DBOPERATIONFAILED = "InternalError.DbOperationFailed"
 //  INTERNALERROR_GETSUBNETFAILED = "InternalError.GetSubnetFailed"
 //  INTERNALERROR_GETVPCFAILED = "InternalError.GetVpcFailed"
@@ -3604,7 +3541,6 @@ func (c *Client) ModifyInstanceNetwork(request *ModifyInstanceNetworkRequest) (r
 // 可能返回的错误码:
 //  FAILEDOPERATION_APPLYVIPFAILED = "FailedOperation.ApplyVipFailed"
 //  FAILEDOPERATION_WANSTATUSABNORMAL = "FailedOperation.WanStatusAbnormal"
-//  INTERNALERROR_CHECKVIPSTATUSFAILED = "InternalError.CheckVipStatusFailed"
 //  INTERNALERROR_DBOPERATIONFAILED = "InternalError.DbOperationFailed"
 //  INTERNALERROR_GETSUBNETFAILED = "InternalError.GetSubnetFailed"
 //  INTERNALERROR_GETVPCFAILED = "InternalError.GetVpcFailed"
@@ -4253,7 +4189,6 @@ func NewSwitchDBInstanceHAResponse() (response *SwitchDBInstanceHAResponse) {
 //  RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL = "ResourceUnavailable.InstanceStatusAbnormal"
 //  UNAUTHORIZEDOPERATION_PERMISSIONDENIED = "UnauthorizedOperation.PermissionDenied"
 //  UNSUPPORTEDOPERATION_INVALIDOPERATION = "UnsupportedOperation.InvalidOperation"
-//  UNSUPPORTEDOPERATION_OPERATIONNOTAPPLICABLE = "UnsupportedOperation.OperationNotApplicable"
 func (c *Client) SwitchDBInstanceHA(request *SwitchDBInstanceHARequest) (response *SwitchDBInstanceHAResponse, err error) {
     return c.SwitchDBInstanceHAWithContext(context.Background(), request)
 }
@@ -4270,7 +4205,6 @@ func (c *Client) SwitchDBInstanceHA(request *SwitchDBInstanceHARequest) (respons
 //  RESOURCEUNAVAILABLE_INSTANCESTATUSABNORMAL = "ResourceUnavailable.InstanceStatusAbnormal"
 //  UNAUTHORIZEDOPERATION_PERMISSIONDENIED = "UnauthorizedOperation.PermissionDenied"
 //  UNSUPPORTEDOPERATION_INVALIDOPERATION = "UnsupportedOperation.InvalidOperation"
-//  UNSUPPORTEDOPERATION_OPERATIONNOTAPPLICABLE = "UnsupportedOperation.OperationNotApplicable"
 func (c *Client) SwitchDBInstanceHAWithContext(ctx context.Context, request *SwitchDBInstanceHARequest) (response *SwitchDBInstanceHAResponse, err error) {
     if request == nil {
         request = NewSwitchDBInstanceHARequest()

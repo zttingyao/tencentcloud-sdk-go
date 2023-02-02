@@ -29,9 +29,6 @@ const (
 	// 操作失败，不支持pod。
 	FAILEDOPERATION_NOTSUPPORTPOD = "FailedOperation.NotSupportPod"
 
-	// 操作失败。
-	FAILEDOPERATION_REFUNDCVMFAILED = "FailedOperation.RefundCvmFailed"
-
 	// 内部错误。
 	INTERNALERROR = "InternalError"
 
@@ -236,7 +233,7 @@ const (
 	// 无效的资源规格。
 	INVALIDPARAMETER_INVALIDRESOURCESPEC = "InvalidParameter.InvalidResourceSpec"
 
-	// 不合法的引导脚本执行参数。
+	// 不合法的引导脚步执行参数。
 	INVALIDPARAMETER_INVALIDSCRIPTBOOTSTRAPACTIONCONFIG = "InvalidParameter.InvalidScriptBootstrapActionConfig"
 
 	// 该EMR版本不支持开启安全模式。

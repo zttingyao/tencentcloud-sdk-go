@@ -1259,6 +1259,66 @@ func (c *Client) CreateRepositoryPersonalWithContext(ctx context.Context, reques
     return
 }
 
+func NewCreateSecurityPoliciesRequest() (request *CreateSecurityPoliciesRequest) {
+    request = &CreateSecurityPoliciesRequest{
+        BaseRequest: &tchttp.BaseRequest{},
+    }
+    
+    request.Init().WithApiInfo("tcr", APIVersion, "CreateSecurityPolicies")
+    
+    
+    return
+}
+
+func NewCreateSecurityPoliciesResponse() (response *CreateSecurityPoliciesResponse) {
+    response = &CreateSecurityPoliciesResponse{
+        BaseResponse: &tchttp.BaseResponse{},
+    }
+    return
+}
+
+// CreateSecurityPolicies
+// 创建实例公网访问白名单策略
+//
+// 可能返回的错误码:
+//  INTERNALERROR = "InternalError"
+//  INTERNALERROR_DBERROR = "InternalError.DbError"
+//  INVALIDPARAMETER = "InvalidParameter"
+//  MISSINGPARAMETER = "MissingParameter"
+//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
+//  UNKNOWNPARAMETER = "UnknownParameter"
+//  UNSUPPORTEDOPERATION = "UnsupportedOperation"
+func (c *Client) CreateSecurityPolicies(request *CreateSecurityPoliciesRequest) (response *CreateSecurityPoliciesResponse, err error) {
+    return c.CreateSecurityPoliciesWithContext(context.Background(), request)
+}
+
+// CreateSecurityPolicies
+// 创建实例公网访问白名单策略
+//
+// 可能返回的错误码:
+//  INTERNALERROR = "InternalError"
+//  INTERNALERROR_DBERROR = "InternalError.DbError"
+//  INVALIDPARAMETER = "InvalidParameter"
+//  MISSINGPARAMETER = "MissingParameter"
+//  UNAUTHORIZEDOPERATION = "UnauthorizedOperation"
+//  UNKNOWNPARAMETER = "UnknownParameter"
+//  UNSUPPORTEDOPERATION = "UnsupportedOperation"
+func (c *Client) CreateSecurityPoliciesWithContext(ctx context.Context, request *CreateSecurityPoliciesRequest) (response *CreateSecurityPoliciesResponse, err error) {
+    if request == nil {
+        request = NewCreateSecurityPoliciesRequest()
+    }
+    
+    if c.GetCredential() == nil {
+        return nil, errors.New("CreateSecurityPolicies require credential")
+    }
+
+    request.SetContext(ctx)
+    
+    response = NewCreateSecurityPoliciesResponse()
+    err = c.Send(request, response)
+    return
+}
+
 func NewCreateSecurityPolicyRequest() (request *CreateSecurityPolicyRequest) {
     request = &CreateSecurityPolicyRequest{
         BaseRequest: &tchttp.BaseRequest{},
@@ -5249,7 +5309,6 @@ func NewDescribeTagRetentionRulesResponse() (response *DescribeTagRetentionRules
 // 查询版本保留规则
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION_EMPTYCOREBODY = "FailedOperation.EmptyCoreBody"
 //  INTERNALERROR = "InternalError"
 //  INTERNALERROR_DBERROR = "InternalError.DbError"
 //  INTERNALERROR_ERRCONFLICT = "InternalError.ErrConflict"
@@ -5271,7 +5330,6 @@ func (c *Client) DescribeTagRetentionRules(request *DescribeTagRetentionRulesReq
 // 查询版本保留规则
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION_EMPTYCOREBODY = "FailedOperation.EmptyCoreBody"
 //  INTERNALERROR = "InternalError"
 //  INTERNALERROR_DBERROR = "InternalError.DbError"
 //  INTERNALERROR_ERRCONFLICT = "InternalError.ErrConflict"

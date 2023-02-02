@@ -93,10 +93,6 @@ type AssetAppBaseInfo struct {
 	// 是否新增[0:否|1:是]
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	IsNew *int64 `json:"IsNew,omitempty" name:"IsNew"`
-
-	// 附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetAppProcessInfo struct {
@@ -171,10 +167,6 @@ type AssetCoreModuleBaseInfo struct {
 
 	// 服务器外网IP
 	MachineWanIp *string `json:"MachineWanIp,omitempty" name:"MachineWanIp"`
-
-	//  附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetCoreModuleDetail struct {
@@ -296,10 +288,6 @@ type AssetDatabaseBaseInfo struct {
 
 	// 主机名称
 	MachineName *string `json:"MachineName,omitempty" name:"MachineName"`
-
-	//  附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetDatabaseDetail struct {
@@ -427,11 +415,6 @@ type AssetEnvBaseInfo struct {
 
 	// 服务器外网IP
 	MachineWanIp *string `json:"MachineWanIp,omitempty" name:"MachineWanIp"`
-
-	//  附加信息
-	// 
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetFilters struct {
@@ -501,11 +484,6 @@ type AssetInitServiceBaseInfo struct {
 
 	// 服务器外网IP
 	MachineWanIp *string `json:"MachineWanIp,omitempty" name:"MachineWanIp"`
-
-	//  附加信息
-	// 
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetJarBaseInfo struct {
@@ -557,11 +535,6 @@ type AssetJarBaseInfo struct {
 
 	// 服务器外网IP
 	MachineWanIp *string `json:"MachineWanIp,omitempty" name:"MachineWanIp"`
-
-	//  附加信息
-	// 
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetJarDetail struct {
@@ -677,10 +650,6 @@ type AssetMachineBaseInfo struct {
 
 	// 首次采集时间
 	FirstTime *string `json:"FirstTime,omitempty" name:"FirstTime"`
-
-	// 附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetMachineDetail struct {
@@ -726,7 +695,7 @@ type AssetMachineDetail struct {
 	// Cpu使用率百分比
 	CpuLoad *string `json:"CpuLoad,omitempty" name:"CpuLoad"`
 
-	// 防护级别：0基础版，1专业版，2旗舰版，3普惠版
+	// 防护级别：0基础版，1专业版
 	ProtectLevel *uint64 `json:"ProtectLevel,omitempty" name:"ProtectLevel"`
 
 	// 风险状态：UNKNOW-未知，RISK-风险，SAFT-安全
@@ -791,10 +760,6 @@ type AssetMachineDetail struct {
 	// 数据更新时间
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	UpdateTime *string `json:"UpdateTime,omitempty" name:"UpdateTime"`
-
-	// 主机二外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetNetworkCardInfo struct {
@@ -860,10 +825,6 @@ type AssetPlanTask struct {
 
 	// 服务器外网IP
 	MachineWanIp *string `json:"MachineWanIp,omitempty" name:"MachineWanIp"`
-
-	//  附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetPortBaseInfo struct {
@@ -946,10 +907,6 @@ type AssetPortBaseInfo struct {
 
 	// 是否新增[0:否|1:是]
 	IsNew *int64 `json:"IsNew,omitempty" name:"IsNew"`
-
-	//  附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetProcessBaseInfo struct {
@@ -1038,12 +995,6 @@ type AssetProcessBaseInfo struct {
 
 	// 是否新增[0:否|1:是]
 	IsNew *int64 `json:"IsNew,omitempty" name:"IsNew"`
-
-	// 
-	//  附加信息
-	// 
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetSystemPackageInfo struct {
@@ -1167,11 +1118,6 @@ type AssetUserBaseInfo struct {
 
 	// 是否新增[0:否|1:是]
 	IsNew *int64 `json:"IsNew,omitempty" name:"IsNew"`
-
-	// 
-	//  附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetUserDetail struct {
@@ -1338,10 +1284,6 @@ type AssetWebAppBaseInfo struct {
 
 	// 是否新增[0:否|1:是]
 	IsNew *int64 `json:"IsNew,omitempty" name:"IsNew"`
-
-	//  附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetWebAppPluginInfo struct {
@@ -1405,10 +1347,6 @@ type AssetWebFrameBaseInfo struct {
 
 	// 是否新增[0:否|1:是]
 	IsNew *int64 `json:"IsNew,omitempty" name:"IsNew"`
-
-	//  附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetWebLocationBaseInfo struct {
@@ -1476,10 +1414,6 @@ type AssetWebLocationBaseInfo struct {
 	// 是否新增[0:否|1:是]
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	IsNew *int64 `json:"IsNew,omitempty" name:"IsNew"`
-
-	//  附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type AssetWebLocationInfo struct {
@@ -1577,10 +1511,6 @@ type AssetWebServiceBaseInfo struct {
 
 	// 是否新增[0:否|1:是]
 	IsNew *int64 `json:"IsNew,omitempty" name:"IsNew"`
-
-	//  附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type BanWhiteListDetail struct {
@@ -1751,10 +1681,6 @@ type BaselineHostDetect struct {
 	// 主机安全UUID
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	Uuid *string `json:"Uuid,omitempty" name:"Uuid"`
-
-	// 主机额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type BaselineHostTopList struct {
@@ -1875,10 +1801,6 @@ type BaselineItem struct {
 	// 主机安全uuid
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	Uuid *string `json:"Uuid,omitempty" name:"Uuid"`
-
-	// 主机额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type BaselineItemDetect struct {
@@ -2095,79 +2017,6 @@ type BashEvent struct {
 	RegexBashCmd *string `json:"RegexBashCmd,omitempty" name:"RegexBashCmd"`
 }
 
-type BashEventNew struct {
-	// 数据ID
-	Id *uint64 `json:"Id,omitempty" name:"Id"`
-
-	// 云镜ID
-	Uuid *string `json:"Uuid,omitempty" name:"Uuid"`
-
-	// 主机ID
-	Quuid *string `json:"Quuid,omitempty" name:"Quuid"`
-
-	// 主机内网IP
-	HostIp *string `json:"HostIp,omitempty" name:"HostIp"`
-
-	// 执行用户名
-	User *string `json:"User,omitempty" name:"User"`
-
-	// 平台类型
-	Platform *uint64 `json:"Platform,omitempty" name:"Platform"`
-
-	// 执行命令
-	BashCmd *string `json:"BashCmd,omitempty" name:"BashCmd"`
-
-	// 规则ID
-	RuleId *uint64 `json:"RuleId,omitempty" name:"RuleId"`
-
-	// 规则名称
-	RuleName *string `json:"RuleName,omitempty" name:"RuleName"`
-
-	// 规则等级：1-高 2-中 3-低
-	RuleLevel *uint64 `json:"RuleLevel,omitempty" name:"RuleLevel"`
-
-	// 处理状态： 0 = 待处理 1= 已处理, 2 = 已加白， 3 = 已忽略
-	Status *uint64 `json:"Status,omitempty" name:"Status"`
-
-	// 发生时间
-	CreateTime *string `json:"CreateTime,omitempty" name:"CreateTime"`
-
-	// 主机名
-	MachineName *string `json:"MachineName,omitempty" name:"MachineName"`
-
-	// 0: bash日志 1: 实时监控(雷霆版)
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	DetectBy *uint64 `json:"DetectBy,omitempty" name:"DetectBy"`
-
-	// 进程id
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	Pid *string `json:"Pid,omitempty" name:"Pid"`
-
-	// 进程名称
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	Exe *string `json:"Exe,omitempty" name:"Exe"`
-
-	// 处理时间
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	ModifyTime *string `json:"ModifyTime,omitempty" name:"ModifyTime"`
-
-	// 规则类别  0=系统规则，1=用户规则
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	RuleCategory *uint64 `json:"RuleCategory,omitempty" name:"RuleCategory"`
-
-	// 自动生成的正则表达式
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	RegexBashCmd *string `json:"RegexBashCmd,omitempty" name:"RegexBashCmd"`
-
-	// 0:普通 1:专业版 2:旗舰版
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineType *int64 `json:"MachineType,omitempty" name:"MachineType"`
-
-	// 机器额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
-}
-
 type BashRule struct {
 	// 规则ID
 	Id *uint64 `json:"Id,omitempty" name:"Id"`
@@ -2301,10 +2150,6 @@ type BruteAttackInfo struct {
 	// 0：待处理，1：忽略，5：已处理，6：加入白名单
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	DataStatus *uint64 `json:"DataStatus,omitempty" name:"DataStatus"`
-
-	// 附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type BruteAttackRule struct {
@@ -3172,10 +3017,6 @@ type DefendAttackLog struct {
 
 	// 攻击内容
 	HttpContent *string `json:"HttpContent,omitempty" name:"HttpContent"`
-
-	// 主机额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 // Predefined struct for user
@@ -9317,114 +9158,6 @@ func (r *DescribeBaselineTopResponse) FromJsonString(s string) error {
 }
 
 // Predefined struct for user
-type DescribeBashEventsNewRequestParams struct {
-	// 返回数量，默认为10，最大值为100。
-	Limit *uint64 `json:"Limit,omitempty" name:"Limit"`
-
-	// 过滤条件。
-	// <li>HostName - String - 是否必填：否 - 主机名</li>
-	// <li>Hostip - String - 是否必填：否 - 主机内网IP</li>
-	// <li>HostIp - String - 是否必填：否 - 主机内网IP</li>
-	// <li>RuleCategory - Int - 是否必填：否 - 策略类型,全部或者单选(0:系统 1:用户)</li>
-	// <li>RuleName - String - 是否必填：否 - 策略名称</li>
-	// <li>RuleLevel - Int - 是否必填：否 - 威胁等级,可以多选</li>
-	// <li>Status - Int - 是否必填：否 - 处理状态,可多选(0:待处理 1:已处理 2:已加白  3:已忽略 4:已删除 5:已拦截)</li>
-	// <li>DetectBy - Int - 是否必填：否 - 数据来源,可多选(0:bash日志 1:实时监控)</li>
-	// <li>StartTime - String - 是否必填：否 - 开始时间</li>
-	// <li>EndTime - String - 是否必填：否 - 结束时间</li>
-	Filters []*Filter `json:"Filters,omitempty" name:"Filters"`
-
-	// 偏移量，默认为0。
-	Offset *uint64 `json:"Offset,omitempty" name:"Offset"`
-
-	// 排序方式：根据请求次数排序：asc-升序/desc-降序
-	Order *string `json:"Order,omitempty" name:"Order"`
-
-	// 排序字段：CreateTime-发生时间。ModifyTime-处理时间
-	By *string `json:"By,omitempty" name:"By"`
-}
-
-type DescribeBashEventsNewRequest struct {
-	*tchttp.BaseRequest
-	
-	// 返回数量，默认为10，最大值为100。
-	Limit *uint64 `json:"Limit,omitempty" name:"Limit"`
-
-	// 过滤条件。
-	// <li>HostName - String - 是否必填：否 - 主机名</li>
-	// <li>Hostip - String - 是否必填：否 - 主机内网IP</li>
-	// <li>HostIp - String - 是否必填：否 - 主机内网IP</li>
-	// <li>RuleCategory - Int - 是否必填：否 - 策略类型,全部或者单选(0:系统 1:用户)</li>
-	// <li>RuleName - String - 是否必填：否 - 策略名称</li>
-	// <li>RuleLevel - Int - 是否必填：否 - 威胁等级,可以多选</li>
-	// <li>Status - Int - 是否必填：否 - 处理状态,可多选(0:待处理 1:已处理 2:已加白  3:已忽略 4:已删除 5:已拦截)</li>
-	// <li>DetectBy - Int - 是否必填：否 - 数据来源,可多选(0:bash日志 1:实时监控)</li>
-	// <li>StartTime - String - 是否必填：否 - 开始时间</li>
-	// <li>EndTime - String - 是否必填：否 - 结束时间</li>
-	Filters []*Filter `json:"Filters,omitempty" name:"Filters"`
-
-	// 偏移量，默认为0。
-	Offset *uint64 `json:"Offset,omitempty" name:"Offset"`
-
-	// 排序方式：根据请求次数排序：asc-升序/desc-降序
-	Order *string `json:"Order,omitempty" name:"Order"`
-
-	// 排序字段：CreateTime-发生时间。ModifyTime-处理时间
-	By *string `json:"By,omitempty" name:"By"`
-}
-
-func (r *DescribeBashEventsNewRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *DescribeBashEventsNewRequest) FromJsonString(s string) error {
-	f := make(map[string]interface{})
-	if err := json.Unmarshal([]byte(s), &f); err != nil {
-		return err
-	}
-	delete(f, "Limit")
-	delete(f, "Filters")
-	delete(f, "Offset")
-	delete(f, "Order")
-	delete(f, "By")
-	if len(f) > 0 {
-		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeBashEventsNewRequest has unknown keys!", "")
-	}
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
-type DescribeBashEventsNewResponseParams struct {
-	// 总条数
-	TotalCount *uint64 `json:"TotalCount,omitempty" name:"TotalCount"`
-
-	// 高危命令事件列表
-	List []*BashEventNew `json:"List,omitempty" name:"List"`
-
-	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
-}
-
-type DescribeBashEventsNewResponse struct {
-	*tchttp.BaseResponse
-	Response *DescribeBashEventsNewResponseParams `json:"Response"`
-}
-
-func (r *DescribeBashEventsNewResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
-}
-
-// FromJsonString It is highly **NOT** recommended to use this function
-// because it has no param check, nor strict type check
-func (r *DescribeBashEventsNewResponse) FromJsonString(s string) error {
-	return json.Unmarshal([]byte(s), &r)
-}
-
-// Predefined struct for user
 type DescribeBashEventsRequestParams struct {
 	// 返回数量，默认为10，最大值为100。
 	Limit *uint64 `json:"Limit,omitempty" name:"Limit"`
@@ -14054,7 +13787,7 @@ type DescribeScanStateRequestParams struct {
 	ModuleType *string `json:"ModuleType,omitempty" name:"ModuleType"`
 
 	// 过滤参数;
-	// <li>StrategyId 基线策略ID ,仅ModuleType 为 Baseline 时需要</li>
+	// <li>StrategyId 基线策略ID ,仅ModuleType 为 Baseline 时需要<li/>
 	Filters []*Filters `json:"Filters,omitempty" name:"Filters"`
 }
 
@@ -14065,7 +13798,7 @@ type DescribeScanStateRequest struct {
 	ModuleType *string `json:"ModuleType,omitempty" name:"ModuleType"`
 
 	// 过滤参数;
-	// <li>StrategyId 基线策略ID ,仅ModuleType 为 Baseline 时需要</li>
+	// <li>StrategyId 基线策略ID ,仅ModuleType 为 Baseline 时需要<li/>
 	Filters []*Filters `json:"Filters,omitempty" name:"Filters"`
 }
 
@@ -15240,7 +14973,7 @@ type DescribeTagsRequestParams struct {
 	// <li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版）</li>
 	// <li>Risk - String 是否必填: 否 - 风险主机( yes ) </li>
 	// <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )
-	// 每个过滤条件只支持一个值，暂不支持多个值“或”关系查询</li>
+	// 每个过滤条件只支持一个值，暂不支持多个值“或”关系查询
 	Filters []*Filters `json:"Filters,omitempty" name:"Filters"`
 }
 
@@ -15264,7 +14997,7 @@ type DescribeTagsRequest struct {
 	// <li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版）</li>
 	// <li>Risk - String 是否必填: 否 - 风险主机( yes ) </li>
 	// <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )
-	// 每个过滤条件只支持一个值，暂不支持多个值“或”关系查询</li>
+	// 每个过滤条件只支持一个值，暂不支持多个值“或”关系查询
 	Filters []*Filters `json:"Filters,omitempty" name:"Filters"`
 }
 
@@ -15483,9 +15216,6 @@ type DescribeVersionStatisticsResponseParams struct {
 
 	// 旗舰版数量
 	UltimateVersionNum *uint64 `json:"UltimateVersionNum,omitempty" name:"UltimateVersionNum"`
-
-	// 普惠版数量
-	GeneralVersionNum *uint64 `json:"GeneralVersionNum,omitempty" name:"GeneralVersionNum"`
 
 	// 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
 	RequestId *string `json:"RequestId,omitempty" name:"RequestId"`
@@ -16828,14 +16558,6 @@ type EffectiveMachineInfo struct {
 	// 漏洞数量
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	VulNum *uint64 `json:"VulNum,omitempty" name:"VulNum"`
-
-	// 云标签信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	CloudTags []*Tags `json:"CloudTags,omitempty" name:"CloudTags"`
-
-	// 机器instance ID
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	InstanceID *string `json:"InstanceID,omitempty" name:"InstanceID"`
 }
 
 type EmergencyResponseInfo struct {
@@ -18827,10 +18549,6 @@ type HostLoginList struct {
 	// XTI - 威胁情报
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	Desc *string `json:"Desc,omitempty" name:"Desc"`
-
-	// 附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type IgnoreBaselineRule struct {
@@ -18968,10 +18686,6 @@ type JavaMemShellInfo struct {
 
 	// 服务器quuid
 	Quuid *string `json:"Quuid,omitempty" name:"Quuid"`
-
-	// 主机额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type LicenseBindDetail struct {
@@ -19001,10 +18715,6 @@ type LicenseBindDetail struct {
 
 	// 是否允许换绑,false 不允许换绑
 	IsSwitchBind *bool `json:"IsSwitchBind,omitempty" name:"IsSwitchBind"`
-
-	// 主机额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type LicenseBindTaskDetail struct {
@@ -19270,43 +18980,6 @@ type Machine struct {
 	// 主机ip列表
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	IpList *string `json:"IpList,omitempty" name:"IpList"`
-
-	// 所属网络
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	VpcId *string `json:"VpcId,omitempty" name:"VpcId"`
-
-	// 附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
-
-	// 实例ID
-	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
-}
-
-type MachineExtraInfo struct {
-	// 公网IP
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	WanIP *string `json:"WanIP,omitempty" name:"WanIP"`
-
-	// 内网IP
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	PrivateIP *string `json:"PrivateIP,omitempty" name:"PrivateIP"`
-
-	// 网络类型，1:vpc网络 2:基础网络 3:非腾讯云网络
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	NetworkType *int64 `json:"NetworkType,omitempty" name:"NetworkType"`
-
-	// 网络名，vpc网络情况下会返回vpc_id
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	NetworkName *string `json:"NetworkName,omitempty" name:"NetworkName"`
-
-	// 实例ID
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	InstanceID *string `json:"InstanceID,omitempty" name:"InstanceID"`
-
-	// 主机名
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	HostName *string `json:"HostName,omitempty" name:"HostName"`
 }
 
 type MachineTag struct {
@@ -19378,10 +19051,6 @@ type MalWareList struct {
 
 	// 木马样本md5
 	MD5 *string `json:"MD5,omitempty" name:"MD5"`
-
-	// 附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type MaliciousRequestWhiteListInfo struct {
@@ -19499,10 +19168,6 @@ type MalwareInfo struct {
 	// 最近访问时间
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	StrFileAccessTime *string `json:"StrFileAccessTime,omitempty" name:"StrFileAccessTime"`
-
-	// 附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type MalwareRisk struct {
@@ -20582,10 +20247,6 @@ type PrivilegeEscalationProcess struct {
 
 	// 机器名
 	MachineName *string `json:"MachineName,omitempty" name:"MachineName"`
-
-	// 附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type PrivilegeRule struct {
@@ -20696,10 +20357,6 @@ type ProtectDirRelatedServer struct {
 
 	// 异常信息
 	ExceptionMessage *string `json:"ExceptionMessage,omitempty" name:"ExceptionMessage"`
-
-	// 主机额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type ProtectEventLists struct {
@@ -20729,10 +20386,6 @@ type ProtectEventLists struct {
 
 	// 文件类型 0-常规文件；1-目录；2-软链
 	FileType *uint64 `json:"FileType,omitempty" name:"FileType"`
-
-	// 主机额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type ProtectHostConfig struct {
@@ -20964,10 +20617,6 @@ type ReverseShell struct {
 
 	// 检测方法
 	DetectBy *uint64 `json:"DetectBy,omitempty" name:"DetectBy"`
-
-	//  主机额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type ReverseShellRule struct {
@@ -21179,10 +20828,6 @@ type ScanTaskDetails struct {
 
 	// 外网ip
 	MachineWanIp *string `json:"MachineWanIp,omitempty" name:"MachineWanIp"`
-
-	// 附加信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 // Predefined struct for user
@@ -22565,14 +22210,6 @@ type VulEffectHostList struct {
 	// 外网ip
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	PublicIpAddresses *string `json:"PublicIpAddresses,omitempty" name:"PublicIpAddresses"`
-
-	// 云标签信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	CloudTags []*Tags `json:"CloudTags,omitempty" name:"CloudTags"`
-
-	// 主机额外信息
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	MachineExtraInfo *MachineExtraInfo `json:"MachineExtraInfo,omitempty" name:"MachineExtraInfo"`
 }
 
 type VulHostTopInfo struct {

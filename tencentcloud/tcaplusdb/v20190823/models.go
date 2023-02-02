@@ -1754,9 +1754,6 @@ type DescribeSnapshotsRequestParams struct {
 
 	// 快照名称
 	SnapshotName *string `json:"SnapshotName,omitempty" name:"SnapshotName"`
-
-	// 批量拉取快照的表格列表
-	SelectedTables []*SelectedTableInfoNew `json:"SelectedTables,omitempty" name:"SelectedTables"`
 }
 
 type DescribeSnapshotsRequest struct {
@@ -1773,9 +1770,6 @@ type DescribeSnapshotsRequest struct {
 
 	// 快照名称
 	SnapshotName *string `json:"SnapshotName,omitempty" name:"SnapshotName"`
-
-	// 批量拉取快照的表格列表
-	SelectedTables []*SelectedTableInfoNew `json:"SelectedTables,omitempty" name:"SelectedTables"`
 }
 
 func (r *DescribeSnapshotsRequest) ToJsonString() string {
@@ -1794,7 +1788,6 @@ func (r *DescribeSnapshotsRequest) FromJsonString(s string) error {
 	delete(f, "TableGroupId")
 	delete(f, "TableName")
 	delete(f, "SnapshotName")
-	delete(f, "SelectedTables")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeSnapshotsRequest has unknown keys!", "")
 	}

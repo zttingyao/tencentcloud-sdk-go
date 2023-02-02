@@ -325,14 +325,6 @@ type BGPIPInstance struct {
 	// 重保实例
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	ConvoyId *string `json:"ConvoyId,omitempty" name:"ConvoyId"`
-
-	// 带宽后付费
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	ElasticBandwidth *uint64 `json:"ElasticBandwidth,omitempty" name:"ElasticBandwidth"`
-
-	// 是否为EO代播的ip: 1是，0不是
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	EOFlag *uint64 `json:"EOFlag,omitempty" name:"EOFlag"`
 }
 
 type BGPIPInstanceSpecification struct {
@@ -5067,7 +5059,7 @@ type DescribeListBGPInstancesRequestParams struct {
 	// 实例id数组
 	FilterInstanceIdList []*string `json:"FilterInstanceIdList,omitempty" name:"FilterInstanceIdList"`
 
-	// 企业版搜索,  1：包含重保护航套餐下的企业版列表, 2: 不包含重保护航套餐的企业版列表
+	// 企业版搜索
 	FilterEnterpriseFlag *uint64 `json:"FilterEnterpriseFlag,omitempty" name:"FilterEnterpriseFlag"`
 
 	// 轻量版搜索
@@ -5084,9 +5076,6 @@ type DescribeListBGPInstancesRequestParams struct {
 
 	// 重保护航搜索
 	FilterConvoy *uint64 `json:"FilterConvoy,omitempty" name:"FilterConvoy"`
-
-	// 默认false；接口传true，返回数据中不包含高级信息，高级信息包含：InstanceList[0].Usage。
-	ExcludeAdvancedInfo *bool `json:"ExcludeAdvancedInfo,omitempty" name:"ExcludeAdvancedInfo"`
 }
 
 type DescribeListBGPInstancesRequest struct {
@@ -5122,7 +5111,7 @@ type DescribeListBGPInstancesRequest struct {
 	// 实例id数组
 	FilterInstanceIdList []*string `json:"FilterInstanceIdList,omitempty" name:"FilterInstanceIdList"`
 
-	// 企业版搜索,  1：包含重保护航套餐下的企业版列表, 2: 不包含重保护航套餐的企业版列表
+	// 企业版搜索
 	FilterEnterpriseFlag *uint64 `json:"FilterEnterpriseFlag,omitempty" name:"FilterEnterpriseFlag"`
 
 	// 轻量版搜索
@@ -5139,9 +5128,6 @@ type DescribeListBGPInstancesRequest struct {
 
 	// 重保护航搜索
 	FilterConvoy *uint64 `json:"FilterConvoy,omitempty" name:"FilterConvoy"`
-
-	// 默认false；接口传true，返回数据中不包含高级信息，高级信息包含：InstanceList[0].Usage。
-	ExcludeAdvancedInfo *bool `json:"ExcludeAdvancedInfo,omitempty" name:"ExcludeAdvancedInfo"`
 }
 
 func (r *DescribeListBGPInstancesRequest) ToJsonString() string {
@@ -5172,7 +5158,6 @@ func (r *DescribeListBGPInstancesRequest) FromJsonString(s string) error {
 	delete(f, "FilterTag")
 	delete(f, "FilterTrialFlag")
 	delete(f, "FilterConvoy")
-	delete(f, "ExcludeAdvancedInfo")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeListBGPInstancesRequest has unknown keys!", "")
 	}
@@ -7287,9 +7272,6 @@ type L7RuleHealth struct {
 
 	// 被动探测判定正常状态码，1xx =1, 2xx=2, 3xx=4, 4xx=8,5xx=16，多个状态码值加和
 	PassiveStatusCode *uint64 `json:"PassiveStatusCode,omitempty" name:"PassiveStatusCode"`
-
-	// 被动探测配置状态，0： 正常，1：配置中，2：配置失败
-	PassiveStatus *uint64 `json:"PassiveStatus,omitempty" name:"PassiveStatus"`
 }
 
 type Layer4Rule struct {
@@ -8503,10 +8485,6 @@ type NewL7RuleEntry struct {
 
 	// 规则配置失败时的详细错误原因(仅当Status=2时有效)，1001证书不存在，1002证书获取失败，1003证书上传失败，1004证书已过期
 	ErrCode *uint64 `json:"ErrCode,omitempty" name:"ErrCode"`
-
-	// 版本
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	Version *uint64 `json:"Version,omitempty" name:"Version"`
 }
 
 type OverviewDDoSEvent struct {

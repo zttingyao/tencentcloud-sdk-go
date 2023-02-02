@@ -4475,7 +4475,6 @@ func NewDescribeBaselineHostDetectListResponse() (response *DescribeBaselineHost
 // 获取基线检测主机列表
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER = "InvalidParameter"
 func (c *Client) DescribeBaselineHostDetectList(request *DescribeBaselineHostDetectListRequest) (response *DescribeBaselineHostDetectListResponse, err error) {
@@ -4486,7 +4485,6 @@ func (c *Client) DescribeBaselineHostDetectList(request *DescribeBaselineHostDet
 // 获取基线检测主机列表
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER = "InvalidParameter"
 func (c *Client) DescribeBaselineHostDetectListWithContext(ctx context.Context, request *DescribeBaselineHostDetectListRequest) (response *DescribeBaselineHostDetectListResponse, err error) {
@@ -4587,7 +4585,6 @@ func NewDescribeBaselineItemDetectListResponse() (response *DescribeBaselineItem
 // 获取基线检测项的列表
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER = "InvalidParameter"
 func (c *Client) DescribeBaselineItemDetectList(request *DescribeBaselineItemDetectListRequest) (response *DescribeBaselineItemDetectListResponse, err error) {
@@ -4598,7 +4595,6 @@ func (c *Client) DescribeBaselineItemDetectList(request *DescribeBaselineItemDet
 // 获取基线检测项的列表
 //
 // 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
 //  INTERNALERROR = "InternalError"
 //  INVALIDPARAMETER = "InvalidParameter"
 func (c *Client) DescribeBaselineItemDetectListWithContext(ctx context.Context, request *DescribeBaselineItemDetectListRequest) (response *DescribeBaselineItemDetectListResponse, err error) {
@@ -5135,72 +5131,6 @@ func (c *Client) DescribeBashEventsWithContext(ctx context.Context, request *Des
     request.SetContext(ctx)
     
     response = NewDescribeBashEventsResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewDescribeBashEventsNewRequest() (request *DescribeBashEventsNewRequest) {
-    request = &DescribeBashEventsNewRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("cwp", APIVersion, "DescribeBashEventsNew")
-    
-    
-    return
-}
-
-func NewDescribeBashEventsNewResponse() (response *DescribeBashEventsNewResponse) {
-    response = &DescribeBashEventsNewResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// DescribeBashEventsNew
-// 获取高危命令列表(新)
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_ILLEGALREQUEST = "InvalidParameter.IllegalRequest"
-//  INVALIDPARAMETER_INVALIDFORMAT = "InvalidParameter.InvalidFormat"
-//  INVALIDPARAMETER_MISSINGPARAMETER = "InvalidParameter.MissingParameter"
-//  INVALIDPARAMETER_PARSINGERROR = "InvalidParameter.ParsingError"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  MISSINGPARAMETER = "MissingParameter"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-func (c *Client) DescribeBashEventsNew(request *DescribeBashEventsNewRequest) (response *DescribeBashEventsNewResponse, err error) {
-    return c.DescribeBashEventsNewWithContext(context.Background(), request)
-}
-
-// DescribeBashEventsNew
-// 获取高危命令列表(新)
-//
-// 可能返回的错误码:
-//  FAILEDOPERATION = "FailedOperation"
-//  INTERNALERROR = "InternalError"
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_ILLEGALREQUEST = "InvalidParameter.IllegalRequest"
-//  INVALIDPARAMETER_INVALIDFORMAT = "InvalidParameter.InvalidFormat"
-//  INVALIDPARAMETER_MISSINGPARAMETER = "InvalidParameter.MissingParameter"
-//  INVALIDPARAMETER_PARSINGERROR = "InvalidParameter.ParsingError"
-//  INVALIDPARAMETERVALUE = "InvalidParameterValue"
-//  MISSINGPARAMETER = "MissingParameter"
-//  RESOURCENOTFOUND = "ResourceNotFound"
-func (c *Client) DescribeBashEventsNewWithContext(ctx context.Context, request *DescribeBashEventsNewRequest) (response *DescribeBashEventsNewResponse, err error) {
-    if request == nil {
-        request = NewDescribeBashEventsNewRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("DescribeBashEventsNew require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewDescribeBashEventsNewResponse()
     err = c.Send(request, response)
     return
 }

@@ -584,14 +584,14 @@ type DeleteRoomMemberRequestParams struct {
 	// 要操作的房间id
 	RoomId *string `json:"RoomId,omitempty" name:"RoomId"`
 
+	// 要剔除的用户列表
+	Uids []*string `json:"Uids,omitempty" name:"Uids"`
+
 	// 剔除类型 1-删除房间 2-剔除用户
 	DeleteType *uint64 `json:"DeleteType,omitempty" name:"DeleteType"`
 
 	// 应用id
 	BizId *uint64 `json:"BizId,omitempty" name:"BizId"`
-
-	// 要剔除的用户列表
-	Uids []*string `json:"Uids,omitempty" name:"Uids"`
 }
 
 type DeleteRoomMemberRequest struct {
@@ -600,14 +600,14 @@ type DeleteRoomMemberRequest struct {
 	// 要操作的房间id
 	RoomId *string `json:"RoomId,omitempty" name:"RoomId"`
 
+	// 要剔除的用户列表
+	Uids []*string `json:"Uids,omitempty" name:"Uids"`
+
 	// 剔除类型 1-删除房间 2-剔除用户
 	DeleteType *uint64 `json:"DeleteType,omitempty" name:"DeleteType"`
 
 	// 应用id
 	BizId *uint64 `json:"BizId,omitempty" name:"BizId"`
-
-	// 要剔除的用户列表
-	Uids []*string `json:"Uids,omitempty" name:"Uids"`
 }
 
 func (r *DeleteRoomMemberRequest) ToJsonString() string {
@@ -623,9 +623,9 @@ func (r *DeleteRoomMemberRequest) FromJsonString(s string) error {
 		return err
 	}
 	delete(f, "RoomId")
+	delete(f, "Uids")
 	delete(f, "DeleteType")
 	delete(f, "BizId")
-	delete(f, "Uids")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DeleteRoomMemberRequest has unknown keys!", "")
 	}
@@ -726,7 +726,7 @@ type DescribeAgeDetectTaskRequestParams struct {
 	// 应用id
 	BizId *int64 `json:"BizId,omitempty" name:"BizId"`
 
-	// [创建年龄语音识别任务](https://cloud.tencent.com/document/product/607/60620)时返回的taskid
+	// 创建年龄语音识别任务时返回的taskid
 	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
 }
 
@@ -736,7 +736,7 @@ type DescribeAgeDetectTaskRequest struct {
 	// 应用id
 	BizId *int64 `json:"BizId,omitempty" name:"BizId"`
 
-	// [创建年龄语音识别任务](https://cloud.tencent.com/document/product/607/60620)时返回的taskid
+	// 创建年龄语音识别任务时返回的taskid
 	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
 }
 
@@ -1817,10 +1817,6 @@ type RoomUser struct {
 	// 字符串房间id
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	StrRoomId *string `json:"StrRoomId,omitempty" name:"StrRoomId"`
-
-	// 房间里用户字符串uin列表
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	StrUins []*string `json:"StrUins,omitempty" name:"StrUins"`
 }
 
 type ScanDetail struct {
@@ -2194,15 +2190,11 @@ func (r *UpdateScanUsersResponse) FromJsonString(s string) error {
 }
 
 type UserMicStatus struct {
-	// 开麦状态。1表示关闭麦克风，2表示打开麦克风。
-	EnableMic *int64 `json:"EnableMic,omitempty" name:"EnableMic"`
-
-	// 客户端用于标识用户的Openid。（Uid、StrUid必须填一个，优先处理StrUid。）
+	// 客户端用于标识用户的Openid。
 	Uid *int64 `json:"Uid,omitempty" name:"Uid"`
 
-	// 客户端用于标识字符串型用户的Openid。（Uid、StrUid必须填一个，优先处理StrUid。）
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	StrUid *string `json:"StrUid,omitempty" name:"StrUid"`
+	// 开麦状态。1表示关闭麦克风，2表示打开麦克风。
+	EnableMic *int64 `json:"EnableMic,omitempty" name:"EnableMic"`
 }
 
 type VoiceFilterConf struct {

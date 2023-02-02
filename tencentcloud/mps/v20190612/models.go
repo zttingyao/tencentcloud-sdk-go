@@ -377,11 +377,6 @@ type AiAnalysisTaskFrameTagResult struct {
 type AiAnalysisTaskInput struct {
 	// 视频内容分析模板 ID。
 	Definition *uint64 `json:"Definition,omitempty" name:"Definition"`
-
-	// 扩展参数，其值为序列化的 json字符串。
-	// 注意：此参数为定制需求参数，需要线下对接。
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	ExtendedParameter *string `json:"ExtendedParameter,omitempty" name:"ExtendedParameter"`
 }
 
 type AiAnalysisTaskTagInput struct {
@@ -3036,9 +3031,6 @@ type CreateStreamLinkFlowRequestParams struct {
 
 	// 流的输入组。
 	InputGroup []*CreateInput `json:"InputGroup,omitempty" name:"InputGroup"`
-
-	// 该Flow关联的媒体传输事件ID，每个flow只能关联一个Event。
-	EventId *string `json:"EventId,omitempty" name:"EventId"`
 }
 
 type CreateStreamLinkFlowRequest struct {
@@ -3052,9 +3044,6 @@ type CreateStreamLinkFlowRequest struct {
 
 	// 流的输入组。
 	InputGroup []*CreateInput `json:"InputGroup,omitempty" name:"InputGroup"`
-
-	// 该Flow关联的媒体传输事件ID，每个flow只能关联一个Event。
-	EventId *string `json:"EventId,omitempty" name:"EventId"`
 }
 
 func (r *CreateStreamLinkFlowRequest) ToJsonString() string {
@@ -3072,7 +3061,6 @@ func (r *CreateStreamLinkFlowRequest) FromJsonString(s string) error {
 	delete(f, "FlowName")
 	delete(f, "MaxBandwidth")
 	delete(f, "InputGroup")
-	delete(f, "EventId")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "CreateStreamLinkFlowRequest has unknown keys!", "")
 	}
@@ -4895,12 +4883,6 @@ type DescribeFlow struct {
 	// 输出组。
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	OutputGroup []*DescribeOutput `json:"OutputGroup,omitempty" name:"OutputGroup"`
-
-	// 该Flow关联的媒体传输事件EventId。
-	EventId *string `json:"EventId,omitempty" name:"EventId"`
-
-	// 媒体传输输入流所属的区域，取值和InputRegion相同。
-	Region *string `json:"Region,omitempty" name:"Region"`
 }
 
 type DescribeHLSPullSourceAddress struct {

@@ -1086,7 +1086,7 @@ func NewCreateDBInstanceHourResponse() (response *CreateDBInstanceHourResponse) 
 //
 // 4. 支持创建主实例、灾备实例和只读实例；
 //
-// 5. 当入参指定 Port，ParamList 或 Password 时，该实例会进行初始化操作；
+// 5. 当入参指定 Port，ParamList 或 Password 时，该实例会进行初始化操作（暂不支持基础版实例）；
 //
 // 可能返回的错误码:
 //  CDBERROR = "CdbError"
@@ -1124,7 +1124,7 @@ func (c *Client) CreateDBInstanceHour(request *CreateDBInstanceHourRequest) (res
 //
 // 4. 支持创建主实例、灾备实例和只读实例；
 //
-// 5. 当入参指定 Port，ParamList 或 Password 时，该实例会进行初始化操作；
+// 5. 当入参指定 Port，ParamList 或 Password 时，该实例会进行初始化操作（暂不支持基础版实例）；
 //
 // 可能返回的错误码:
 //  CDBERROR = "CdbError"
@@ -1244,7 +1244,6 @@ func NewCreateParamTemplateResponse() (response *CreateParamTemplateResponse) {
 //  CDBERROR_DATABASEERROR = "CdbError.DatabaseError"
 //  INTERNALERROR_DATABASEACCESSERROR = "InternalError.DatabaseAccessError"
 //  INTERNALERROR_PARAMERROR = "InternalError.ParamError"
-//  INTERNALERROR_UNKNOWNERROR = "InternalError.UnknownError"
 //  INVALIDPARAMETER = "InvalidParameter"
 //  INVALIDPARAMETER_INVALIDNAME = "InvalidParameter.InvalidName"
 //  INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUEERROR = "InvalidParameterValue.InvalidParameterValueError"
@@ -1261,7 +1260,6 @@ func (c *Client) CreateParamTemplate(request *CreateParamTemplateRequest) (respo
 //  CDBERROR_DATABASEERROR = "CdbError.DatabaseError"
 //  INTERNALERROR_DATABASEACCESSERROR = "InternalError.DatabaseAccessError"
 //  INTERNALERROR_PARAMERROR = "InternalError.ParamError"
-//  INTERNALERROR_UNKNOWNERROR = "InternalError.UnknownError"
 //  INVALIDPARAMETER = "InvalidParameter"
 //  INVALIDPARAMETER_INVALIDNAME = "InvalidParameter.InvalidName"
 //  INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUEERROR = "InvalidParameterValue.InvalidParameterValueError"
@@ -1541,7 +1539,6 @@ func NewDeleteAuditPolicyResponse() (response *DeleteAuditPolicyResponse) {
 // 可能返回的错误码:
 //  INTERNALERROR_AUDITDELETEPOLICYERROR = "InternalError.AuditDeletePolicyError"
 //  INTERNALERROR_AUDITERROR = "InternalError.AuditError"
-//  INTERNALERROR_DBERROR = "InternalError.DBError"
 //  INTERNALERROR_DBOPERATIONERROR = "InternalError.DBOperationError"
 //  INTERNALERROR_DATABASEACCESSERROR = "InternalError.DatabaseAccessError"
 //  INTERNALERROR_INTERNALHTTPSERVERERROR = "InternalError.InternalHttpServerError"
@@ -1564,7 +1561,6 @@ func (c *Client) DeleteAuditPolicy(request *DeleteAuditPolicyRequest) (response 
 // 可能返回的错误码:
 //  INTERNALERROR_AUDITDELETEPOLICYERROR = "InternalError.AuditDeletePolicyError"
 //  INTERNALERROR_AUDITERROR = "InternalError.AuditError"
-//  INTERNALERROR_DBERROR = "InternalError.DBError"
 //  INTERNALERROR_DBOPERATIONERROR = "InternalError.DBOperationError"
 //  INTERNALERROR_DATABASEACCESSERROR = "InternalError.DatabaseAccessError"
 //  INTERNALERROR_INTERNALHTTPSERVERERROR = "InternalError.InternalHttpServerError"
@@ -2797,7 +2793,6 @@ func NewDescribeBackupsResponse() (response *DescribeBackupsResponse) {
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
 //  CDBERROR = "CdbError"
-//  INTERNALERROR_DBERROR = "InternalError.DBError"
 //  INTERNALERROR_DBOPERATIONERROR = "InternalError.DBOperationError"
 //  INTERNALERROR_DATABASEACCESSERROR = "InternalError.DatabaseAccessError"
 //  INTERNALERROR_DESERROR = "InternalError.DesError"
@@ -2821,7 +2816,6 @@ func (c *Client) DescribeBackups(request *DescribeBackupsRequest) (response *Des
 // 可能返回的错误码:
 //  AUTHFAILURE = "AuthFailure"
 //  CDBERROR = "CdbError"
-//  INTERNALERROR_DBERROR = "InternalError.DBError"
 //  INTERNALERROR_DBOPERATIONERROR = "InternalError.DBOperationError"
 //  INTERNALERROR_DATABASEACCESSERROR = "InternalError.DatabaseAccessError"
 //  INTERNALERROR_DESERROR = "InternalError.DesError"
@@ -3119,58 +3113,6 @@ func (c *Client) DescribeCloneListWithContext(ctx context.Context, request *Desc
     request.SetContext(ctx)
     
     response = NewDescribeCloneListResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewDescribeDBFeaturesRequest() (request *DescribeDBFeaturesRequest) {
-    request = &DescribeDBFeaturesRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("cdb", APIVersion, "DescribeDBFeatures")
-    
-    
-    return
-}
-
-func NewDescribeDBFeaturesResponse() (response *DescribeDBFeaturesResponse) {
-    response = &DescribeDBFeaturesResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// DescribeDBFeatures
-// 本接口(DescribeDBFeatures)用于查询云数据库版本属性，包括是否支持数据库加密、数据库审计等功能。
-//
-// 可能返回的错误码:
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
-//  OPERATIONDENIED = "OperationDenied"
-func (c *Client) DescribeDBFeatures(request *DescribeDBFeaturesRequest) (response *DescribeDBFeaturesResponse, err error) {
-    return c.DescribeDBFeaturesWithContext(context.Background(), request)
-}
-
-// DescribeDBFeatures
-// 本接口(DescribeDBFeatures)用于查询云数据库版本属性，包括是否支持数据库加密、数据库审计等功能。
-//
-// 可能返回的错误码:
-//  INVALIDPARAMETER = "InvalidParameter"
-//  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
-//  OPERATIONDENIED = "OperationDenied"
-func (c *Client) DescribeDBFeaturesWithContext(ctx context.Context, request *DescribeDBFeaturesRequest) (response *DescribeDBFeaturesResponse, err error) {
-    if request == nil {
-        request = NewDescribeDBFeaturesRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("DescribeDBFeatures require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewDescribeDBFeaturesResponse()
     err = c.Send(request, response)
     return
 }
@@ -7304,7 +7246,7 @@ func NewModifyRemoteBackupConfigResponse() (response *ModifyRemoteBackupConfigRe
 }
 
 // ModifyRemoteBackupConfig
-// 本接口(ModifyRemoteBackupConfig)用于修改数据库异地备份配置信息。
+// 本接口(ModifyRemoteBackupConfig)用于查询数据库异地备份配置信息。
 //
 // 可能返回的错误码:
 //  INVALIDPARAMETER_EXCEPTIONPARAM = "InvalidParameter.ExceptionParam"
@@ -7314,7 +7256,7 @@ func (c *Client) ModifyRemoteBackupConfig(request *ModifyRemoteBackupConfigReque
 }
 
 // ModifyRemoteBackupConfig
-// 本接口(ModifyRemoteBackupConfig)用于修改数据库异地备份配置信息。
+// 本接口(ModifyRemoteBackupConfig)用于查询数据库异地备份配置信息。
 //
 // 可能返回的错误码:
 //  INVALIDPARAMETER_EXCEPTIONPARAM = "InvalidParameter.ExceptionParam"
@@ -7439,7 +7381,6 @@ func NewModifyTimeWindowResponse() (response *ModifyTimeWindowResponse) {
 //  INTERNALERROR_UNKNOWNERROR = "InternalError.UnknownError"
 //  INVALIDPARAMETER = "InvalidParameter"
 //  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
-//  INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUEERROR = "InvalidParameterValue.InvalidParameterValueError"
 //  OPERATIONDENIED = "OperationDenied"
 func (c *Client) ModifyTimeWindow(request *ModifyTimeWindowRequest) (response *ModifyTimeWindowResponse, err error) {
     return c.ModifyTimeWindowWithContext(context.Background(), request)
@@ -7455,7 +7396,6 @@ func (c *Client) ModifyTimeWindow(request *ModifyTimeWindowRequest) (response *M
 //  INTERNALERROR_UNKNOWNERROR = "InternalError.UnknownError"
 //  INVALIDPARAMETER = "InvalidParameter"
 //  INVALIDPARAMETER_INSTANCENOTFOUND = "InvalidParameter.InstanceNotFound"
-//  INVALIDPARAMETERVALUE_INVALIDPARAMETERVALUEERROR = "InvalidParameterValue.InvalidParameterValueError"
 //  OPERATIONDENIED = "OperationDenied"
 func (c *Client) ModifyTimeWindowWithContext(ctx context.Context, request *ModifyTimeWindowRequest) (response *ModifyTimeWindowResponse, err error) {
     if request == nil {
@@ -8905,7 +8845,6 @@ func NewVerifyRootAccountResponse() (response *VerifyRootAccountResponse) {
 //  MISSINGPARAMETER_ACCOUNTMISSINGPARAMETERERROR = "MissingParameter.AccountMissingParameterError"
 //  OPERATIONDENIED = "OperationDenied"
 //  OPERATIONDENIED_DELETEROOTACCOUNTERROR = "OperationDenied.DeleteRootAccountError"
-//  OPERATIONDENIED_INSTTYPENOTSUPPORT = "OperationDenied.InstTypeNotSupport"
 //  OPERATIONDENIED_NOTSUPPORTMODIFYLOCALROOTHOSTERROR = "OperationDenied.NotSupportModifyLocalRootHostError"
 //  RESOURCENOTFOUND_CDBINSTANCENOTFOUNDERROR = "ResourceNotFound.CdbInstanceNotFoundError"
 //  UNSUPPORTEDOPERATION_PRIVILEGESUNSUPPORTEDERROR = "UnsupportedOperation.PrivilegesUnsupportedError"
@@ -8943,7 +8882,6 @@ func (c *Client) VerifyRootAccount(request *VerifyRootAccountRequest) (response 
 //  MISSINGPARAMETER_ACCOUNTMISSINGPARAMETERERROR = "MissingParameter.AccountMissingParameterError"
 //  OPERATIONDENIED = "OperationDenied"
 //  OPERATIONDENIED_DELETEROOTACCOUNTERROR = "OperationDenied.DeleteRootAccountError"
-//  OPERATIONDENIED_INSTTYPENOTSUPPORT = "OperationDenied.InstTypeNotSupport"
 //  OPERATIONDENIED_NOTSUPPORTMODIFYLOCALROOTHOSTERROR = "OperationDenied.NotSupportModifyLocalRootHostError"
 //  RESOURCENOTFOUND_CDBINSTANCENOTFOUNDERROR = "ResourceNotFound.CdbInstanceNotFoundError"
 //  UNSUPPORTEDOPERATION_PRIVILEGESUNSUPPORTEDERROR = "UnsupportedOperation.PrivilegesUnsupportedError"

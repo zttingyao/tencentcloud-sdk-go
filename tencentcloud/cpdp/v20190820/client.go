@@ -87,54 +87,6 @@ func (c *Client) AddContractWithContext(ctx context.Context, request *AddContrac
     return
 }
 
-func NewAddFlexFundingAccountRequest() (request *AddFlexFundingAccountRequest) {
-    request = &AddFlexFundingAccountRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("cpdp", APIVersion, "AddFlexFundingAccount")
-    
-    
-    return
-}
-
-func NewAddFlexFundingAccountResponse() (response *AddFlexFundingAccountResponse) {
-    response = &AddFlexFundingAccountResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// AddFlexFundingAccount
-// 灵云V2-绑定收款用户资金账号信息
-//
-// 可能返回的错误码:
-//  INTERNALERROR_UNKNOWN = "InternalError.Unknown"
-func (c *Client) AddFlexFundingAccount(request *AddFlexFundingAccountRequest) (response *AddFlexFundingAccountResponse, err error) {
-    return c.AddFlexFundingAccountWithContext(context.Background(), request)
-}
-
-// AddFlexFundingAccount
-// 灵云V2-绑定收款用户资金账号信息
-//
-// 可能返回的错误码:
-//  INTERNALERROR_UNKNOWN = "InternalError.Unknown"
-func (c *Client) AddFlexFundingAccountWithContext(ctx context.Context, request *AddFlexFundingAccountRequest) (response *AddFlexFundingAccountResponse, err error) {
-    if request == nil {
-        request = NewAddFlexFundingAccountRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("AddFlexFundingAccount require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewAddFlexFundingAccountResponse()
-    err = c.Send(request, response)
-    return
-}
-
 func NewAddFlexIdInfoRequest() (request *AddFlexIdInfoRequest) {
     request = &AddFlexIdInfoRequest{
         BaseRequest: &tchttp.BaseRequest{},
@@ -3517,7 +3469,21 @@ func NewCreateRedInvoiceV2Response() (response *CreateRedInvoiceV2Response) {
 // 智慧零售-发票红冲V2
 //
 // 可能返回的错误码:
+//  FAILEDOPERATION_BACKENDERROR = "FailedOperation.BackendError"
+//  FAILEDOPERATION_INVOICEEXIST = "FailedOperation.InvoiceExist"
+//  FAILEDOPERATION_UNKNOWN = "FailedOperation.Unknown"
+//  INTERNALERROR_BACKENDERROR = "InternalError.BackendError"
+//  INTERNALERROR_DUPLICATEKEYERROR = "InternalError.DuplicateKeyError"
+//  INTERNALERROR_SANDBOXACCESSERROR = "InternalError.SandBoxAccessError"
+//  INTERNALERROR_SAVEDBERROR = "InternalError.SaveDBError"
+//  INTERNALERROR_SIGGENERROR = "InternalError.SigGenError"
+//  INTERNALERROR_UNKOWNERROR = "InternalError.UnkownError"
+//  INVALIDPARAMETER_LACKPARAMETER = "InvalidParameter.LackParameter"
+//  INVALIDPARAMETER_UNSUPPORTEDPARAMETER = "InvalidParameter.UnsupportedParameter"
+//  RESOURCEINSUFFICIENT_THREADPOOLREJECT = "ResourceInsufficient.ThreadPoolReject"
 //  RESOURCENOTFOUND_INVOICENOTFOUND = "ResourceNotFound.InvoiceNotFound"
+//  RESOURCENOTFOUND_MERCHANTINFONOTFOUND = "ResourceNotFound.MerchantInfoNotFound"
+//  RESOURCENOTFOUND_PLATFORMINFONOTFOUND = "ResourceNotFound.PlatformInfoNotFound"
 func (c *Client) CreateRedInvoiceV2(request *CreateRedInvoiceV2Request) (response *CreateRedInvoiceV2Response, err error) {
     return c.CreateRedInvoiceV2WithContext(context.Background(), request)
 }
@@ -3526,7 +3492,21 @@ func (c *Client) CreateRedInvoiceV2(request *CreateRedInvoiceV2Request) (respons
 // 智慧零售-发票红冲V2
 //
 // 可能返回的错误码:
+//  FAILEDOPERATION_BACKENDERROR = "FailedOperation.BackendError"
+//  FAILEDOPERATION_INVOICEEXIST = "FailedOperation.InvoiceExist"
+//  FAILEDOPERATION_UNKNOWN = "FailedOperation.Unknown"
+//  INTERNALERROR_BACKENDERROR = "InternalError.BackendError"
+//  INTERNALERROR_DUPLICATEKEYERROR = "InternalError.DuplicateKeyError"
+//  INTERNALERROR_SANDBOXACCESSERROR = "InternalError.SandBoxAccessError"
+//  INTERNALERROR_SAVEDBERROR = "InternalError.SaveDBError"
+//  INTERNALERROR_SIGGENERROR = "InternalError.SigGenError"
+//  INTERNALERROR_UNKOWNERROR = "InternalError.UnkownError"
+//  INVALIDPARAMETER_LACKPARAMETER = "InvalidParameter.LackParameter"
+//  INVALIDPARAMETER_UNSUPPORTEDPARAMETER = "InvalidParameter.UnsupportedParameter"
+//  RESOURCEINSUFFICIENT_THREADPOOLREJECT = "ResourceInsufficient.ThreadPoolReject"
 //  RESOURCENOTFOUND_INVOICENOTFOUND = "ResourceNotFound.InvoiceNotFound"
+//  RESOURCENOTFOUND_MERCHANTINFONOTFOUND = "ResourceNotFound.MerchantInfoNotFound"
+//  RESOURCENOTFOUND_PLATFORMINFONOTFOUND = "ResourceNotFound.PlatformInfoNotFound"
 func (c *Client) CreateRedInvoiceV2WithContext(ctx context.Context, request *CreateRedInvoiceV2Request) (response *CreateRedInvoiceV2Response, err error) {
     if request == nil {
         request = NewCreateRedInvoiceV2Request()
@@ -3565,7 +3545,21 @@ func NewCreateSinglePaymentResponse() (response *CreateSinglePaymentResponse) {
 // 灵云-单笔主播转账接口
 //
 // 可能返回的错误码:
+//  FAILEDOPERATION_BACKENDERROR = "FailedOperation.BackendError"
+//  FAILEDOPERATION_INVOICEEXIST = "FailedOperation.InvoiceExist"
+//  FAILEDOPERATION_UNKNOWN = "FailedOperation.Unknown"
+//  INTERNALERROR_BACKENDERROR = "InternalError.BackendError"
+//  INTERNALERROR_DUPLICATEKEYERROR = "InternalError.DuplicateKeyError"
+//  INTERNALERROR_SANDBOXACCESSERROR = "InternalError.SandBoxAccessError"
+//  INTERNALERROR_SAVEDBERROR = "InternalError.SaveDBError"
+//  INTERNALERROR_SIGGENERROR = "InternalError.SigGenError"
+//  INTERNALERROR_UNKOWNERROR = "InternalError.UnkownError"
+//  INVALIDPARAMETER_LACKPARAMETER = "InvalidParameter.LackParameter"
+//  INVALIDPARAMETER_UNSUPPORTEDPARAMETER = "InvalidParameter.UnsupportedParameter"
+//  RESOURCEINSUFFICIENT_THREADPOOLREJECT = "ResourceInsufficient.ThreadPoolReject"
 //  RESOURCENOTFOUND_INVOICENOTFOUND = "ResourceNotFound.InvoiceNotFound"
+//  RESOURCENOTFOUND_MERCHANTINFONOTFOUND = "ResourceNotFound.MerchantInfoNotFound"
+//  RESOURCENOTFOUND_PLATFORMINFONOTFOUND = "ResourceNotFound.PlatformInfoNotFound"
 func (c *Client) CreateSinglePayment(request *CreateSinglePaymentRequest) (response *CreateSinglePaymentResponse, err error) {
     return c.CreateSinglePaymentWithContext(context.Background(), request)
 }
@@ -3574,7 +3568,21 @@ func (c *Client) CreateSinglePayment(request *CreateSinglePaymentRequest) (respo
 // 灵云-单笔主播转账接口
 //
 // 可能返回的错误码:
+//  FAILEDOPERATION_BACKENDERROR = "FailedOperation.BackendError"
+//  FAILEDOPERATION_INVOICEEXIST = "FailedOperation.InvoiceExist"
+//  FAILEDOPERATION_UNKNOWN = "FailedOperation.Unknown"
+//  INTERNALERROR_BACKENDERROR = "InternalError.BackendError"
+//  INTERNALERROR_DUPLICATEKEYERROR = "InternalError.DuplicateKeyError"
+//  INTERNALERROR_SANDBOXACCESSERROR = "InternalError.SandBoxAccessError"
+//  INTERNALERROR_SAVEDBERROR = "InternalError.SaveDBError"
+//  INTERNALERROR_SIGGENERROR = "InternalError.SigGenError"
+//  INTERNALERROR_UNKOWNERROR = "InternalError.UnkownError"
+//  INVALIDPARAMETER_LACKPARAMETER = "InvalidParameter.LackParameter"
+//  INVALIDPARAMETER_UNSUPPORTEDPARAMETER = "InvalidParameter.UnsupportedParameter"
+//  RESOURCEINSUFFICIENT_THREADPOOLREJECT = "ResourceInsufficient.ThreadPoolReject"
 //  RESOURCENOTFOUND_INVOICENOTFOUND = "ResourceNotFound.InvoiceNotFound"
+//  RESOURCENOTFOUND_MERCHANTINFONOTFOUND = "ResourceNotFound.MerchantInfoNotFound"
+//  RESOURCENOTFOUND_PLATFORMINFONOTFOUND = "ResourceNotFound.PlatformInfoNotFound"
 func (c *Client) CreateSinglePaymentWithContext(ctx context.Context, request *CreateSinglePaymentRequest) (response *CreateSinglePaymentResponse, err error) {
     if request == nil {
         request = NewCreateSinglePaymentRequest()
@@ -5199,54 +5207,6 @@ func (c *Client) ModifyBindedAccountWithContext(ctx context.Context, request *Mo
     request.SetContext(ctx)
     
     response = NewModifyBindedAccountResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewModifyFlexFundingAccountRequest() (request *ModifyFlexFundingAccountRequest) {
-    request = &ModifyFlexFundingAccountRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("cpdp", APIVersion, "ModifyFlexFundingAccount")
-    
-    
-    return
-}
-
-func NewModifyFlexFundingAccountResponse() (response *ModifyFlexFundingAccountResponse) {
-    response = &ModifyFlexFundingAccountResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// ModifyFlexFundingAccount
-// 灵云V2-修改收款用户资金账号信息
-//
-// 可能返回的错误码:
-//  INTERNALERROR_UNKNOWN = "InternalError.Unknown"
-func (c *Client) ModifyFlexFundingAccount(request *ModifyFlexFundingAccountRequest) (response *ModifyFlexFundingAccountResponse, err error) {
-    return c.ModifyFlexFundingAccountWithContext(context.Background(), request)
-}
-
-// ModifyFlexFundingAccount
-// 灵云V2-修改收款用户资金账号信息
-//
-// 可能返回的错误码:
-//  INTERNALERROR_UNKNOWN = "InternalError.Unknown"
-func (c *Client) ModifyFlexFundingAccountWithContext(ctx context.Context, request *ModifyFlexFundingAccountRequest) (response *ModifyFlexFundingAccountResponse, err error) {
-    if request == nil {
-        request = NewModifyFlexFundingAccountRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("ModifyFlexFundingAccount require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewModifyFlexFundingAccountResponse()
     err = c.Send(request, response)
     return
 }
@@ -8089,54 +8049,6 @@ func (c *Client) QueryFlexPlatformAccountBalanceWithContext(ctx context.Context,
     request.SetContext(ctx)
     
     response = NewQueryFlexPlatformAccountBalanceResponse()
-    err = c.Send(request, response)
-    return
-}
-
-func NewQueryFlexServiceProviderAccountBalanceRequest() (request *QueryFlexServiceProviderAccountBalanceRequest) {
-    request = &QueryFlexServiceProviderAccountBalanceRequest{
-        BaseRequest: &tchttp.BaseRequest{},
-    }
-    
-    request.Init().WithApiInfo("cpdp", APIVersion, "QueryFlexServiceProviderAccountBalance")
-    
-    
-    return
-}
-
-func NewQueryFlexServiceProviderAccountBalanceResponse() (response *QueryFlexServiceProviderAccountBalanceResponse) {
-    response = &QueryFlexServiceProviderAccountBalanceResponse{
-        BaseResponse: &tchttp.BaseResponse{},
-    }
-    return
-}
-
-// QueryFlexServiceProviderAccountBalance
-// 灵云V2-查询服务商账户余额
-//
-// 可能返回的错误码:
-//  INTERNALERROR_UNKNOWN = "InternalError.Unknown"
-func (c *Client) QueryFlexServiceProviderAccountBalance(request *QueryFlexServiceProviderAccountBalanceRequest) (response *QueryFlexServiceProviderAccountBalanceResponse, err error) {
-    return c.QueryFlexServiceProviderAccountBalanceWithContext(context.Background(), request)
-}
-
-// QueryFlexServiceProviderAccountBalance
-// 灵云V2-查询服务商账户余额
-//
-// 可能返回的错误码:
-//  INTERNALERROR_UNKNOWN = "InternalError.Unknown"
-func (c *Client) QueryFlexServiceProviderAccountBalanceWithContext(ctx context.Context, request *QueryFlexServiceProviderAccountBalanceRequest) (response *QueryFlexServiceProviderAccountBalanceResponse, err error) {
-    if request == nil {
-        request = NewQueryFlexServiceProviderAccountBalanceRequest()
-    }
-    
-    if c.GetCredential() == nil {
-        return nil, errors.New("QueryFlexServiceProviderAccountBalance require credential")
-    }
-
-    request.SetContext(ctx)
-    
-    response = NewQueryFlexServiceProviderAccountBalanceResponse()
     err = c.Send(request, response)
     return
 }

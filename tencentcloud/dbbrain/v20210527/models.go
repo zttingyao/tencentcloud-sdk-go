@@ -2110,7 +2110,7 @@ type DescribeProxyProcessStatisticsRequestParams struct {
 	// 实例 ID 。
 	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
 
-	// 该实例下需要查询的某一个 ProxyID 。
+	// 当前实例下的 ProxyID。
 	InstanceProxyId *string `json:"InstanceProxyId,omitempty" name:"InstanceProxyId"`
 
 	// 返回数量。
@@ -2135,7 +2135,7 @@ type DescribeProxyProcessStatisticsRequest struct {
 	// 实例 ID 。
 	InstanceId *string `json:"InstanceId,omitempty" name:"InstanceId"`
 
-	// 该实例下需要查询的某一个 ProxyID 。
+	// 当前实例下的 ProxyID。
 	InstanceProxyId *string `json:"InstanceProxyId,omitempty" name:"InstanceProxyId"`
 
 	// 返回数量。
@@ -4104,14 +4104,7 @@ type MySqlProcess struct {
 }
 
 type ProcessStatistic struct {
-	// 会话详情数组。
-	Items []*SessionItem `json:"Items,omitempty" name:"Items"`
 
-	// 总连接数。
-	AllConnSum *int64 `json:"AllConnSum,omitempty" name:"AllConnSum"`
-
-	// 总活跃连接数。
-	ActiveConnSum *int64 `json:"ActiveConnSum,omitempty" name:"ActiveConnSum"`
 }
 
 type ProfileInfo struct {
@@ -4308,17 +4301,6 @@ type SecLogExportTaskInfo struct {
 	// 风险等级列表。0 无风险；1 低风险；2 中风险；3 高风险。
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	DangerLevels []*uint64 `json:"DangerLevels,omitempty" name:"DangerLevels"`
-}
-
-type SessionItem struct {
-	// 访问来源。
-	Ip *string `json:"Ip,omitempty" name:"Ip"`
-
-	// 当前访问来源活跃连接数
-	ActiveConn *string `json:"ActiveConn,omitempty" name:"ActiveConn"`
-
-	// 当前访问来源总连接数
-	AllConn *int64 `json:"AllConn,omitempty" name:"AllConn"`
 }
 
 type SlowLogHost struct {

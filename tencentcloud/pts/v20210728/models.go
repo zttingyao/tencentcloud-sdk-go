@@ -907,9 +907,6 @@ type CreateScenarioRequestParams struct {
 
 	// 域名解析配置
 	DomainNameConfig *DomainNameConfig `json:"DomainNameConfig,omitempty" name:"DomainNameConfig"`
-
-	// 创建人名
-	Owner *string `json:"Owner,omitempty" name:"Owner"`
 }
 
 type CreateScenarioRequest struct {
@@ -965,9 +962,6 @@ type CreateScenarioRequest struct {
 
 	// 域名解析配置
 	DomainNameConfig *DomainNameConfig `json:"DomainNameConfig,omitempty" name:"DomainNameConfig"`
-
-	// 创建人名
-	Owner *string `json:"Owner,omitempty" name:"Owner"`
 }
 
 func (r *CreateScenarioRequest) ToJsonString() string {
@@ -999,7 +993,6 @@ func (r *CreateScenarioRequest) FromJsonString(s string) error {
 	delete(f, "SLAPolicy")
 	delete(f, "Plugins")
 	delete(f, "DomainNameConfig")
-	delete(f, "Owner")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "CreateScenarioRequest has unknown keys!", "")
 	}
@@ -3299,12 +3292,6 @@ type DescribeScenarioWithJobsRequestParams struct {
 
 	// 是否需要返回测试数据文件信息
 	IgnoreDataset *bool `json:"IgnoreDataset,omitempty" name:"IgnoreDataset"`
-
-	// 场景类型，如pts-http, pts-js, pts-trpc, pts-jmeter	
-	ScenarioType *string `json:"ScenarioType,omitempty" name:"ScenarioType"`
-
-	// 创建人员
-	Owner *string `json:"Owner,omitempty" name:"Owner"`
 }
 
 type DescribeScenarioWithJobsRequest struct {
@@ -3342,12 +3329,6 @@ type DescribeScenarioWithJobsRequest struct {
 
 	// 是否需要返回测试数据文件信息
 	IgnoreDataset *bool `json:"IgnoreDataset,omitempty" name:"IgnoreDataset"`
-
-	// 场景类型，如pts-http, pts-js, pts-trpc, pts-jmeter	
-	ScenarioType *string `json:"ScenarioType,omitempty" name:"ScenarioType"`
-
-	// 创建人员
-	Owner *string `json:"Owner,omitempty" name:"Owner"`
 }
 
 func (r *DescribeScenarioWithJobsRequest) ToJsonString() string {
@@ -3373,8 +3354,6 @@ func (r *DescribeScenarioWithJobsRequest) FromJsonString(s string) error {
 	delete(f, "ScenarioRelatedJobsParams")
 	delete(f, "IgnoreScript")
 	delete(f, "IgnoreDataset")
-	delete(f, "ScenarioType")
-	delete(f, "Owner")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeScenarioWithJobsRequest has unknown keys!", "")
 	}
@@ -4444,10 +4423,6 @@ type Scenario struct {
 	// 通知事件回调
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	NotificationHooks []*NotificationHook `json:"NotificationHooks,omitempty" name:"NotificationHooks"`
-
-	// 创建人员
-	// 注意：此字段可能返回 null，表示取不到有效值。
-	Owner *string `json:"Owner,omitempty" name:"Owner"`
 }
 
 type ScenarioRelatedJobsParams struct {
@@ -5080,9 +5055,6 @@ type UpdateScenarioRequestParams struct {
 
 	// WebHook请求配置
 	NotificationHooks []*Notification `json:"NotificationHooks,omitempty" name:"NotificationHooks"`
-
-	// 创建人名
-	Owner *string `json:"Owner,omitempty" name:"Owner"`
 }
 
 type UpdateScenarioRequest struct {
@@ -5147,9 +5119,6 @@ type UpdateScenarioRequest struct {
 
 	// WebHook请求配置
 	NotificationHooks []*Notification `json:"NotificationHooks,omitempty" name:"NotificationHooks"`
-
-	// 创建人名
-	Owner *string `json:"Owner,omitempty" name:"Owner"`
 }
 
 func (r *UpdateScenarioRequest) ToJsonString() string {
@@ -5184,7 +5153,6 @@ func (r *UpdateScenarioRequest) FromJsonString(s string) error {
 	delete(f, "Plugins")
 	delete(f, "DomainNameConfig")
 	delete(f, "NotificationHooks")
-	delete(f, "Owner")
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "UpdateScenarioRequest has unknown keys!", "")
 	}

@@ -41,9 +41,6 @@ const (
 	// HTTP客户端请求失败。
 	FAILEDOPERATION_HTTPCLIENTDOREQUESTFAILED = "FailedOperation.HttpClientDoRequestFailed"
 
-	// 没有操作权限。
-	FAILEDOPERATION_NOPERMISSION = "FailedOperation.NoPermission"
-
 	// 取消授权失败。
 	FAILEDOPERATION_REVOKEPOLICYFAILED = "FailedOperation.RevokePolicyFailed"
 
@@ -187,9 +184,6 @@ const (
 
 	// 子用户不是管理员，无权修改工作组信息。
 	UNAUTHORIZEDOPERATION_MODIFYWORKGROUPINFO = "UnauthorizedOperation.ModifyWorkgroupInfo"
-
-	// 子用户无权操作引擎。
-	UNAUTHORIZEDOPERATION_OPERATECOMPUTINGENGINE = "UnauthorizedOperation.OperateComputingEngine"
 
 	// 子用户无权取消特定权限。
 	UNAUTHORIZEDOPERATION_REVOKEPOLICY = "UnauthorizedOperation.RevokePolicy"

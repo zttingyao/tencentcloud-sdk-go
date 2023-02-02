@@ -1195,7 +1195,6 @@ func NewDescribeJobsResponse() (response *DescribeJobsResponse) {
 //  INVALIDPARAMETER_JOBIDMALFORMED = "InvalidParameter.JobIdMalformed"
 //  INVALIDPARAMETERVALUE = "InvalidParameterValue"
 //  INVALIDPARAMETERVALUE_INVALIDFILTER = "InvalidParameterValue.InvalidFilter"
-//  INVALIDPARAMETERVALUE_LIMITEXCEEDED = "InvalidParameterValue.LimitExceeded"
 //  INVALIDZONE_MISMATCHREGION = "InvalidZone.MismatchRegion"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 func (c *Client) DescribeJobs(request *DescribeJobsRequest) (response *DescribeJobsResponse, err error) {
@@ -1212,7 +1211,6 @@ func (c *Client) DescribeJobs(request *DescribeJobsRequest) (response *DescribeJ
 //  INVALIDPARAMETER_JOBIDMALFORMED = "InvalidParameter.JobIdMalformed"
 //  INVALIDPARAMETERVALUE = "InvalidParameterValue"
 //  INVALIDPARAMETERVALUE_INVALIDFILTER = "InvalidParameterValue.InvalidFilter"
-//  INVALIDPARAMETERVALUE_LIMITEXCEEDED = "InvalidParameterValue.LimitExceeded"
 //  INVALIDZONE_MISMATCHREGION = "InvalidZone.MismatchRegion"
 //  UNKNOWNPARAMETER = "UnknownParameter"
 func (c *Client) DescribeJobsWithContext(ctx context.Context, request *DescribeJobsRequest) (response *DescribeJobsResponse, err error) {

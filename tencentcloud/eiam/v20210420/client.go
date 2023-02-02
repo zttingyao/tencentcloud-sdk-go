@@ -1552,7 +1552,6 @@ func NewListApplicationsResponse() (response *ListApplicationsResponse) {
 //  INVALIDPARAMETER_SEARCHCRITERIAILLEGAL = "InvalidParameter.SearchCriteriaIllegal"
 //  INVALIDPARAMETERVALUE_APPIDCANNOTBEEMPTY = "InvalidParameterValue.AppIdCanNotBeEmpty"
 //  INVALIDPARAMETERVALUE_APPLICATIONINFOSORTKEYILLEGAL = "InvalidParameterValue.ApplicationInfoSortKeyIllegal"
-//  OPERATIONDENIED_ACTIONPERMISSIONDENY = "OperationDenied.ActionPermissionDeny"
 func (c *Client) ListApplications(request *ListApplicationsRequest) (response *ListApplicationsResponse, err error) {
     return c.ListApplicationsWithContext(context.Background(), request)
 }
@@ -1566,7 +1565,6 @@ func (c *Client) ListApplications(request *ListApplicationsRequest) (response *L
 //  INVALIDPARAMETER_SEARCHCRITERIAILLEGAL = "InvalidParameter.SearchCriteriaIllegal"
 //  INVALIDPARAMETERVALUE_APPIDCANNOTBEEMPTY = "InvalidParameterValue.AppIdCanNotBeEmpty"
 //  INVALIDPARAMETERVALUE_APPLICATIONINFOSORTKEYILLEGAL = "InvalidParameterValue.ApplicationInfoSortKeyIllegal"
-//  OPERATIONDENIED_ACTIONPERMISSIONDENY = "OperationDenied.ActionPermissionDeny"
 func (c *Client) ListApplicationsWithContext(ctx context.Context, request *ListApplicationsRequest) (response *ListApplicationsResponse, err error) {
     if request == nil {
         request = NewListApplicationsRequest()

@@ -125,7 +125,6 @@ func NewCreateCloudRunServerResponse() (response *CreateCloudRunServerResponse) 
 // 可能返回的错误码:
 //  LIMITEXCEEDED = "LimitExceeded"
 //  RESOURCEINUSE = "ResourceInUse"
-//  RESOURCENOTFOUND = "ResourceNotFound"
 func (c *Client) CreateCloudRunServer(request *CreateCloudRunServerRequest) (response *CreateCloudRunServerResponse, err error) {
     return c.CreateCloudRunServerWithContext(context.Background(), request)
 }
@@ -136,7 +135,6 @@ func (c *Client) CreateCloudRunServer(request *CreateCloudRunServerRequest) (res
 // 可能返回的错误码:
 //  LIMITEXCEEDED = "LimitExceeded"
 //  RESOURCEINUSE = "ResourceInUse"
-//  RESOURCENOTFOUND = "ResourceNotFound"
 func (c *Client) CreateCloudRunServerWithContext(ctx context.Context, request *CreateCloudRunServerRequest) (response *CreateCloudRunServerResponse, err error) {
     if request == nil {
         request = NewCreateCloudRunServerRequest()

@@ -368,9 +368,6 @@ const (
 	// 用户UIN无效。
 	INVALIDPARAMETER_QCLOUDUININVALID = "InvalidParameter.QcloudUinInvalid"
 
-	// TXT 记录未设置或暂未生效，请稍后重试。
-	INVALIDPARAMETER_QUHUITXTRECORDWAIT = "InvalidParameter.QuhuiTxtRecordWait"
-
 	// 已实名用户。
 	INVALIDPARAMETER_REALNAMEUSER = "InvalidParameter.RealNameUser"
 

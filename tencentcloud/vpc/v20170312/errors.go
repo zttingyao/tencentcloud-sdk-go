@@ -494,9 +494,6 @@ const (
 	// 标签键的数目已达到上限。
 	LIMITEXCEEDED_TAGTAGSEXCEEDED = "LimitExceeded.TagTagsExceeded"
 
-	// 流量包配额超过限制。
-	LIMITEXCEEDED_TRAFFICPACKAGEQUOTA = "LimitExceeded.TrafficPackageQuota"
-
 	// 缺少参数错误。
 	MISSINGPARAMETER = "MissingParameter"
 
@@ -755,9 +752,6 @@ const (
 	// 当前实例已被封禁，无法进行此操作。
 	UNSUPPORTEDOPERATION_NOTLOCKEDINSTANCEOPERATION = "UnsupportedOperation.NotLockedInstanceOperation"
 
-	// 目的端的服务在IP申请中使用的实例ID和这里传入的不匹配。
-	UNSUPPORTEDOPERATION_NOTMATCHTARGETSERVICE = "UnsupportedOperation.NotMatchTargetService"
-
 	// 当前云联网实例未处于申请中状态，无法进行操作。
 	UNSUPPORTEDOPERATION_NOTPENDINGCCNINSTANCE = "UnsupportedOperation.NotPendingCcnInstance"
 
@@ -820,27 +814,6 @@ const (
 
 	// 路由表绑定了子网。
 	UNSUPPORTEDOPERATION_ROUTETABLEHASSUBNETRULE = "UnsupportedOperation.RouteTableHasSubnetRule"
-
-	// 实例已关联快照策略。
-	UNSUPPORTEDOPERATION_SNAPSHOTATTACHED = "UnsupportedOperation.SnapshotAttached"
-
-	// 快照备份策略不支持修改。
-	UNSUPPORTEDOPERATION_SNAPSHOTBACKUPTYPEMODIFY = "UnsupportedOperation.SnapshotBackupTypeModify"
-
-	// 快照文件生成失败。
-	UNSUPPORTEDOPERATION_SNAPSHOTFILEFAILED = "UnsupportedOperation.SnapshotFileFailed"
-
-	// 快照文件已过期或删除。
-	UNSUPPORTEDOPERATION_SNAPSHOTFILENOEXIST = "UnsupportedOperation.SnapshotFileNoExist"
-
-	// 快照文件正在生成中，请稍后查看。
-	UNSUPPORTEDOPERATION_SNAPSHOTFILEPROCESSING = "UnsupportedOperation.SnapshotFileProcessing"
-
-	// 一次仅支持关联一个地域的实例。
-	UNSUPPORTEDOPERATION_SNAPSHOTINSTANCEREGIONDIFF = "UnsupportedOperation.SnapshotInstanceRegionDiff"
-
-	// 实例未关联快照策略。
-	UNSUPPORTEDOPERATION_SNAPSHOTNOTATTACHED = "UnsupportedOperation.SnapshotNotAttached"
 
 	// SNAT子网 不支持分配IP。
 	UNSUPPORTEDOPERATION_SNATSUBNET = "UnsupportedOperation.SnatSubnet"

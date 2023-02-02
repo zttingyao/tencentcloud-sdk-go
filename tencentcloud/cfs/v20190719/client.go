@@ -1101,7 +1101,6 @@ func NewDescribeAvailableZoneInfoResponse() (response *DescribeAvailableZoneInfo
 // 本接口（DescribeAvailableZoneInfo）用于查询区域的可用情况。
 //
 // 可能返回的错误码:
-//  AUTHFAILURE_GETROLEFAILED = "AuthFailure.GetRoleFailed"
 //  INTERNALERROR = "InternalError"
 //  INTERNALERROR_GETACCOUNTSTATUSFAILED = "InternalError.GetAccountStatusFailed"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
@@ -1115,7 +1114,6 @@ func (c *Client) DescribeAvailableZoneInfo(request *DescribeAvailableZoneInfoReq
 // 本接口（DescribeAvailableZoneInfo）用于查询区域的可用情况。
 //
 // 可能返回的错误码:
-//  AUTHFAILURE_GETROLEFAILED = "AuthFailure.GetRoleFailed"
 //  INTERNALERROR = "InternalError"
 //  INTERNALERROR_GETACCOUNTSTATUSFAILED = "InternalError.GetAccountStatusFailed"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
@@ -1755,7 +1753,6 @@ func NewSetUserQuotaResponse() (response *SetUserQuotaResponse) {
 //  INVALIDPARAMETERVALUE_QUOTAUSERIDERROR = "InvalidParameterValue.QuotaUserIdError"
 //  INVALIDPARAMETERVALUE_QUOTAUSERTYPEERROR = "InvalidParameterValue.QuotaUserTypeError"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  RESOURCENOTFOUND_FILESYSTEMNOTFOUND = "ResourceNotFound.FileSystemNotFound"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) SetUserQuota(request *SetUserQuotaRequest) (response *SetUserQuotaResponse, err error) {
     return c.SetUserQuotaWithContext(context.Background(), request)
@@ -1771,7 +1768,6 @@ func (c *Client) SetUserQuota(request *SetUserQuotaRequest) (response *SetUserQu
 //  INVALIDPARAMETERVALUE_QUOTAUSERIDERROR = "InvalidParameterValue.QuotaUserIdError"
 //  INVALIDPARAMETERVALUE_QUOTAUSERTYPEERROR = "InvalidParameterValue.QuotaUserTypeError"
 //  RESOURCENOTFOUND = "ResourceNotFound"
-//  RESOURCENOTFOUND_FILESYSTEMNOTFOUND = "ResourceNotFound.FileSystemNotFound"
 //  UNSUPPORTEDOPERATION = "UnsupportedOperation"
 func (c *Client) SetUserQuotaWithContext(ctx context.Context, request *SetUserQuotaRequest) (response *SetUserQuotaResponse, err error) {
     if request == nil {
